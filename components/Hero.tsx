@@ -46,10 +46,10 @@ const Hero = () => {
         </div>
         {/* Buttons */}
         <div className="flex flex-col w-full gap-3 sm:flex-row">
-          <Button className="bg-blue-700 text-white font-bold">
+          <Button className=" text-white bg-blue-700  p-7 text-18-bold">
             Buy Product
           </Button>
-          <Button className="font-bold">
+          <Button className="p-7 text-18-bold">
             <CirclePlay color="#1d4ed8" />
             How does it work?
           </Button>

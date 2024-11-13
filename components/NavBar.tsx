@@ -2,14 +2,15 @@ import { NAV_LINKS } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { User } from "lucide-react";
+import { ShoppingBag, User } from "lucide-react";
 
 const NavBar = () => {
   return (
     <nav className="border-2 border-red-500 flexBetween max-container padding-contianer relative z-30 py-5">
       <Link href="/">
+        {/* TODO: Change logo */}
         <Image
-          src="/assets/icons/logo-full.svg"
+          src="/assets/landing/hilink-logo.svg"
           height={120}
           width={120}
           alt="logo"
@@ -26,11 +27,13 @@ const NavBar = () => {
           </Link>
         ))}
       </ul>
-      <div className="lg:flexCenter hidden">
+      <div className="lg:flexCenter hidden gap-3">
         <Button className="bg-blue-700 text-white font-bold">
           <User />
           Login
         </Button>
+
+        <ShoppingBag color="#1d4ed8" />
       </div>
       <Image
         src="/assets/landing/menu.svg"
