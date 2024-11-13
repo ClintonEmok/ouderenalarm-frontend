@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 import type { Config } from "tailwindcss";
 
 const { fontFamily } = require("tailwindcss/defaultTheme");
@@ -22,17 +23,30 @@ const config = {
     extend: {
       colors: {
         green: {
+          50: "#30AF5B",
+          90: "#292C27",
           500: "#24AE7C",
           600: "#0D2A1F",
         },
         blue: {
+          70: "#021639",
           500: "#79B5EC",
           600: "#152432",
+        },
+        gray: {
+          10: "#EEEEEE",
+          20: "#A2A2A2",
+          30: "#7B7B7B",
+          50: "#585858",
+          90: "#141414",
         },
         red: {
           500: "#F37877",
           600: "#3E1716",
           700: "#F24E43",
+        },
+        yellow: {
+          50: "#FEC601",
         },
         light: {
           200: "#E8E9E9",
@@ -53,6 +67,11 @@ const config = {
         appointments: "url('/assets/images/appointments-bg.png')",
         pending: "url('/assets/images/pending-bg.png')",
         cancelled: "url('/assets/images/cancelled-bg.png')",
+        "bg-img-1": "url('/img-1.png')",
+        "bg-img-2": "url('/img-2.png')",
+        "feature-bg": "url('/feature-bg.png')",
+        pattern: "url('/pattern.png')",
+        "pattern-2": "url('/pattern-bg.png')",
       },
       keyframes: {
         "accordion-down": {
@@ -72,6 +91,17 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "caret-blink": "caret-blink 1.25s ease-out infinite",
+      },
+      screens: {
+        xs: "400px",
+        "3xl": "1680px",
+        "4xl": "2200px",
+      },
+      maxWidth: {
+        "10xl": "1512px",
+      },
+      borderRadius: {
+        "5xl": "40px",
       },
     },
   },

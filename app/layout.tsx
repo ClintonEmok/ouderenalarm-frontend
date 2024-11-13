@@ -3,6 +3,8 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
+import NavBar from "@/components/NavBar";
+import Footer from "@/components/Footer";
 
 const fontSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -29,7 +31,10 @@ export default function RootLayout({
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="dark">
-          {children}
+          <NavBar />
+          <main className="relative overflow-hidden">{children}</main>
+
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
