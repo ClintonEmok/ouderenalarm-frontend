@@ -71,7 +71,7 @@ const config = {
         "bg-img-2": "url('/img-2.png')",
         "feature-bg": "url('/feature-bg.png')",
         pattern: "url('/pattern.png')",
-        "pattern-2": "url('/pattern-bg.png')",
+        "pattern-2": "url('/assets/landing/pattern-bg.png')",
       },
       keyframes: {
         "accordion-down": {
