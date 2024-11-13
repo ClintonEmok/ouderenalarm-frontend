@@ -7,9 +7,6 @@ export const NAV_LINKS = [
     label: "Is een ouderen alarm iets voor mij",
   },
   { href: "/blog", key: "blog", label: "Blog" },
-  { href: "/", key: "services", label: "Services" },
-  { href: "/", key: "pricing ", label: "Pricing " },
-  { href: "/", key: "contact_us", label: "Contact Us" },
 ];
 
 // CAMP SECTION
@@ -66,10 +63,10 @@ export const FOOTER_LINKS = [
       "Contact Us",
     ],
   },
-  {
-    title: "Our Community",
-    links: ["Climbing xixixi", "Hiking hilink", "Hilink kinthill"],
-  },
+  // {
+  //   title: "Our Community",
+  //   links: ["Climbing xixixi", "Hiking hilink", "Hilink kinthill"],
+  // },
 ];
 
 export const FOOTER_CONTACT_INFO = {

@@ -11,12 +11,13 @@ const Footer = () => {
         <div className="flex flex-col items-start justify-center gap-[10%] md:flex-row">
           <Link href="/" className="mb-10">
             {/* TODO: Change logo */}
-            <Image
+            {/* <Image
               src="/assets/landing/hilink-logo.svg"
               alt="logo"
               width={74}
               height={29}
-            />
+            /> */}
+            LOGO HIER
           </Link>
 
           <div className="flex flex-wrap gap-10 sm:justify-between md:flex-1">
