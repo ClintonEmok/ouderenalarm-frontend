@@ -17,7 +17,7 @@ const Footer = () => {
               width={74}
               height={29}
             /> */}
-            LOGO HIER
+            OUDERENALARM
           </Link>
 
           <div className="flex flex-wrap gap-10 sm:justify-between md:flex-1">

@@ -15,7 +15,7 @@ const NavBar = () => {
           width={120}
           alt="logo"
         /> */}
-        LOGO HIER
+        OUDERENALARM
       </Link>
       <ul className="hidden h-full gap-12 lg:flex">
         {NAV_LINKS.map((link) => (
