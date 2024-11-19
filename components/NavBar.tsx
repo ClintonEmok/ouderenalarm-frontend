@@ -6,7 +6,7 @@ import { ShoppingBag, User } from "lucide-react";
 
 const NavBar = () => {
   return (
-    <nav className="flexBetween max-container padding-contianer relative z-30 py-5 px-3">
+    <nav className="flexBetween max-container padding-contianer relative z-30 py-5">
       <Link href="/">
         {/* TODO: Change logo */}
         {/* <Image
