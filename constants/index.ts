@@ -15,32 +15,32 @@ export const PEOPLE_URL = [
 // FEATURES SECTION
 export const FEATURES = [
   {
-    title: "Real maps can be offline",
-    icon: "/assets/landing/map.svg",
+    title: "Betrouwbaar en Discreet Veiligheidsalarm",
+    icon: "/assets/landing/shield.svg",
     variant: "green",
     description:
-      "We provide a solution for you to be able to use our application when climbing, yes offline maps you can use at any time there is no signal at the location",
+      "Klein, waterdicht en voorzien van GPS, ontworpen voor dagelijkse veiligheid. Activeer noodhulp met één druk op de SOS-knop.",
   },
   {
-    title: "Set an adventure schedule",
-    icon: "/assets/landing/calendar.svg",
+    title: "24/7 Beschikbare Noodhulp",
+    icon: "/assets/landing/phone.svg",
     variant: "green",
     description:
-      "Schedule an adventure with friends. On holidays, there are many interesting offers from Hilink. That way, there's no more discussion",
+      "Altijd toegang tot een gecertificeerde meldkamer die binnen 20 seconden reageert. Je bent dag en nacht verzekerd van snelle hulp.",
   },
   {
-    title: "Technology using augment reality",
-    icon: "/assets/landing/tech.svg",
+    title: "Gezondheids- en Veiligheidsgegevens op Eén Plek",
+    icon: "/assets/landing/clipboard-plus.svg",
     variant: "green",
     description:
-      "Technology uses augmented reality as a guide to your hiking trail in the forest to the top of the mountain. Already supported by the latest technology without an internet connection",
+      "Beheer eenvoudig noodcontacten, medicatieherinneringen en medische gegevens via de app. Alle informatie altijd bij de hand voor maximale veiligheid.",
   },
   {
-    title: "Many new locations every month",
-    icon: "/assets/landing/location.svg",
+    title: "Langdurige Batterijduur en Bewegingsdetectie",
+    icon: "/assets/landing/activity.svg",
     variant: "orange",
     description:
-      "Lots of new locations every month, because we have a worldwide community of climbers who share their best experiences with climbing",
+      "Lange batterijduur voor continu gebruik zonder vaak opladen. Ontvang meldingen bij valincidenten of wanneer er geen beweging is gedetecteerd.",
   },
 ];
 

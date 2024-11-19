@@ -1,4 +1,5 @@
 import Blog from "@/components/Blog";
+import BrandShowcase from "@/components/BrandShowcase";
 import Camp from "@/components/Camp";
 import Features from "@/components/Features";
 import GetApp from "@/components/GetApp";
@@ -10,6 +11,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <BrandShowcase />
       <Camp />
       <Guide />
       <Features />
