@@ -30,7 +30,9 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="light">
           <NavBar />
-          <main className="relative overflow-hidden">{children}</main>
+          <main className="relative overflow-hidden min-h-screen">
+            {children}
+          </main>
           <Footer />
         </ThemeProvider>
       </body>
