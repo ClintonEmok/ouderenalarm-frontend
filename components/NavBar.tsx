@@ -6,16 +6,15 @@ import { ShoppingBag, User } from "lucide-react";
 
 const NavBar = () => {
   return (
-    <nav className="flexBetween max-container padding-contianer relative z-30 py-5">
+    <nav className="flexBetween max-container padding-contianer relative z-30 py-5 px-3">
       <Link href="/">
         {/* TODO: Change logo */}
-        {/* <Image
-          src="/assets/landing/hilink-logo.svg"
-          height={120}
-          width={120}
+        <Image
+          src="/assets/logos/ouderalarm.png"
+          height={80}
+          width={80}
           alt="logo"
-        /> */}
-        OUDERENALARM
+        />
       </Link>
       <ul className="hidden h-full gap-12 lg:flex">
         {NAV_LINKS.map((link) => (

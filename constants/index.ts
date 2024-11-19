@@ -1,11 +1,6 @@
 // NAVIGATION
 export const NAV_LINKS = [
   { href: "/", key: "home", label: "Home" },
-  {
-    href: "/",
-    key: "how_hilink_work",
-    label: "Is een ouderen alarm iets voor mij",
-  },
   { href: "/blog", key: "blog", label: "Blog" },
 ];
 
