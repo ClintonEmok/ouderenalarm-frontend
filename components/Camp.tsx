@@ -96,14 +96,14 @@ const Camp = () => {
       <div className="flexEnd mt-10 px-6 lg:-mt-60 lg:mr-6">
         <div className="bg-blue-700 p-8 lg:max-w-[500px] xl:max-w-[734px] xl:rounded-5xl xl:px-16 xl:py-20 relative w-full overflow-hidden rounded-3xl">
           <h2 className="regular-24 md:regular-32 2xl:regular-64 capitalize text-white">
-            <strong>Feeling Unsafe</strong> and Not Sure Where to Turn?
+            <strong>Onzeker over uw veiligheid </strong> en niet zeker waar u
+            hulp kunt vinden?
           </h2>
           <p className="regular-14 xl:regular-16 mt-5 text-white">
-            Starting from the concern of elders navigating daily life
-            independently, the possibility of needing urgent assistance is
-            significant. That’s why we’re here for those who want the
-            reassurance of support, providing a reliable connection to emergency
-            services when it’s needed most.
+            Het idee dat ouderen zelfstandig hun dagelijkse leven navigeren,
+            brengt bezorgdheid met zich mee over het risico op noodsituaties.
+            Daarom zijn wij er om u gemoedsrust te bieden, met een betrouwbare
+            verbinding naar noodhulp wanneer het echt nodig is.
           </p>
           <Image
             src="/assets/landing/quote.svg"
