@@ -12,4 +12,5 @@ export interface Topic {
   name: string;
   slug: { current: string };
   _id: string;
+  postCount?: number;
 }

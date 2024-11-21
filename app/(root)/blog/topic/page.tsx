@@ -9,6 +9,7 @@ async function getAllTopics() {
   const query = `
   *[_type == "topic"] {
   name,
+  "postCount": count(*[_type == "post" && references("topics", ^._id)]),
   slug,
   _id,
   }`;
@@ -27,7 +28,9 @@ const page = async () => {
         {topics?.length > 0 &&
           topics?.map((topic) => (
             <Link href={`/blog/topic/${topic.slug.current}`} key={topic._id}>
-              <div className="mb-2 p-2 text-sm lowercase">#{topic.name}</div>
+              <div className="mb-2 p-2 text-sm lowercase">
+                #{topic.name} ({topic?.postCount})
+              </div>
             </Link>
           ))}
       </div>

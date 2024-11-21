@@ -1,8 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Header from "@/components/Header";
 import { Post } from "@/lib/interface";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
-import urlBuilder from "@sanity/image-url";
 import { PortableText } from "next-sanity";
 import { Open_Sans } from "next/font/google";
 import Image from "next/image";
@@ -49,7 +49,7 @@ const SingleBlogPost = async ({ params }: Params) => {
         </span>
         <div className="mr-2 mt-1 p-1 rounded-sm text-sm lowercase">
           {post?.topics?.map((topic) => (
-            <Link key={topic._id} href={`/blog/topics/${topic.slug.current}`}>
+            <Link key={topic._id} href={`/blog/topic/${topic.slug.current}`}>
               <span>#{topic.name}</span>
             </Link>
           ))}
