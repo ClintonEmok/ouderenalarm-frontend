@@ -44,6 +44,37 @@ export const FEATURES = [
   },
 ];
 
+export const GUIDE_SECTIONS = [
+  {
+    header: "Altijd geruststellend, altijd beschikbaar",
+    subheader: "Voor uzelf en uw geliefden",
+    description:
+      "Ons discreet en gebruiksvriendelijk noodoproepsysteem biedt directe hulp in noodgevallen, zodat u veilig en onafhankelijk thuis kunt blijven wonen. Start nu met onze gratis veiligheidstest en ontdek of ons alarm perfect aansluit op uw behoeften.",
+    flip: false,
+  },
+  {
+    header: "Snelle hulp, waar en wanneer nodig",
+    subheader: "Directe actie, ongeacht de situatie",
+    description:
+      "Met ons noodoproepsysteem bent u altijd binnen handbereik van professionele hulp – dag en nacht. Onze GPS-tracking en valdetectie zorgen ervoor dat u zich veilig kunt voelen, zelfs onderweg. Of u nu thuis bent of buiten, u bent verzekerd van directe hulp in geval van nood.",
+    flip: true,
+  },
+  {
+    header: "Blijf onafhankelijk, blijf thuis",
+    subheader: "Comfortabele oplossingen, zonder compromis",
+    description:
+      "Oplossingen ontworpen om u te ondersteunen in uw dagelijks leven, zonder in te leveren op comfort. Ons alarm is discreet, lichtgewicht, en waterdicht – perfect voor dagelijks gebruik, zelfs onder de douche. Geen zware apparaten, alleen gemak en betrouwbaarheid.",
+    flip: false,
+  },
+  {
+    header: "Geef uzelf en uw geliefden gemoedsrust",
+    subheader: "Veiligheid verzekerd, altijd en overal",
+    description:
+      "Veiligheid is niet alleen een gevoel, het is een zekerheid. Met realtime meldingen en altijd bereikbare hulpverleners bent u verzekerd van directe actie in geval van nood. Uw veiligheid en die van uw geliefden staan altijd centraal.",
+    flip: true,
+  },
+];
+
 // FOOTER SECTION
 export const FOOTER_LINKS = [
   {

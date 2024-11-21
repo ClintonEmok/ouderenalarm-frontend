@@ -5,6 +5,7 @@ import Features from "@/components/Features";
 import GetApp from "@/components/GetApp";
 import Guide from "@/components/Guide";
 import Hero from "@/components/Hero";
+import { GUIDE_SECTIONS } from "@/constants";
 
 // TODO: move to register page (route)
 export default function Home() {
@@ -13,7 +14,9 @@ export default function Home() {
       <Hero />
       <BrandShowcase />
       <Camp />
-      <Guide />
+      {GUIDE_SECTIONS.map((section, index) => (
+        <Guide key={index} {...section} />
+      ))}
       <Features />
       <Blog />
       <GetApp />
