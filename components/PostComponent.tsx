@@ -1,40 +1,51 @@
 import { Post } from "@/lib/interface";
 import Link from "next/link";
 import React from "react";
-import { Button } from "./ui/button";
-import { Open_Sans } from "next/font/google";
 
 interface PostComponentProps {
   post: Post;
 }
 
-const dateFont = Open_Sans({ weight: "400", subsets: ["latin"] });
 const PostComponent = ({ post }: PostComponentProps) => {
   return (
-    <div className="relative flex flex-col my-3 bg-white shadow-md border border-slate-200 rounded-lg ">
-      <div className="p-4 ">
-        <h5 className="mb-2 text-slate-800 text-xl font-bold">{post?.title}</h5>
-        <p className={`text-xs text-slate-600 $ ${dateFont.className}`}>
-          {new Date(post?.publishedAt).toDateString()}
+    <Link
+      href={`/blog/posts/${post.slug?.current}`}
+      className="flex flex-row items-start  bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 hover:border-blue-500 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:border-blue-500"
+    >
+      {/* Content */}
+      <div className="flex flex-col justify-between p-4 leading-normal">
+        {/* Title */}
+        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+          {post?.title || "Untitled Post"}
+        </h5>
+
+        {/* Published Date */}
+        <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
+          {post?.publishedAt
+            ? new Date(post.publishedAt).toDateString()
+            : "No publish date"}
         </p>
-        <p className="text-slate-600 leading-normal mb-4 line-clamp-2 font-regular pb-2">
-          {post?.excerpt}
+
+        {/* Excerpt */}
+        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-2">
+          {post?.excerpt.slice(0, 100) || "No excerpt available."}
         </p>
-        <Link href={`blog/posts/${post.slug?.current}`}>
-          <Button className="bg-blue-700 text-white">Read more</Button>
-        </Link>
-        <div className="">
-          {post?.topics?.map((topic) => (
-            <span
-              className="mr-2 mt-1 p-1 rounded-sm text-sm lowercase"
-              key={topic._id}
-            >
-              #{topic.name}
-            </span>
-          ))}
-        </div>
+
+        {/* Topics */}
+        {post?.topics?.length > 0 && (
+          <div className="mt-2">
+            {post.topics.map((topic) => (
+              <span
+                className="mr-2 mt-1 p-1 bg-gray-200 dark:bg-gray-600 text-sm text-gray-800 dark:text-gray-300 rounded-sm"
+                key={topic._id}
+              >
+                #{topic.name}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
-    </div>
+    </Link>
   );
 };
 

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 
 interface GuideProps {
@@ -24,21 +23,16 @@ const Guide = ({
         className={`padding-container max-container w-full pb-24 lg:flex lg:items-center ${flip ? "lg:flex-row-reverse" : "lg:flex-row"} "flex-col"`}
       >
         {/* Left Column */}
-        <div className="flex-1">
-          <div>
-            {/* Image and Header */}
-            <Image
-              src="/assets/landing/camp.svg"
-              alt="camp"
-              width={50}
-              height={50}
-            />
-            <p className="uppercase regular-18 -mt-1 mb-3 text-blue-700">
+        <div className="flex-1 items-end">
+          <div className="">
+            <p
+              className={`uppercase regular-18 -mt-1 mb-3 xl:max-w-[560px] text-blue-700 ${flip ? "text-right" : "text-left"}`}
+            >
               {header}
             </p>
           </div>
           <h2
-            className={`bold-40 lg:bold-64 xl:max-w-[600px] ${flip ? "text-right" : "text-left"}`}
+            className={`bold-40 lg:bold-64 xl:max-w-[560px] ${flip ? "text-right" : "text-left"}`}
           >
             {subheader}
           </h2>

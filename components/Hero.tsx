@@ -10,13 +10,6 @@ const Hero = () => {
 
       {/* LEFT */}
       <div className="relative z-20 flex flex-1 flex-col xl:w-1/2">
-        <Image
-          src="assets/landing/camp.svg"
-          alt="camp"
-          width={50}
-          height={50}
-          className="absolute left-[-5px] top-[-30px] w-10 lg:w-[50px]"
-        />
         {/* TODO: Change later */}
         <h1 className="bold-52 lg:bold-88">
           Binnen 30 seconde hulp, Verminder overlijdensrisico, Blijf veilig
