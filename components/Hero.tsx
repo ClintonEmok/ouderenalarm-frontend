@@ -50,36 +50,6 @@ const Hero = () => {
           </Button>
         </div>
       </div>
-      <div className="relative flex flex-1 items-start">
-        <div className="relative z-20 w-[268px] flex-col gap-8 rounded-3xl bg-green-90 px-7 py-8 ">
-          {/* Location */}
-          {/* TODO: Replace i */}
-          <div className="flex flex-col">
-            <div className="flexBetween">
-              <p className="regular-16 text-gray-20">Location</p>
-              <Image
-                src="assets/landing/close.svg"
-                alt="close"
-                width={24}
-                height={24}
-              />
-            </div>
-            <p className="bold-20 text-white">Den Haag, The Netherlands</p>
-
-            {/* Distance */}
-            <div className="flexBetween">
-              <div className="flex flex-col">
-                <p className="regular-16 block text-gray-20">Distance</p>
-                <p className="bold-20 text-white">173.28 km</p>
-              </div>
-              <div className="flex flex-col">
-                <p className="regular-16 block text-gray-20">Elevation</p>
-                <p className="bold-20 text-white">20 km</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
   );
 };

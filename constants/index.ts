@@ -75,18 +75,25 @@ export const GUIDE_SECTIONS = [
   },
 ];
 
+export const LOGOS = [
+  { src: "/assets/logos/AD.svg", alt: "AD" },
+
+  { src: "/assets/logos/NOS.svg", alt: "NOS" },
+  { src: "/assets/logos/Telegraaf.svg", alt: "Telegraaf" },
+];
+
 // FOOTER SECTION
 export const FOOTER_LINKS = [
   {
     title: "Learn More",
     links: [
       "About OuderenAlarm",
-      "Press Releases",
-      "Environment",
-      "Jobs",
-      "Blog",
-      "Privacy Policy",
-      "Contact Us",
+      // "Press Releases",
+      // "Environment",
+      // "Jobs",
+      // "Blog",
+      // "Privacy Policy",
+      // "Contact Us",
     ],
   },
   // {
