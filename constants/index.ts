@@ -46,7 +46,7 @@ export const FEATURES = [
 
 export const GUIDE_SECTIONS = [
   {
-    header: "Altijd geruststellend, altijd beschikbaar",
+    header: "Voor wie is een ouderen alarm?",
     subheader: "Voor uzelf en uw geliefden",
     description:
       "Ons discreet en gebruiksvriendelijk noodoproepsysteem biedt directe hulp in noodgevallen, zodat u veilig en onafhankelijk thuis kunt blijven wonen. Start nu met onze gratis veiligheidstest en ontdek of ons alarm perfect aansluit op uw behoeften.",

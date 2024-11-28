@@ -1,4 +1,5 @@
 import Camp from "@/components/Camp";
+import ElderlyAlarmJourney from "@/components/ElderlyAlarmJourney";
 import Features from "@/components/Features";
 import GetApp from "@/components/GetApp";
 import Guide from "@/components/Guide";
@@ -18,6 +19,7 @@ export default function Home() {
         <Guide key={index} {...section} />
       ))}
       <Features />
+      <ElderlyAlarmJourney />
       {/* <Blog /> */}
       <GetApp />
     </>
