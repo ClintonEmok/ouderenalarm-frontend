@@ -26,9 +26,7 @@ async function getPostsByTag(topic: string) {
 export const revalidate = 60;
 
 interface Params {
-  params: {
-    slug: string;
-  };
+  params: Promise<{ slug: string }>;
 }
 
 // TODO: Implement metadata
@@ -48,7 +46,7 @@ interface Params {
 // }
 
 const page = async ({ params }: Params) => {
-  const { slug } = await params;
+  const slug = (await params).slug;
 
   const posts: Post[] = await getPostsByTag(slug);
   return (

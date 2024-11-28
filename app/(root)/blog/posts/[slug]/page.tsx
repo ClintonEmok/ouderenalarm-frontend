@@ -10,9 +10,7 @@ import Link from "next/link";
 import React from "react";
 
 interface Params {
-  params: {
-    slug: string;
-  };
+  params: Promise<{ slug: string }>;
 }
 
 async function getPost(slug: string) {
@@ -37,7 +35,7 @@ const dateFont = Open_Sans({
   subsets: ["latin"],
 });
 const SingleBlogPost = async ({ params }: Params) => {
-  const { slug } = await params;
+  const slug = (await params).slug;
   const post: Post = await getPost(slug);
   console.log(post);
   return (

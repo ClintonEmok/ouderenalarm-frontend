@@ -5,7 +5,7 @@ import GetApp from "@/components/GetApp";
 import Guide from "@/components/Guide";
 import Hero from "@/components/Hero";
 import InfiniteCarousel from "@/components/LogoCarousel";
-import { GUIDE_SECTIONS, LOGOS } from "@/constants";
+import { GUIDE_SECTIONS } from "@/constants";
 
 // TODO: move to register page (route)
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
     <>
       <Hero />
       {/* <BrandShowcase /> */}
-      <InfiniteCarousel logos={LOGOS} />
+      <InfiniteCarousel />
       <Camp />
       {GUIDE_SECTIONS.map((section, index) => (
         <Guide key={index} {...section} />
