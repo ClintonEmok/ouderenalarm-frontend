@@ -68,7 +68,7 @@ const config = {
         appointments: "url('/assets/images/appointments-bg.png')",
         pending: "url('/assets/images/pending-bg.png')",
         cancelled: "url('/assets/images/cancelled-bg.png')",
-        "bg-img-1": "url('/assets/landing/journey-1.jpeg')",
+        "bg-img-1": "url('/assets/landing/journey-1.jpg')",
         "bg-img-2": "url('/assets/landing/journey-2.jpeg')",
         "bg-img-3": "url('/assets/landing/journey-3.jpeg')",
         "feature-bg": "url('/assets/landing/feature-bg.png')",

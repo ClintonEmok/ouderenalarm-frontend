@@ -30,10 +30,10 @@ const ElderlyAlarmJourney = () => {
     <section className="py-12">
       <div className="container mx-auto px-4 text-center">
         {/* Header Section */}
-        <h2 className="text-3xl font-bold mb-4 text-green-600">
+        <h2 className="bold-40 lg:bold-64 mb-4 text-green-600">
           Jouw ouderen alarm avontuur:
         </h2>
-        <p className="text-gray-700 text-lg mb-12 line-clamp-2">
+        <p className="text-gray-700 text-lg mb-12 ">
           Ouderen alarm is er om u te ondersteunen bij elke stap. <br />
           Van het ontdekken van uw veiligheidsrisico’s tot het doen van de
           aankoop die bij u past.

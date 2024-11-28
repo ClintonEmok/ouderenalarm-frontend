@@ -15,10 +15,10 @@ export default function LogoCarousel() {
   return (
     <div className="flex flex-col space-y-3">
       <h1 className="text-center text-xl">Bekend van</h1>
-      <div className="flex space-x-16 w-screen items-center justify-center overflow-hidden">
+      <div className="flex flex-col md:flex-row w-screen items-center justify-center overflow-hidden gap-8">
         {logos.map((logo, index) => (
           <Image
-            className="flex items-center justify-center"
+            className="flex flex-col"
             key={index}
             src={logo.src}
             alt={logo.alt}

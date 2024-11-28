@@ -11,7 +11,7 @@ const Hero = () => {
       {/* LEFT */}
       <div className="relative z-20 flex flex-1 flex-col xl:w-1/2">
         {/* TODO: Change later */}
-        <h1 className="bold-52 lg:bold-88">
+        <h1 className="bold-40 lg:bold-76">
           Binnen 30 seconde hulp, Verminder overlijdensrisico, Blijf veilig
           thuiswonen.
         </h1>
@@ -46,7 +46,7 @@ const Hero = () => {
           </Button>
           <Button className="p-7 text-lg text-black">
             <CirclePlay color="#1d4ed8" />
-            How does it work?
+            Hoe werkt het?
           </Button>
         </div>
       </div>

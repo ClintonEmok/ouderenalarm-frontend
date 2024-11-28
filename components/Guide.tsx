@@ -15,33 +15,39 @@ const Guide = ({
 }: GuideProps) => {
   return (
     <section
-      className={`flexCenter ${
+      className={`flex flex-col items-center text-center ${
         flip ? "lg:flex-col-reverse" : "lg:flex-col"
-      } flex-col`}
+      }`}
     >
       <div
-        className={`padding-container max-container w-full pb-24 lg:flex lg:items-center ${flip ? "lg:flex-row-reverse" : "lg:flex-row"} "flex-col"`}
+        className={`padding-container max-container w-full pb-24 lg:flex lg:items-center ${
+          flip ? "lg:flex-row-reverse" : "lg:flex-row"
+        }`}
       >
         {/* Left Column */}
-        <div className="flex-1 items-end">
-          <div className="">
-            <p
-              className={`uppercase regular-18 -mt-1 mb-3 xl:max-w-[560px] text-blue-700 ${flip ? "text-right" : "text-left"}`}
-            >
-              {header}
-            </p>
-          </div>
+        <div className="flex-1 lg:items-end text-center lg:text-left">
+          <p
+            className={`uppercase regular-18 mb-3 xl:max-w-[560px] text-blue-700 ${
+              flip ? "lg:text-right" : "lg:text-left"
+            }`}
+          >
+            {header}
+          </p>
           <h2
-            className={`bold-40 lg:bold-64 xl:max-w-[560px] ${flip ? "text-right" : "text-left"}`}
+            className={`bold-40 lg:bold-64 xl:max-w-[560px] ${
+              flip ? "lg:text-right" : "lg:text-left"
+            }`}
           >
             {subheader}
           </h2>
         </div>
 
         {/* Right Column */}
-        <div className="flex-1">
+        <div className="flex-1 text-center lg:text-left">
           <p
-            className={`regular-16 text-gray-30 xl:max-w-[520px] ${flip ? "text-left" : "text-right"}`}
+            className={`regular-16 text-gray-30 xl:max-w-[520px] ${
+              flip ? "lg:text-left" : "lg:text-right"
+            }`}
           >
             {description}
           </p>
