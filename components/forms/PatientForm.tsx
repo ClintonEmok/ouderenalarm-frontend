@@ -90,7 +90,9 @@ const PatientForm = () => {
           label="Phone Number"
           placeholder="+31 123 456 789"
         />
-        <SubmitButton isLoading={isLoading}>Get Started</SubmitButton>
+        <SubmitButton isLoading={isLoading} className={""}>
+          Get Started
+        </SubmitButton>
       </form>
     </Form>
   );
