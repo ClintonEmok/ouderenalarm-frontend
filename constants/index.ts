@@ -12,6 +12,34 @@ export const PEOPLE_URL = [
   "/assets/landing/person-4.png",
 ];
 
+export const CAMPS = [
+  {
+    title: "Sla gemakkelijk alarm met 1 druk op de knop",
+    subtitle: "",
+    description: `Na een harde val slaan de slimme sensors in het exclusieve apparaat zelfs  automatisch alarm!
+Wanneer u het alarm af laat gaan zal het direct tegen u zeggen:
+“Blijf rustig u word binnen 30 seconde geholpen`,
+  },
+  {
+    title: "Veiligheidsexperts nemen contact op",
+    subtitle: "",
+    description: `De 24/7 beschikbare veiligheidsexperts zullen binnen 30 seconde contact met u opnemen.
+
+Met de ingebouwde gps tracker weten ze dan ook precies waar u bent!
+
+Ze vragen daarna wat er aan de hand is en sturen bij een noodgeval direct hulpdiensten terwijl uw familieleden constant op de hoogte worden gehouden in de app.
+
+`,
+  },
+  {
+    title: "Hulp is onderweg",
+    subtitle: "Explore the world",
+    description: `Hulpverleners komen zo snel mogelijk naar de locatie van het ongeval, en zorgen ervoor dat u de hulp krijgt  die u verdiend.
+
+zodat u verzekerd bent van snel herstel omdat u binnen “het gouden uur” hulp heeft gekregen!`,
+  },
+];
+
 // FEATURES SECTION
 export const FEATURES = [
   {
