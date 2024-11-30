@@ -45,9 +45,10 @@ const CampSite = ({
             <p className="regular-14 text-white">{subtitle}</p>
           </div>
         </div>
-        <div className="w-full h-full text-white opacity-0 hover:opacity-100 transition-opacity duration-300">
+        {/* TODO: Hover text */}
+        {/* <div className="w-full h-full text-white opacity-0 hover:opacity-100 transition-opacity duration-300">
           Test
-        </div>
+        </div> */}
       </div>
     </div>
   );

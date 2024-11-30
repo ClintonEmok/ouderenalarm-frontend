@@ -1,6 +1,10 @@
+"use client";
 import Camp from "@/components/Camp";
 import ElderlyAlarmJourney from "@/components/ElderlyAlarmJourney";
-import EmergencyInfo from "@/components/EmergencyInfo";
+import EmergencyInfo, {
+  CarouselDemo,
+  CarouselPlugin,
+} from "@/components/EmergencyInfo";
 import Features from "@/components/Features";
 import GetApp from "@/components/GetApp";
 import Guide from "@/components/Guide";
@@ -15,7 +19,8 @@ export default function Home() {
     <>
       <Hero />
       {/* <BrandShowcase /> */}
-      <EmergencyInfo />
+      {/* <EmergencyInfo /> */}
+      <CarouselPlugin />
       <Camp />
       <Testimonials />
       {GUIDE_SECTIONS.map((section, index) => (
