@@ -5,6 +5,7 @@ import Features from "@/components/Features";
 import GetApp from "@/components/GetApp";
 import Guide from "@/components/Guide";
 import Hero from "@/components/Hero";
+import Testimonials from "@/components/Testimonials";
 
 import { GUIDE_SECTIONS } from "@/constants";
 
@@ -16,6 +17,7 @@ export default function Home() {
       {/* <BrandShowcase /> */}
       <EmergencyInfo />
       <Camp />
+      <Testimonials />
       {GUIDE_SECTIONS.map((section, index) => (
         <Guide key={index} {...section} />
       ))}

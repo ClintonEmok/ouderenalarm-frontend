@@ -10,7 +10,7 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className="flexBetween max-container padding-contianer relative z-30 py-5 px-3 bg-blue-700">
+      <nav className="flexBetween  padding-contianer relative z-30  bg-blue-700">
         <Link href="/">
           {/* TODO: Change logo */}
           <Image
