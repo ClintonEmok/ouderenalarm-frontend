@@ -17,6 +17,7 @@
 // export default EmergencyInfo;
 import * as React from "react";
 import Autoplay from "embla-carousel-autoplay";
+import AutoScroll from "embla-carousel-auto-scroll";
 
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -26,15 +27,21 @@ import {
 } from "@/components/ui/carousel";
 
 export function CarouselPlugin() {
-  const plugin = React.useRef(
-    Autoplay({ delay: 4000, stopOnInteraction: false })
-  );
+  const plugin = React.useRef(AutoScroll({ playOnInit: true }));
 
   // EmergencyInfo content
   const carouselContent = [
-    `"30 seconden, is wat we nodig hebben om u te helpen"`,
-    `"15 minuten is de tijd voordat er hulpdiensten arriveren"`,
-    `"87% kleinere kans op langdurig letsel"`,
+    {
+      type: "text",
+      content: "30 seconden, is wat we nodig hebben om u te helpen",
+    },
+    {
+      type: "text",
+      content: "15 minuten is de tijd voordat er hulpdiensten arriveren",
+    },
+    { type: "text", content: "87% kleinere kans op langdurig letsel" },
+    // { type: "image", content: "https://placehold.co/300x100" },
+    // { type: "image", content: "https://placehold.co/300x100" },
   ];
 
   return (
@@ -45,10 +52,27 @@ export function CarouselPlugin() {
         className="w-full max-w-6xl mx-auto flex items-center"
       >
         <CarouselContent>
-          {carouselContent.map((text, index) => (
+          {carouselContent.map((item, index) => (
             <CarouselItem key={index}>
-              <div className="p-4 flex justify-center items-center text-center w-full">
-                <span className="text-lg font-semibold">{text}</span>
+              <div className="p-4 w-full flex justify-center">
+                {/* Card Structure */}
+                <div className="bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-lg">
+                  {item.type === "text" ? (
+                    <div className="p-6 flex justify-center items-center text-center">
+                      <span className="text-lg font-semibold">
+                        {item.content}
+                      </span>
+                    </div>
+                  ) : (
+                    <div className="p-4">
+                      <img
+                        src={item.content}
+                        alt={`Carousel item ${index + 1}`}
+                        className="w-full h-auto max-h-72 object-cover"
+                      />
+                    </div>
+                  )}
+                </div>
               </div>
             </CarouselItem>
           ))}

@@ -1,5 +1,6 @@
 "use client";
 import Camp from "@/components/Camp";
+import ElderAlarm from "@/components/ElderlyAlarm";
 import ElderlyAlarmJourney from "@/components/ElderlyAlarmJourney";
 import EmergencyInfo, {
   CarouselDemo,
@@ -26,6 +27,7 @@ export default function Home() {
       {GUIDE_SECTIONS.map((section, index) => (
         <Guide key={index} {...section} />
       ))}
+      <ElderAlarm />
       <Features />
       <ElderlyAlarmJourney />
       {/* <Blog /> */}
