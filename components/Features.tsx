@@ -45,7 +45,7 @@ type FeatureItemProps = {
 const FeatureItem = ({ title, icon, description }: FeatureItemProps) => {
   return (
     <li className="flex flex-col items-center lg:items-start w-full text-center lg:text-left">
-      <div className="rounded-full p-4 lg:p-7 bg-blue-700">
+      <div className="rounded-full p-4 lg:p-7 bg-primary-500">
         <Image src={icon} alt={title} width={38} height={38} />
       </div>
       <h2 className="bold-20 lg:bold-32 mt-5 capitalize">{title}</h2>

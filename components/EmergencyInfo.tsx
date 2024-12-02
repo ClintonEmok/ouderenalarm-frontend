@@ -40,8 +40,9 @@ export function CarouselPlugin() {
       content: "15 minuten is de tijd voordat er hulpdiensten arriveren",
     },
     { type: "text", content: "87% kleinere kans op langdurig letsel" },
-    // { type: "image", content: "https://placehold.co/300x100" },
-    // { type: "image", content: "https://placehold.co/300x100" },
+    { type: "image", content: "assets/logos/AD.svg" },
+    { type: "image", content: "assets/logos/NOS.svg" },
+    { type: "image", content: "assets/logos/Telegraaf.svg" },
   ];
 
   return (
@@ -56,7 +57,7 @@ export function CarouselPlugin() {
             <CarouselItem key={index}>
               <div className="p-4 w-full flex justify-center">
                 {/* Card Structure */}
-                <div className="bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-lg">
+                <div className="bg-white shadow-md rounded-md overflow-hidden w-full max-w-lg">
                   {item.type === "text" ? (
                     <div className="p-6 flex justify-center items-center text-center">
                       <span className="text-lg font-semibold">
@@ -68,7 +69,7 @@ export function CarouselPlugin() {
                       <img
                         src={item.content}
                         alt={`Carousel item ${index + 1}`}
-                        className="w-full h-auto max-h-72 object-cover"
+                        className="w-full h-auto max-h-12 object-fit"
                       />
                     </div>
                   )}

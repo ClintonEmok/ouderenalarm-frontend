@@ -47,7 +47,7 @@ const ElderlyAlarmJourney = () => {
               className="bg-white rounded-lg shadow-md p-6 flex flex-col items-center border hover:border-blue-700"
             >
               {/* Icon */}
-              <div className="bg-blue-700 text-green-600 w-16 h-16 flex items-center justify-center rounded-full mb-4 text-2xl">
+              <div className="bg-primary-500 text-green-600 w-16 h-16 flex items-center justify-center rounded-full mb-4 text-2xl">
                 {/* {step.icon} */}
                 <Check size={48} color="#fff" strokeWidth={3} />
               </div>
@@ -62,7 +62,7 @@ const ElderlyAlarmJourney = () => {
         {/* Call-to-Action */}
         <a
           href="#"
-          className="bg-blue-700 text-white py-3  px-8 font-bold rounded-lg shadow-md hover:bg-green-600 transition"
+          className="bg-primary-500 text-white py-3  px-8 font-bold rounded-lg shadow-md hover:bg-green-600 transition"
         >
           Ik wil het 14 dagen gratis testen!
         </a>

@@ -41,7 +41,7 @@ const Hero = () => {
         </div>
         {/* Buttons */}
         <div className="flex flex-col w-full gap-3 sm:flex-row text-white">
-          <Button className=" text-white bg-blue-700 p-7 text-18-bold">
+          <Button className=" text-white bg-primary-500 p-7 text-18-bold">
             Doe de GRATIS veiligheidstest
           </Button>
           <Button className="p-7 text-lg text-black">

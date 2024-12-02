@@ -16,12 +16,12 @@ const GetApp = () => {
             het langer wilt gaan gebruiken. */}
           </p>
           <div className="flex w-full flex-col gap-3 whitespace-nowrap xl:flex-row">
-            <Button className="bg-blue-700 text-white font-bold p-7 text-18-bold">
+            <Button className="bg-primary-500 text-white font-bold p-7 text-18-bold">
               <Apple />
               App Store
             </Button>
 
-            <Button className="bg-blue-700 text-white font-bold p-7 text-18-bold">
+            <Button className="bg-primary-500 text-white font-bold p-7 text-18-bold">
               <Apple />
               Play Store
             </Button>
