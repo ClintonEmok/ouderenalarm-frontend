@@ -69,7 +69,7 @@ export function CarouselPlugin() {
                       <img
                         src={item.content}
                         alt={`Carousel item ${index + 1}`}
-                        className="w-full h-auto max-h-12 object-fit"
+                        className="w-full h-auto max-h-20 object-fit"
                       />
                     </div>
                   )}
