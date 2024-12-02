@@ -10,10 +10,10 @@ export default function ElderAlarm() {
           <span className="text-blue-600">"ouderen alarm"</span> binnen het
           gouden uur uw leven redt!
         </h1>
-        <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+        <div className="flex flex-col gap-4">
           {/* Section 1 */}
-          <div className="flex flex-col items-center text-center">
-            <div className="bg-white shadow-lg p-6 rounded-lg">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+            <div className="bg-white shadow-lg p-6 rounded-lg text-center">
               <p className="font-bold mb-2">
                 Sla gemakkelijk alarm met 1 druk op de knop
               </p>
@@ -28,27 +28,21 @@ export default function ElderAlarm() {
                 “Blijf rustig u wordt binnen 30 seconden geholpen”
               </p>
             </div>
-            <Image
-              width={256}
-              height={256}
-              src="/assets/landing/journey-2.jpeg" // Replace with the appropriate path
-              alt="Person using alarm"
-              className="mt-4 w-64 rounded-lg shadow"
-            />
-            <MoveDown />
+            <div className="w-full md:w-1/2 flex flex-col justify-center items-center">
+              <Image
+                width={256}
+                height={256}
+                src="/assets/landing/journey-2.jpeg" // Replace with the appropriate path
+                alt="Person using alarm"
+                className="w-full rounded-lg shadow p-1"
+              />
+              <MoveDown className="mt-4 w-6 h-6 md:w-12 md:h-12 lg:w-24 lg:h-24 text-gray-500" />
+            </div>
           </div>
 
           {/* Section 2 */}
-          <div className="flex flex-col items-center text-center">
-            <Image
-              width={256}
-              height={256}
-              src="/assets/landing/journey-1.jpg" // Replace with the appropriate path
-              alt="Security experts"
-              className="w-64 rounded-lg shadow mb-4"
-            />
-            <MoveDown />
-            <div className="bg-white shadow-lg p-6 rounded-lg">
+          <div className="flex flex-col md:flex-row-reverse items-center justify-center gap-8">
+            <div className="bg-white shadow-lg p-6 rounded-lg text-center">
               <p className="font-bold mb-2">
                 Veiligheidsexperts nemen contact op
               </p>
@@ -61,13 +55,21 @@ export default function ElderAlarm() {
                 bent!
               </p>
             </div>
+            <div className="w-full md:w-1/2 flex flex-col justify-center items-center">
+              <Image
+                width={256}
+                height={256}
+                src="/assets/landing/journey-1.jpg" // Replace with the appropriate path
+                alt="Security experts"
+                className="w-full rounded-lg shadow p-1"
+              />
+              <MoveDown className="mt-4 w-6 h-6 md:w-12 md:h-12 lg:w-24 lg:h-24 text-gray-500" />
+            </div>
           </div>
-        </div>
 
-        <div className="mt-10 flex flex-col md:flex-row items-center justify-center gap-8">
           {/* Section 3 */}
-          <div className="flex flex-col items-center text-center">
-            <div className="bg-white shadow-lg p-6 rounded-lg">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+            <div className="bg-white shadow-lg p-6 rounded-lg text-center">
               <p className="font-bold mb-2">
                 Veiligheidsexperts nemen contact op
               </p>
@@ -80,14 +82,17 @@ export default function ElderAlarm() {
                 gouden uur” hulp heeft gekregen!
               </p>
             </div>
+            <div className="w-full md:w-1/2 flex flex-col justify-center items-center">
+              <Image
+                width={256}
+                height={256}
+                src="/assets/landing/journey-2.jpeg" // Replace with the appropriate path
+                alt="Family"
+                className="w-full rounded-lg shadow p-1"
+              />
+              <MoveDown className="mt-4 w-6 h-6 md:w-12 md:h-12 lg:w-24 lg:h-24 text-gray-500" />
+            </div>
           </div>
-          <Image
-            width={256}
-            height={256}
-            src="/assets/landing/journey-2.jpeg" // Replace with the appropriate path
-            alt="Family"
-            className="w-64 rounded-lg shadow"
-          />
         </div>
       </div>
     </div>
