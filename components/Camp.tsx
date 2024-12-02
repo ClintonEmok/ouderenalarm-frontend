@@ -1,4 +1,3 @@
-import { PEOPLE_URL } from "@/constants";
 import {
   HandHelpingIcon,
   HeartHandshakeIcon,

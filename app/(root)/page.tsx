@@ -2,10 +2,7 @@
 import Camp from "@/components/Camp";
 import ElderAlarm from "@/components/ElderlyAlarm";
 import ElderlyAlarmJourney from "@/components/ElderlyAlarmJourney";
-import EmergencyInfo, {
-  CarouselDemo,
-  CarouselPlugin,
-} from "@/components/EmergencyInfo";
+import { CarouselPlugin } from "@/components/BrandCarousel";
 import Features from "@/components/Features";
 import GetApp from "@/components/GetApp";
 import Guide from "@/components/Guide";

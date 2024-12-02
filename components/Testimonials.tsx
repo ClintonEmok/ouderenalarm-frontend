@@ -1,6 +1,5 @@
 import TextBlock from "./TextBlock";
 import TestimonialCard from "./TestimonialCard";
-import { CornerDownRight, MoveDown } from "lucide-react";
 
 export default function Testimonials() {
   return (
