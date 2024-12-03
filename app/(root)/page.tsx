@@ -5,11 +5,8 @@ import ElderlyAlarmJourney from "@/components/ElderlyAlarmJourney";
 import { CarouselPlugin } from "@/components/BrandCarousel";
 import Features from "@/components/Features";
 import GetApp from "@/components/GetApp";
-import Guide from "@/components/Guide";
 import Hero from "@/components/Hero";
 import Testimonials from "@/components/Testimonials";
-
-import { GUIDE_SECTIONS } from "@/constants";
 
 // TODO: move to register page (route)
 export default function Home() {
@@ -21,9 +18,6 @@ export default function Home() {
       <CarouselPlugin />
       <Camp />
       <Testimonials />
-      {GUIDE_SECTIONS.map((section, index) => (
-        <Guide key={index} {...section} />
-      ))}
       <ElderAlarm />
       <Features />
       <ElderlyAlarmJourney />

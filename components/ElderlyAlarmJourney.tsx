@@ -1,4 +1,5 @@
 import { Check } from "lucide-react";
+import Image from "next/image";
 import React from "react";
 
 const ElderlyAlarmJourney = () => {
@@ -31,13 +32,43 @@ const ElderlyAlarmJourney = () => {
       <div className="container mx-auto px-4 text-center">
         {/* Header Section */}
         <h2 className="bold-40 lg:bold-64 mb-4 text-green-600">
-          Jouw ouderen alarm avontuur:
+          Jouw ouderen alarm avontuur start hier:
         </h2>
-        <p className="text-gray-700 text-lg mb-12 ">
-          Ouderen alarm is er om u te ondersteunen bij elke stap. <br />
-          Van het ontdekken van uw veiligheidsrisico’s tot het doen van de
-          aankoop die bij u past.
+        <p className="text-gray-700 text-lg mb-12">
+          Wilt u 1 van de 27 ouderen zijn die dit betrouwbare ouderen alarm 100%
+          GRATIS mag testen?
         </p>
+        <div>
+          {/* Image */}
+          <div className="flex justify-center mb-8">
+            <Image
+              src="/assets/landing/box.jpeg" // Replace with the actual path to your image
+              alt="Ouderen Alarm"
+              width={600} // Adjust the width based on your requirements
+              height={300} // Adjust the height based on your requirements
+            />
+          </div>
+          {/* Description */}
+          <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-4 text-left font-bold">
+            Ons exclusieve senioren alarm verandert zoveel levens. Elke dag weer
+            vertrouwen 30 nieuwe senioren op onze betrouwbare service, en
+            inmiddels helpen we al meer dan 25.000 tevreden ouderen.
+          </p>
+          <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-4 text-left font-bold">
+            De waarheid is dat medische experts ons apparaat het meest
+            betrouwbare senioren alarm vinden van Nederland,
+          </p>
+          <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-4 text-left font-bold">
+            En daarom bieden we{" "}
+            <span className="font-bold">VOOR HET EERST</span> 250 senioren de
+            mogelijkheid om ons exclusieve senioren alarm 14 dagen GRATIS te
+            testen.
+          </p>
+          <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-4 text-left font-bold">
+            Ja dat klopt, je kunt met 0 euro testen of dit senioren alarm
+            voldoet aan uw verwachtingen!
+          </p>
+        </div>
 
         {/* Steps Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">

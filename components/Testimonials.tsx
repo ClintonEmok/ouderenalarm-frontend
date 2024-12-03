@@ -3,10 +3,17 @@ import TestimonialCard from "./TestimonialCard";
 
 export default function Testimonials() {
   return (
-    <div className="bg-white py-12">
-      <div className="max-w-4xl mx-auto flex flex-col gap-12 p-8">
+    <div className="bg-white py-12 flex flex-col items-center">
+      <div>
+        <h1 className="text-center text-2xl md:text-4xl max-w-3xl font-bold text-gray-800 mb-8">
+          Wanneer kan “ouderen alarm” u helpen om zo lang mogelijk veilig thuis
+          te bijven wonen?
+        </h1>
+      </div>
+
+      <div className="max-w-4xl mx-auto flex flex-col  gap-12 p-8">
         {/* Pair 1 */}
-        <div className="flex flex-row items-start w-full">
+        <div className="flex flex-col md:flex-row items-center md:items-start ">
           <div className="flex flex-col gap-6 w-full">
             <TextBlock
               title="U woont alleen thuis, en bent bang om te vallen..."
@@ -27,7 +34,7 @@ export default function Testimonials() {
         </div>
 
         {/* Pair 2 */}
-        <div className="flex flex-row justify-center items-start">
+        <div className="flex flex-col md:flex-row  justify-center items-center md:items-start">
           <div className="flex flex-col gap-6 w-full">
             <TextBlock
               title="U bent vaak alleen, en hebt een verhoogd risico op een beroerte..."
@@ -50,7 +57,7 @@ export default function Testimonials() {
         </div>
 
         {/* Pair 3 */}
-        <div className="flex flex-row justify-center items-start">
+        <div className="flex flex-col md:flex-row justify-center items-center md:items-start">
           <div className="flex flex-col lg:flex-row gap-6 w-full">
             <TextBlock
               title="Je geeft veel om je oudere familieleden, en maakt je zorgen om hun veiligheid..."
