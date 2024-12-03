@@ -11,11 +11,11 @@ const Hero = () => {
       {/* LEFT */}
       <div className="relative z-20 flex flex-1 flex-col xl:w-1/2">
         {/* TODO: Change later */}
-        <h1 className="bold-40 lg:bold-76">
+        <h1 className="bold-40 lg:bold-64">
           Binnen 30 seconde hulp, Verminder overlijdensrisico, Blijf veilig
           thuiswonen.
         </h1>
-        <p className="regular-16 mt-6 text-gray-30 xl:max-w-[520px]">
+        <p className="regular-24 mt-6 text-gray-30 xl:max-w-[520px]">
           Doe de GRATIS test hieronder en ontdek in 30 seconden of ons
           noodoproepsysteem een oplossing voor uw veiligheid is
         </p>

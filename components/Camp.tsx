@@ -5,6 +5,8 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import React from "react";
+import { Carousel, CarouselContent, CarouselItem } from "./ui/carousel";
+import AutoScroll from "embla-carousel-auto-scroll";
 
 interface CampProps {
   backgroundImage: string;
@@ -54,34 +56,52 @@ const CampSite = ({
 };
 
 const Camp = () => {
+  const plugin = React.useRef(
+    AutoScroll({ playOnInit: true, stopOnInteraction: false, speed: 1 })
+  );
   return (
     <section className="2xl:max-container relative flex flex-col py-10 lg:mb-10 lg:py-20 xl:mb-20">
-      <div className="hide-scrollbar flex h-[340px] w-full items-start justify-start gap-8 overflow-x-auto lg:h-[400px] xl:h-[640px]">
-        <CampSite
-          backgroundImage="bg-bg-img-1"
-          title="Ongeval gehad"
-          subtitle=""
-          peopleJoined="50+ Joined"
-          icon={<TriangleAlertIcon size={28} color="#fff" />}
-        />
-        <CampSite
-          backgroundImage="bg-bg-img-2"
-          title="Meldkamer"
-          subtitle="Wij verbinden u door"
-          peopleJoined="50+ Joined"
-          icon={<HandHelpingIcon size={28} color="#fff" />}
-        />
-        <CampSite
-          backgroundImage="bg-bg-img-3"
-          title="Hulpverlening"
-          subtitle="Wij helpen u"
-          peopleJoined="50+ Joined"
-          icon={<HeartHandshakeIcon size={28} color="#fff" />}
-        />
+      <div className="">
+        <Carousel
+          opts={{ loop: true }}
+          plugins={[plugin.current]}
+          className="w-full mx-auto flex items-center gap-12"
+        >
+          <CarouselContent>
+            <CarouselItem className="hide-scrollbar flex h-[340px] w-full items-start justify-start gap-8 overflow-x-auto lg:h-[400px] xl:h-[640px]">
+              <CampSite
+                backgroundImage="bg-bg-img-1"
+                title="Ongeval gehad"
+                subtitle=""
+                peopleJoined="50+ Joined"
+                icon={<TriangleAlertIcon size={28} color="#fff" />}
+              />
+            </CarouselItem>
+
+            <CarouselItem className="hide-scrollbar flex h-[340px] w-full items-start justify-start gap-8 overflow-x-auto lg:h-[400px] xl:h-[640px]">
+              <CampSite
+                backgroundImage="bg-bg-img-2"
+                title="Meldkamer"
+                subtitle="Wij verbinden u door"
+                peopleJoined="50+ Joined"
+                icon={<HandHelpingIcon size={28} color="#fff" />}
+              />
+            </CarouselItem>
+            <CarouselItem className="hide-scrollbar flex h-[340px] w-full items-start justify-start gap-8 overflow-x-auto lg:h-[400px] xl:h-[640px]">
+              <CampSite
+                backgroundImage="bg-bg-img-3"
+                title="Hulpverlening"
+                subtitle="Wij helpen u"
+                peopleJoined="50+ Joined"
+                icon={<HeartHandshakeIcon size={28} color="#fff" />}
+              />
+            </CarouselItem>
+          </CarouselContent>
+        </Carousel>
       </div>
 
       <div className="flexEnd mt-10 px-6 lg:-mt-60 lg:mr-6 pointer-events-none">
-        <div className="bg-primary-500 p-8 lg:max-w-[500px] xl:max-w-[734px] xl:rounded-5xl xl:px-16 xl:py-20 relative w-full overflow-hidden rounded-3xl">
+        <div className="bg-primary-500 p-8 lg:max-w-[500px] xl:max-w-[734px] xl:rounded-5xl xl:px-12 xl:py-16 relative w-full overflow-hidden rounded-3xl">
           <h2 className="regular-24 md:regular-32 2xl:regular-40 capitalize text-white">
             <strong>Onzeker over uw veiligheid </strong> en niet zeker waar u
             hulp kunt vinden?

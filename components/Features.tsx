@@ -18,7 +18,7 @@ const Features = () => {
 
         <div className="z-20 flex flex-col items-center lg:items-start w-full lg:w-[60%] text-center lg:text-left">
           <div className="relative">
-            <h2 className="bold-40 lg:bold-64">Our Features</h2>
+            <h2 className="bold-32 lg:bold-40">Our Features</h2>
           </div>
           <ul className="mt-10 grid gap-10 md:grid-cols-2 lg:gap-20">
             {FEATURES.map((feature) => (

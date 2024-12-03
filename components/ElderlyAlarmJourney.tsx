@@ -29,20 +29,20 @@ const ElderlyAlarmJourney = () => {
 
   return (
     <section className="py-12">
-      <div className="container mx-auto px-4 text-center">
+      <div className="container mx-auto px-4 text-center flex flex-col items-center">
         {/* Header Section */}
-        <h2 className="bold-40 lg:bold-64 mb-4 text-green-600">
+        <h2 className="bold-32 lg:bold-40 mb-4 text-green-600">
           Jouw ouderen alarm avontuur start hier:
         </h2>
-        <p className="text-gray-700 text-lg mb-12">
+        <p className="text-gray-700 text-lg mb-12 regular-16">
           Wilt u 1 van de 27 ouderen zijn die dit betrouwbare ouderen alarm 100%
           GRATIS mag testen?
         </p>
-        <div>
+        <div className="mb-8 max-w-2xl">
           {/* Image */}
           <div className="flex justify-center mb-8">
             <Image
-              src="/assets/landing/box.jpeg" // Replace with the actual path to your image
+              src="/assets/landing/box-cropped.jpeg" // Replace with the actual path to your image
               alt="Ouderen Alarm"
               width={600} // Adjust the width based on your requirements
               height={300} // Adjust the height based on your requirements

@@ -5,7 +5,7 @@ export default function ElderAlarm() {
   return (
     <div className="bg-white py-10 flex flex-col items-center gap-6">
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-center text-2xl md:text-4xl max-w-3xl font-bold text-gray-800 mb-8">
+        <h1 className="text-center bold-32 lg:bold-40 max-w-3xl font-bold text-gray-800 mb-8">
           Dit is hoe ons betrouwbare{" "}
           <span className="text-primary-500">{"ouderen alarm"}</span> elke 48
           minuten een leven redt!

@@ -5,7 +5,7 @@ export default function Testimonials() {
   return (
     <div className="bg-white py-12 flex flex-col items-center">
       <div>
-        <h1 className="text-center text-2xl md:text-4xl max-w-3xl font-bold text-gray-800 mb-8">
+        <h1 className="text-center bold-32 lg:bold-40 max-w-3xl font-bold text-gray-800 mb-8">
           Wanneer kan “ouderen alarm” u helpen om zo lang mogelijk veilig thuis
           te bijven wonen?
         </h1>
