@@ -3,7 +3,7 @@ import { useState } from "react";
 import { NAV_LINKS } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
-import { X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const NavBar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -38,13 +38,7 @@ const NavBar = () => {
           onClick={() => setIsDrawerOpen(true)}
           className="inline-block lg:hidden"
         >
-          <Image
-            src="/assets/landing/menu.svg"
-            height={32}
-            width={32}
-            alt="menu"
-            className="cursor-pointer"
-          />
+          <Menu size={40} color="#fff" />
         </button>
       </nav>
 
