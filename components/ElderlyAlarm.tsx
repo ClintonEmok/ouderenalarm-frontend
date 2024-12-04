@@ -1,9 +1,12 @@
 import { MoveDown, SendHorizontal } from "lucide-react";
 import Image from "next/image";
 
-export default function ElderAlarm() {
+export default function ElderlyAlarm() {
   return (
-    <div className="bg-white py-10 flex flex-col items-center gap-6">
+    <section
+      className="bg-white py-10 flex flex-col items-center gap-6"
+      id="Working"
+    >
       <div className="max-w-3xl mx-auto">
         <h1 className="text-center bold-32 lg:bold-40 max-w-3xl font-bold text-gray-800 mb-8">
           Dit is hoe ons betrouwbare{" "}
@@ -97,6 +100,6 @@ export default function ElderAlarm() {
         Ik wil het gratis testen!
         <SendHorizontal />
       </a>
-    </div>
+    </section>
   );
 }

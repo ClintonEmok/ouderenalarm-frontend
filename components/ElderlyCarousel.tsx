@@ -12,7 +12,7 @@ interface CampProps {
   backgroundImage: string;
   title: string;
   subtitle: string;
-  peopleJoined: string;
+
   icon?: React.ReactNode;
 }
 
@@ -20,7 +20,7 @@ const CampSite = ({
   backgroundImage,
   title,
   subtitle,
-  peopleJoined,
+
   icon,
 }: CampProps) => {
   return (
@@ -55,12 +55,15 @@ const CampSite = ({
   );
 };
 
-const Camp = () => {
+const ElderlyCarousel = () => {
   const plugin = React.useRef(
     AutoScroll({ playOnInit: true, stopOnInteraction: false, speed: 1 })
   );
   return (
-    <section className="2xl:max-container relative flex flex-col py-10 lg:mb-10 lg:py-20 xl:mb-20">
+    <section
+      id="ElderlyCarousel"
+      className="2xl:max-container relative flex flex-col py-10 lg:mb-10 lg:py-20 xl:mb-20"
+    >
       <div className="">
         <Carousel
           opts={{ loop: true }}
@@ -73,7 +76,6 @@ const Camp = () => {
                 backgroundImage="bg-bg-img-1"
                 title="Ongeval gehad"
                 subtitle=""
-                peopleJoined="50+ Joined"
                 icon={<TriangleAlertIcon size={28} color="#fff" />}
               />
             </CarouselItem>
@@ -83,7 +85,6 @@ const Camp = () => {
                 backgroundImage="bg-bg-img-2"
                 title="Meldkamer"
                 subtitle="Wij verbinden u door"
-                peopleJoined="50+ Joined"
                 icon={<HandHelpingIcon size={28} color="#fff" />}
               />
             </CarouselItem>
@@ -92,7 +93,6 @@ const Camp = () => {
                 backgroundImage="bg-bg-img-3"
                 title="Hulpverlening"
                 subtitle="Wij helpen u"
-                peopleJoined="50+ Joined"
                 icon={<HeartHandshakeIcon size={28} color="#fff" />}
               />
             </CarouselItem>
@@ -125,4 +125,4 @@ const Camp = () => {
   );
 };
 
-export default Camp;
+export default ElderlyCarousel;

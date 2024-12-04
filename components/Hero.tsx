@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { CirclePlay } from "lucide-react";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -44,9 +45,11 @@ const Hero = () => {
           <Button className=" text-white bg-primary-500 p-7 text-18-bold">
             Doe de GRATIS veiligheidstest
           </Button>
-          <Button className="p-7 text-lg text-black">
-            <CirclePlay color="#1d4ed8" />
-            Hoe werkt het?
+          <Button className="p-7 text-lg text-black" asChild>
+            <Link href="#Working">
+              <CirclePlay color="#1d4ed8" />
+              Hoe werkt het?
+            </Link>
           </Button>
         </div>
       </div>

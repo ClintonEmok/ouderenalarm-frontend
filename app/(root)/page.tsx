@@ -1,6 +1,6 @@
 "use client";
-import Camp from "@/components/Camp";
-import ElderAlarm from "@/components/ElderlyAlarm";
+import ElderlyCarousel from "@/components/ElderlyCarousel";
+import ElderlyAlarm from "@/components/ElderlyAlarm";
 import ElderlyAlarmJourney from "@/components/ElderlyAlarmJourney";
 import { CarouselPlugin } from "@/components/BrandCarousel";
 import Features from "@/components/Features";
@@ -13,12 +13,10 @@ export default function Home() {
   return (
     <>
       <Hero />
-      {/* <BrandShowcase /> */}
-      {/* <EmergencyInfo /> */}
       <CarouselPlugin />
-      <Camp />
+      <ElderlyCarousel />
       <Testimonials />
-      <ElderAlarm />
+      <ElderlyAlarm />
       <Features />
       <ElderlyAlarmJourney />
       {/* <Blog /> */}

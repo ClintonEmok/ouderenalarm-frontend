@@ -28,7 +28,7 @@ const ElderlyAlarmJourney = () => {
   ];
 
   return (
-    <section className="py-12">
+    <section className="py-12" id="ElderlyAlarmJourney">
       <div className="container mx-auto px-4 text-center flex flex-col items-center">
         {/* Header Section */}
         <h2 className="bold-32 lg:bold-40 mb-4 text-green-600">
