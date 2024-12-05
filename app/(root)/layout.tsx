@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     url: process.env.NEXT_PUBLIC_BASE_URL, // Vervang met jouw website-URL
     type: "website",
   },
-  viewport: "width=device-width, initial-scale=1.0",
+
   robots: "index, follow",
 };
 
