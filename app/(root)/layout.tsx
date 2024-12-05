@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     title: "OuderenAlarm - Veiligheid en Zorg voor Ouderen",
     description:
       "Verbeter de veiligheid en het welzijn van ouderen met de innovatieve alarmsystemen en zorgoplossingen van OuderenAlarm.",
-    url: process.env.APP_URL, // Vervang met jouw website-URL
+    url: process.env.NEXT_PUBLIC_BASE_URL, // Vervang met jouw website-URL
     type: "website",
   },
   viewport: "width=device-width, initial-scale=1.0",
