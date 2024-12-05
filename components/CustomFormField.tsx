@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Control } from "react-hook-form";
-import { FormFieldType } from "./forms/PatientForm";
+import { FormFieldType } from "./forms/RegisterForm";
 import Image from "next/image";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
@@ -35,7 +35,7 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
   switch (fieldType) {
     case FormFieldType.INPUT:
       return (
-        <div className="flex rounded-md border bordder-dark-500 bg-dark-400">
+        <div className="flex rounded-md border border-dark-500 hover:border-primary-500 bg-dark-400">
           {iconSrc && (
             <Image
               src={iconSrc}
@@ -49,7 +49,7 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
             <Input
               placeholder={placeholder}
               {...field}
-              className="shad-input border-0"
+              className="shad-input border-0 text-white"
             />
           </FormControl>
         </div>

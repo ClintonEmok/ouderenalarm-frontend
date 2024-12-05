@@ -8,7 +8,7 @@ import { Form } from "@/components/ui/form";
 import CustomFormField from "../CustomFormField";
 import SubmitButton from "../SubmitButton";
 import { useState } from "react";
-import { UserFormValidation } from "@/lib/validation";
+import { UserRegistrationSchema } from "@/lib/validation";
 import { useRouter } from "next/navigation";
 
 export enum FormFieldType {
@@ -22,12 +22,12 @@ export enum FormFieldType {
 }
 
 // TODO: Rename
-const PatientForm = () => {
+const LoginForm = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
-  const form = useForm<z.infer<typeof UserFormValidation>>({
-    resolver: zodResolver(UserFormValidation),
+  const form = useForm<z.infer<typeof UserRegistrationSchema>>({
+    resolver: zodResolver(UserRegistrationSchema),
     defaultValues: {
       name: "",
       email: "",
@@ -40,7 +40,7 @@ const PatientForm = () => {
     name,
     email,
     phone,
-  }: z.infer<typeof UserFormValidation>) {
+  }: z.infer<typeof UserRegistrationSchema>) {
     setIsLoading(true);
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
@@ -98,4 +98,4 @@ const PatientForm = () => {
   );
 };
 
-export default PatientForm;
+export default LoginForm;
