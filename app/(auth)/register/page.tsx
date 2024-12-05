@@ -1,6 +1,11 @@
 import RegisterForm from "@/components/forms/RegisterForm";
+import { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Registreer", // Page
+};
+
 // TODO: move to register page (route)
 export default function Register() {
   return (

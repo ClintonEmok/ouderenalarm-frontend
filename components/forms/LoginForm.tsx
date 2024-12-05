@@ -8,7 +8,7 @@ import { Form } from "@/components/ui/form";
 import CustomFormField from "../CustomFormField";
 import SubmitButton from "../SubmitButton";
 import { useState } from "react";
-import { UserRegistrationSchema } from "@/lib/validation";
+import { UserRegistrationSchema as UserLoginSchema } from "@/lib/validation";
 import { useRouter } from "next/navigation";
 
 export enum FormFieldType {
@@ -26,21 +26,16 @@ const LoginForm = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
-  const form = useForm<z.infer<typeof UserRegistrationSchema>>({
-    resolver: zodResolver(UserRegistrationSchema),
+  const form = useForm<z.infer<typeof UserLoginSchema>>({
+    resolver: zodResolver(UserLoginSchema),
     defaultValues: {
       name: "",
       email: "",
-      phone: "",
     },
   });
 
   // 2. Define a submit handler.
-  async function onSubmit({
-    name,
-    email,
-    phone,
-  }: z.infer<typeof UserRegistrationSchema>) {
+  async function onSubmit({ name, email }: z.infer<typeof UserLoginSchema>) {
     setIsLoading(true);
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
@@ -49,7 +44,6 @@ const LoginForm = () => {
       const userData = {
         name,
         email,
-        phone,
       };
       // Call an API
       // const user = await createUser(userData);
@@ -62,18 +56,12 @@ const LoginForm = () => {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 flex-1">
         <section className="mb-12 space-y-4">
-          <h1 className="header">Hi there 👋</h1>
-          <p className="text-dark-700">Schedule your first appointment</p>
+          <h1 className="header">Welkom terug 👋</h1>
+          <p className="text-dark-700">
+            Log in om verder te gaan waar je gebleven was
+          </p>
         </section>
-        <CustomFormField
-          control={form.control}
-          fieldType={FormFieldType.INPUT}
-          name="name"
-          label="Full Name"
-          placeholder="John Doe"
-          iconSrc="assets/icons/user.svg"
-          iconAlt="user"
-        />
+
         <CustomFormField
           control={form.control}
           fieldType={FormFieldType.INPUT}
@@ -85,14 +73,20 @@ const LoginForm = () => {
         />
         <CustomFormField
           control={form.control}
-          fieldType={FormFieldType.PHONE_INPUT}
-          name="phone"
-          label="Phone Number"
-          placeholder="+31 123 456 789"
+          fieldType={FormFieldType.INPUT}
+          name="password"
+          label="Password"
         />
-        <SubmitButton isLoading={isLoading} className={""}>
-          Get Started
-        </SubmitButton>
+        <div className="flex items-center w-full justify-center">
+          <SubmitButton
+            isLoading={isLoading}
+            className={
+              "bg-primary-500 text-white font-bold text-md w-full max-w-xs"
+            }
+          >
+            Get Started
+          </SubmitButton>
+        </div>
       </form>
     </Form>
   );

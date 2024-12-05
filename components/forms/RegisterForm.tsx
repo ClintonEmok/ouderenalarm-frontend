@@ -10,6 +10,7 @@ import SubmitButton from "../SubmitButton";
 import { useState } from "react";
 import { UserRegistrationSchema } from "@/lib/validation";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export enum FormFieldType {
   INPUT = "input",
@@ -44,8 +45,6 @@ const RegisterForm = () => {
     confirmPassword,
   }: z.infer<typeof UserRegistrationSchema>) {
     setIsLoading(true);
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
     console.log(name, email, password, confirmPassword);
 
     try {
@@ -62,12 +61,13 @@ const RegisterForm = () => {
       console.error(e);
     }
   }
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 flex-1">
         <section className="mb-12 space-y-4">
-          <h1 className="header">Hi there 👋</h1>
-          <p className="text-dark-700">Schedule your first appointment</p>
+          <h1 className="header">Sluit je vandaag aan 🎉</h1>
+          <p className="text-dark-700">Maak een account aan en begin direct</p>
         </section>
         <CustomFormField
           control={form.control}
@@ -108,6 +108,16 @@ const RegisterForm = () => {
           >
             Get Started
           </SubmitButton>
+        </div>
+
+        {/* Sign Up Link */}
+        <div className="text-center mt-4">
+          <p className="text-dark-700">
+            Already have an account?{" "}
+            <Link href="/sign-in" className="text-primary-500 hover:underline">
+              Sign In
+            </Link>
+          </p>
         </div>
       </form>
     </Form>
