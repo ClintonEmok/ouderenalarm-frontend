@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import PostComponent from "@/components/PostComponent";
 import { Post } from "@/lib/interface";
 import { client } from "@/sanity/lib/client";
+import { Metadata } from "next";
 
 async function getPosts() {
   const query = `*[_type == "post"] {
@@ -20,6 +21,10 @@ async function getPosts() {
   const posts = await client.fetch(query);
   return posts;
 }
+
+export const metadata: Metadata = {
+  title: "Blog", // Page
+};
 
 export const revalidate = 60;
 const BlogOverview = async () => {

@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import { Post } from "@/lib/interface";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
+import { Metadata } from "next";
 import { PortableText } from "next-sanity";
 import { Open_Sans } from "next/font/google";
 import Image from "next/image";
@@ -30,10 +31,46 @@ async function getPost(slug: string) {
   const post = await client.fetch(query);
   return post;
 }
+
+async function getPosts() {
+  const query = `*[_type == "post"] {
+    title,
+    slug,
+    featuredImage,
+    publishedAt,
+    excerpt,
+    topics[]-> {
+    _id,
+    slug,
+    name
+    }
+  }`;
+
+  const posts = await client.fetch(query);
+  return posts;
+}
 const dateFont = Open_Sans({
   weight: ["400", "500", "700", "800"],
   subsets: ["latin"],
 });
+
+export async function generateStaticParams() {
+  const posts = await getPosts();
+  return posts.map((post: Post) => ({
+    slug: post.slug.current,
+  }));
+}
+
+// TODO: Optimize
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const slug = (await params).slug;
+  const post: Post = await getPost(slug);
+  return {
+    title: post?.title,
+    description: post?.excerpt,
+  };
+}
+
 const SingleBlogPost = async ({ params }: Params) => {
   const slug = (await params).slug;
   const post: Post = await getPost(slug);
