@@ -24,16 +24,14 @@ export default function RootLayout({
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="light">
-          {/* LEFT */}
-          <div className="w-1/6 md:w-1/12 lg:w-1/6 bg-red-500">
+          <div className="flex min-h-screen w-full bg-gray-50 text-gray-900">
             <DashboardSidebar />
-          </div>
-          {/* RIGHT */}
-          <div className="w-5/6 md:w-11/12 lg:w-5/6 bg-blue-500 flex flex-col">
-            <DashboardNavbar />
-            <main className="relative overflow-hidden min-h-screen">
-              {children}
-            </main>
+            <div className="flex flex-col w-full">
+              <DashboardNavbar />
+              <main className="relative overflow-hidden min-h-screen">
+                {children}
+              </main>
+            </div>
           </div>
         </ThemeProvider>
       </body>
