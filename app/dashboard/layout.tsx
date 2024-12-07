@@ -2,8 +2,8 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "../globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
-import DashboardSidebar from "@/components/DashboardSidebar";
-import DashboardNavbar from "@/components/DashboardNavbar";
+
+import { DashboardWrapper } from "@/components/DashboardWrapper";
 
 const fontSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -24,15 +24,7 @@ export default function RootLayout({
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="light">
-          <div className="flex min-h-screen w-full bg-gray-50 text-gray-900">
-            <DashboardSidebar />
-            <div className="flex flex-col w-full">
-              <DashboardNavbar />
-              <main className="relative overflow-hidden min-h-screen">
-                {children}
-              </main>
-            </div>
-          </div>
+          <DashboardWrapper>{children}</DashboardWrapper>
         </ThemeProvider>
       </body>
     </html>

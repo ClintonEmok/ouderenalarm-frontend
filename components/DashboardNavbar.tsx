@@ -1,12 +1,27 @@
-import { Search, Settings } from "lucide-react";
+import { useAppDispatch, useAppSelector } from "@/app/redux";
+import { setIsSidebarCollapsed } from "@/state";
+import { Menu, Search, Settings } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
 const DashboardNavbar = () => {
+  const dispatch = useAppDispatch();
+  const isSidebarCollapsed = useAppSelector(
+    (state) => state.global.isSidebarCollapsed
+  );
   return (
     <div className="flex items-center justify-between bg-white px-4 py-3">
       {/* Searchbar */}
       <div className="flex items-center gap-8">
+        {/* Sidebar Toggle */}
+        {!isSidebarCollapsed ? null : (
+          <button
+            onClick={() => dispatch(setIsSidebarCollapsed(!isSidebarCollapsed))}
+            className="h-min w-min rounded p-2 hover:bg-gray-100"
+          >
+            <Menu className="h-8 w-8 cursor-pointer" />
+          </button>
+        )}
         <div className="relative flex h-min w-[200px]">
           <Search
             size={24}
