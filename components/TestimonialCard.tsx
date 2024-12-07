@@ -1,4 +1,15 @@
-const TestimonialCard = ({ stars, title, author, content }) => (
+interface TestimonialCardProps {
+  stars: string;
+  title: string;
+  author: string;
+  content: string;
+}
+const TestimonialCard = ({
+  stars,
+  title,
+  author,
+  content,
+}: TestimonialCardProps) => (
   <div className="bg-white p-6 shadow-md rounded-md">
     <div className="flex items-center">
       <span className="text-green-500 font-bold text-lg">{stars}</span>
