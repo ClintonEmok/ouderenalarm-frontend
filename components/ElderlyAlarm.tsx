@@ -15,7 +15,7 @@ export default function ElderlyAlarm() {
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Section 1 */}
-          <div className="bg-primary-500 shadow-lg p-6 rounded-lg text-center order-1 row-span-1 col-span-1">
+          <div className="bg-primary-500 shadow-lg p-6 rounded-lg text-left text-md lg:text-xl order-1 row-span-1 col-span-1">
             <p className="font-bold mb-2 text-white">
               Sla gemakkelijk alarm met 1 druk op de knop
             </p>
@@ -38,7 +38,7 @@ export default function ElderlyAlarm() {
               alt="Person using alarm"
               className="w-full rounded-lg shadow p-1"
             />
-            <MoveDown className="mt-4 w-24 h-24 text-gray-500" />
+            <MoveDown className="mt-4 w-24 h-24 text-black" />
           </div>
 
           {/* Section 2 */}
@@ -50,9 +50,9 @@ export default function ElderlyAlarm() {
               alt="Security experts"
               className="w-full rounded-lg shadow p-1"
             />
-            <MoveDown className="mt-4 w-24 h-24 text-gray-500" />
+            <MoveDown className="mt-4 w-24 h-24 text-black" />
           </div>
-          <div className="bg-primary-500 shadow-lg p-6 rounded-lg text-center order-3 md:order-4">
+          <div className="bg-primary-500 shadow-lg p-6 rounded-lg text-left text-md lg:text-xl order-3 md:order-4">
             <p className="font-bold mb-2 text-white">
               Veiligheidsexperts nemen contact op
             </p>
@@ -67,7 +67,7 @@ export default function ElderlyAlarm() {
           </div>
 
           {/* Section 3 */}
-          <div className="bg-primary-500 shadow-lg p-6 rounded-lg text-center order-5">
+          <div className="bg-primary-500 shadow-lg p-6 rounded-lg text-left text-md lg:text-xl order-5">
             <p className="font-bold mb-2 text-white">
               Hulpverleners komen zo snel mogelijk
             </p>
@@ -88,14 +88,14 @@ export default function ElderlyAlarm() {
               alt="Family"
               className="w-full rounded-lg shadow p-1"
             />
-            <MoveDown className="mt-4 w-24 h-24 text-gray-500" />
+            <MoveDown className="mt-4 w-24 h-24 text-black" />
           </div>
         </div>
       </div>{" "}
       {/* Call-to-Action */}
       <a
         href="#"
-        className="bg-primary-500 flex gap-1 items-center justify-center text-white py-3 max-w-2xl md:w-2/5 px-8 font-bold rounded-lg shadow-md hover:bg-green-600 transition"
+        className="bg-primary-500 flex gap-1 mt-4 items-center justify-center text-white py-3 max-w-2xl md:w-2/5 px-8 font-bold rounded-lg shadow-md hover:bg-green-600 transition"
       >
         Ik wil het gratis testen!
         <SendHorizontal />

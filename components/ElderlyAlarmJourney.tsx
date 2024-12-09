@@ -34,7 +34,7 @@ const ElderlyAlarmJourney = () => {
         <h2 className="bold-32 lg:bold-40 mb-4 text-green-600">
           Jouw ouderen alarm avontuur start hier:
         </h2>
-        <p className="text-gray-700 text-lg mb-12 regular-16">
+        <p className="text-gray-700 text-lg mb-12 bold-24 lg:bold-32 max-w-4xl">
           Wilt u 1 van de 27 ouderen zijn die dit betrouwbare ouderen alarm 100%
           GRATIS mag testen?
         </p>
