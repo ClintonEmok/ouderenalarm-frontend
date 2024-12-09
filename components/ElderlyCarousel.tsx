@@ -6,7 +6,7 @@ import {
 import Image from "next/image";
 import React from "react";
 import { Carousel, CarouselContent, CarouselItem } from "./ui/carousel";
-import AutoScroll from "embla-carousel-auto-scroll";
+import AutoPlay from "embla-carousel-autoplay";
 
 interface CampProps {
   backgroundImage: string;
@@ -56,9 +56,7 @@ const CampSite = ({
 };
 
 const ElderlyCarousel = () => {
-  const plugin = React.useRef(
-    AutoScroll({ playOnInit: true, stopOnInteraction: false, speed: 1 })
-  );
+  const plugin = React.useRef(AutoPlay({}));
   return (
     <section
       id="ElderlyCarousel"
@@ -67,7 +65,7 @@ const ElderlyCarousel = () => {
       <div className="">
         <Carousel
           opts={{ loop: true }}
-          plugins={[plugin.current]}
+          // plugins={[plugin.current]}
           className="w-full mx-auto flex items-center gap-12"
         >
           <CarouselContent>

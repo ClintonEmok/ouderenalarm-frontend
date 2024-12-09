@@ -16,7 +16,7 @@ const Hero = () => {
           Binnen 30 seconde hulp, Verminder overlijdensrisico, Blijf veilig
           thuiswonen.
         </h1>
-        <p className="regular-24 mt-6 text-gray-30 xl:max-w-[520px]">
+        <p className="regular-24 mt-6 text-gray-30 xl:max-w-[800px]">
           Doe de GRATIS test hieronder en ontdek in 30 seconden of ons
           noodoproepsysteem een oplossing voor uw veiligheid is
         </p>

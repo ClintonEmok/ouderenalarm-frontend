@@ -5,13 +5,13 @@ export default function Testimonials() {
   return (
     <div className="bg-white py-12 flex flex-col items-center">
       <div>
-        <h1 className="text-center bold-32 lg:bold-40 max-w-3xl font-bold text-gray-800 mb-8">
+        <h1 className="text-center bold-32 lg:bold-40 max-w-5xl font-bold text-gray-800 mb-8">
           Wanneer kan “ouderen alarm” u helpen om zo lang mogelijk veilig thuis
           te bijven wonen?
         </h1>
       </div>
 
-      <div className="max-w-4xl mx-auto flex flex-col  gap-12 p-8">
+      <div className="max-w-7xl mx-auto flex flex-col  gap-12 p-8">
         {/* Pair 1 */}
         <div className="flex flex-col md:flex-row items-center md:items-start ">
           <div className="flex flex-col gap-6 w-full">
