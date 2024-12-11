@@ -38,7 +38,7 @@ export function CarouselPlugin() {
       >
         <CarouselContent>
           {carouselContent.map((item, index) => (
-            <CarouselItem key={index} className="basis-1/3">
+            <CarouselItem key={index} className="md:basis-1/e lg:basis-1/3 ">
               <div className="p-4 w-full flex justify-center">
                 {/* Card Structure */}
                 <div className="bg-white shadow-md rounded-md overflow-hidden w-full max-w-lg">

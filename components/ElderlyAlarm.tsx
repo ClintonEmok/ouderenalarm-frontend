@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function ElderlyAlarm() {
   return (
     <section
-      className="bg-white py-10 flex flex-col items-center gap-6"
+      className="bg-white py-10 px-6 flex flex-col items-center gap-6"
       id="Working"
     >
       <div className="max-w-5xl mx-auto">
