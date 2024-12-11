@@ -34,7 +34,8 @@ export default function ElderlyAlarm() {
             <Image
               width={256}
               height={256}
-              src="/assets/landing/journey-1.jpg" // Replace with the appropriate path
+              unoptimized
+              src="/assets/landing/step-2.jpeg" // Replace with the appropriate path
               alt="Person using alarm"
               className="w-full rounded-lg shadow p-1"
             />
@@ -46,7 +47,8 @@ export default function ElderlyAlarm() {
             <Image
               width={256}
               height={256}
-              src="/assets/landing/journey-2.jpeg" // Replace with the appropriate path
+              unoptimized
+              src="/assets/landing/step-1.jpeg" // Replace with the appropriate path
               alt="Security experts"
               className="w-full rounded-lg shadow p-1"
             />
@@ -84,7 +86,8 @@ export default function ElderlyAlarm() {
             <Image
               width={256}
               height={256}
-              src="/assets/landing/journey-2.jpeg" // Replace with the appropriate path
+              unoptimized
+              src="/assets/landing/step-3.jpeg" // Replace with the appropriate path
               alt="Family"
               className="w-full rounded-lg shadow p-1"
             />
