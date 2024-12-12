@@ -3,6 +3,7 @@ import axios from "@/lib/axios";
 import { useEffect } from "react";
 import { AxiosResponse } from "axios";
 import { useRouter, useParams } from "next/navigation";
+import { UserRegistrationRequest } from "@/lib/interface";
 
 export const useAuth = ({
   middleware,
@@ -31,12 +32,7 @@ export const useAuth = ({
 
   const csrf = () => axios.get("/sanctum/csrf-cookie");
 
-  const register = async (data: {
-    name: string;
-    email: string;
-    password: string;
-    password_confirmation: string;
-  }) => {
+  const register = async (data: UserRegistrationRequest) => {
     try {
       await csrf();
 
