@@ -13,7 +13,7 @@ const Hero = () => {
       <div className="relative z-20 flex flex-1 flex-col xl:w-1/2">
         {/* TODO: Change later */}
         <h1 className="bold-40 lg:bold-64">
-          Binnen 30 seconde hulp, Verminder overlijdensrisico, Blijf veilig
+          Binnen 30 seconden hulp, Verminder overlijdensrisico, Blijf veilig
           thuiswonen.
         </h1>
         <p className="regular-24 mt-6 text-gray-30 xl:max-w-[800px]">

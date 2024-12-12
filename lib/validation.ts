@@ -16,9 +16,7 @@ export const UserRegistrationSchema = z
     path: ["confirmPassword"], // pa
   });
 
-export const UserLoginSchema = z
-  .object({
-    email: z.string().email("Invalid email address"),
-    password: z.string().min(8, "Password must be at least 8 characters"),
-  })
-  .required();
+export const UserLoginSchema = z.object({
+  email: z.string().email("Invalid email address"),
+  password: z.string().min(8, "Password must be at least 8 characters"),
+});

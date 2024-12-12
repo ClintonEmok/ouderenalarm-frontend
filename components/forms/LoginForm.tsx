@@ -8,8 +8,9 @@ import { Form } from "@/components/ui/form";
 import CustomFormField from "../CustomFormField";
 import SubmitButton from "../SubmitButton";
 import { useState } from "react";
-import { UserRegistrationSchema as UserLoginSchema } from "@/lib/validation";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/hooks/auth";
+import { UserLoginSchema } from "@/lib/validation";
 
 export enum FormFieldType {
   INPUT = "input",
@@ -23,29 +24,38 @@ export enum FormFieldType {
 
 // TODO: Rename
 const LoginForm = () => {
-  const router = useRouter();
+  const { login } = useAuth({
+    middleware: "guest",
+    redirectIfAuthenticated: "/dashboard",
+  });
   const [isLoading, setIsLoading] = useState(false);
 
   const form = useForm<z.infer<typeof UserLoginSchema>>({
     resolver: zodResolver(UserLoginSchema),
     defaultValues: {
-      name: "",
       email: "",
+      password: "",
     },
   });
 
   // 2. Define a submit handler.
-  async function onSubmit({ name, email }: z.infer<typeof UserLoginSchema>) {
+  async function onSubmit({
+    email,
+    password,
+  }: z.infer<typeof UserLoginSchema>) {
+    console.log(email, password);
     setIsLoading(true);
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
 
     try {
       const userData = {
-        name,
         email,
+        password,
       };
+
       // Call an API
+      const user = await login(userData);
       // const user = await createUser(userData);
       // if(user) router.push(/users/${user.id}/register);
     } catch (e) {
@@ -84,7 +94,7 @@ const LoginForm = () => {
               "bg-primary-500 text-white font-bold text-md w-full max-w-xs"
             }
           >
-            Get Started
+            Login
           </SubmitButton>
         </div>
       </form>

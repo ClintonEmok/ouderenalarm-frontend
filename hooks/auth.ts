@@ -47,11 +47,7 @@ export const useAuth = ({
     }
   };
 
-  const login = async (data: {
-    email: string;
-    password: string;
-    remember: boolean;
-  }) => {
+  const login = async (data: { email: string; password: string }) => {
     try {
       await csrf();
       await axios.post("/login", data);
