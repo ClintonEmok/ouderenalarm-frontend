@@ -47,9 +47,9 @@ const Dashboard = () => {
 
             {/* Connection Status */}
             <div className="bg-gray-100 p-4 rounded-lg shadow w-full text-center">
-              <h3 className="text-md font-semibold mb-2">Connection</h3>
+              <h3 className="text-md font-semibold mb-2">Status</h3>
               <p className="text-gray-600 font-bold text-lg">Good</p>
-              <p className="text-gray-500">System Status: In Service</p>
+              {/* <p className="text-gray-500">System Status: In Service</p> */}
             </div>
           </div>
         </div>

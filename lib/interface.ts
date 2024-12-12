@@ -20,12 +20,13 @@ export interface UserRegistrationRequest {
   email: string;
   password: string;
   password_confirmation: string;
+  phone_number: string;
   street: string;
   house_number: string;
   postal_code: string;
   city: string;
   country: string;
-  type: "billing" | "shipping";
+  type?: "billing" | "shipping";
 }
 
 export interface Address {

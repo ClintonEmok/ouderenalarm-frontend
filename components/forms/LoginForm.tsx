@@ -41,7 +41,6 @@ const LoginForm = () => {
     email,
     password,
   }: z.infer<typeof UserLoginSchema>) {
-    console.log(email, password);
     setIsLoading(true);
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
@@ -53,7 +52,7 @@ const LoginForm = () => {
       };
 
       // Call an API
-      const user = await login(userData);
+      await login(userData);
       // const user = await createUser(userData);
       // if(user) router.push(/users/${user.id}/register);
     } catch (e) {

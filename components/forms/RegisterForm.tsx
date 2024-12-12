@@ -11,6 +11,7 @@ import { useState } from "react";
 import { UserRegistrationSchema } from "@/lib/validation";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { useAuth } from "@/hooks/auth";
 
 export enum FormFieldType {
   INPUT = "input",
@@ -24,38 +25,73 @@ export enum FormFieldType {
 
 // TODO: Rename
 const RegisterForm = () => {
-  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-
+  const { register } = useAuth({
+    middleware: "guest",
+    redirectIfAuthenticated: "/dashboard",
+  });
   const form = useForm<z.infer<typeof UserRegistrationSchema>>({
     resolver: zodResolver(UserRegistrationSchema),
     defaultValues: {
       name: "",
+      last_name: "",
       email: "",
       password: "",
-      confirmPassword: "",
+      password_confirmation: "",
+      street: "",
+      house_number: "",
+      phone_number: "",
+      postal_code: "",
+      city: "",
+      country: "",
     },
   });
 
   // 2. Define a submit handler.
   async function onSubmit({
     name,
+    last_name,
     email,
     password,
-    confirmPassword,
+    password_confirmation,
+    street,
+    house_number,
+    phone_number,
+    postal_code,
+    city,
+    country,
   }: z.infer<typeof UserRegistrationSchema>) {
     setIsLoading(true);
-    console.log(name, email, password, confirmPassword);
+    console.log(
+      name,
+      last_name,
+      email,
+      password,
+      password_confirmation,
+      street,
+      house_number,
+      phone_number,
+      postal_code,
+      city,
+      country
+    );
 
     try {
-      const userData = {
+      const registerData = {
         name,
+        last_name,
         email,
         password,
-        confirmPassword,
+        password_confirmation,
+        street,
+        house_number,
+        phone_number,
+        postal_code,
+        city,
+        country,
       };
       // Call an API
-      // const user = await createUser(userData);
+      await register(registerData);
       // if(user) router.push(/users/${user.id}/register);
     } catch (e) {
       console.error(e);
@@ -92,7 +128,7 @@ const RegisterForm = () => {
           <CustomFormField
             control={form.control}
             fieldType={FormFieldType.INPUT}
-            name="lastName"
+            name="last_name"
             label="Last Name"
             placeholder="Doe"
             iconSrc="assets/icons/user.svg"
@@ -114,7 +150,7 @@ const RegisterForm = () => {
           <CustomFormField
             control={form.control}
             fieldType={FormFieldType.PHONE_INPUT}
-            name="phone"
+            name="phone_number"
             label="Phone Number"
             placeholder="06 12345678"
           />
@@ -154,7 +190,7 @@ const RegisterForm = () => {
           <CustomFormField
             control={form.control}
             fieldType={FormFieldType.INPUT}
-            name="houseNumber"
+            name="house_number"
             label="Huisnummer"
             placeholder="3"
           />
@@ -172,7 +208,7 @@ const RegisterForm = () => {
           <CustomFormField
             control={form.control}
             fieldType={FormFieldType.INPUT}
-            name="postalCode"
+            name="postal_code"
             label="Postcode"
             placeholder="4563 AB"
           />
