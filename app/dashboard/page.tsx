@@ -1,4 +1,5 @@
 import DeviceTable from "@/components/devices/DeviceTable";
+import DeviceMap from "@/components/Map";
 import Image from "next/image";
 import React, { useMemo } from "react";
 
@@ -81,9 +82,9 @@ const Dashboard = () => {
       </header>
 
       {/* Main content grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-6">
         {/* Mini Guardian Card */}
-        <div className="bg-white rounded-lg shadow p-6 fle col-span-2">
+        <div className="bg-white rounded-lg shadow p-6 fle col-auto row-auto">
           <div className="flex flex-col w-full items-center">
             <h2 className="text-lg font-semibold mb-4 text-center">
               Mini Guardian
@@ -124,14 +125,14 @@ const Dashboard = () => {
         </div>
 
         {/* Location Card */}
-        <div className="bg-white rounded-lg shadow p-6 col-span-2">
+        <div className="bg-white rounded-lg shadow p-6 col-auto row-auto">
           <h2 className="text-lg font-semibold mb-4 text-center">Location</h2>
-          <div className="h-40 bg-gray-200 rounded-lg flex items-center justify-center">
-            <p className="text-gray-500">Map Placeholder</p>
+          <div className="bg-gray-200 rounded-lg flex items-center justify-center">
+            <DeviceMap />
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow p-6 col-span-4">
+        <div className="bg-white rounded-lg shadow p-6 xs:col-span-1 lg:col-span-2">
           <h2 className="text-lg font-semibold mb-4 text-center">Devices</h2>
           <DeviceTable data={data} />
         </div>
