@@ -68,7 +68,7 @@ const RegisterForm = () => {
         onSubmit={form.handleSubmit(onSubmit)}
         className="space-y-12 flex-1"
       >
-        <section className="mb-12 space-y-4">
+        <section className="space-y-4">
           <h1 className="header">Sluit je vandaag aan 🎉</h1>
           <p className="text-dark-700">Maak een account aan en begin direct</p>
         </section>
@@ -117,6 +117,22 @@ const RegisterForm = () => {
             name="phone"
             label="Phone Number"
             placeholder="06 12345678"
+          />
+        </div>
+
+        <div className="flex flex-col gap-6 xl:flex-row">
+          <CustomFormField
+            control={form.control}
+            fieldType={FormFieldType.INPUT}
+            name="password"
+            label="Password"
+          />
+
+          <CustomFormField
+            control={form.control}
+            fieldType={FormFieldType.INPUT}
+            name="password_confirmation"
+            label="Confirm Password"
           />
         </div>
 
