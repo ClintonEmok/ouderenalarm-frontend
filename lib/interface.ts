@@ -51,3 +51,55 @@ export interface UserRegistrationResponse {
   user: User;
   access_token: string;
 }
+
+export interface Device {
+  /**
+   * The unique identifier for the device.
+   */
+  DeviceID: string;
+
+  /**
+   * The user ID (GebruikerID) associated with the device.
+   */
+  GebruikerID: string;
+
+  /**
+   * The alarm code for the device.
+   */
+  AlarmCode: string;
+
+  /**
+   * The longitude of the device's location.
+   */
+  longitude: string;
+
+  /**
+   * The latitude of the device's location.
+   */
+  latitude: string;
+
+  /**
+   * The Google Maps link for the device's location.
+   */
+  mapslink: string;
+
+  /**
+   * The phone number associated with the device.
+   */
+  TelefoonnummerDevice: string;
+
+  /**
+   * The battery percentage of the device.
+   */
+  Batterijpercentage: string;
+
+  /**
+   * The timestamp when the device record was created.
+   */
+  created_at: string;
+
+  /**
+   * The timestamp when the device record was last updated.
+   */
+  updated_at: string;
+}
