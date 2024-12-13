@@ -30,7 +30,7 @@ const DashboardSidebar = () => {
       <div className="flex h-[100%] w-full flex-col justify-start">
         {/* TOP LOGO */}
         <div className="z-50 flex min-h-[56px] w-64 items-center justify-between bg-white px-6 pt-3">
-          <div className="text-xl font-bold text-gray-800 ">dashboard</div>
+          <div className="text-xl font-bold text-gray-800 ">Dashboard</div>
           {isSidebarCollapsed ? null : (
             <button
               className="py-3"
@@ -42,18 +42,19 @@ const DashboardSidebar = () => {
             </button>
           )}
         </div>
+        <div className="h-20"></div>
         {/* TEAM */}
-        <div className="flex items-center gap-5 border-y-[1.5px] border-gray-200 px-6 py-4">
+        {/* <div className="flex items-center gap-5 border-y-[1.5px] border-gray-200 px-6 py-4">
           {/* Image placeholder */}
-          <Image src="/next.svg" alt="team" width={30} height={30} />
-          <div>
-            <h3 className="text-md font-bold tracking-wide ">Ouder team</h3>
-            <div className="mt-1 flex items-start gap-2">
-              <Lock className="mt-[0.1rem] h-3 w-3 text-gray-500" />
-              <p className="text-xs text-gray-500">Private</p>
-            </div>
-          </div>
-        </div>
+        {/* <Image src="/next.svg" alt="team" width={30} height={30} /> */}
+        {/* <div> */}
+        {/* <h3 className="text-md font-bold tracking-wide ">Ouder team</h3> */}
+        {/* <div className="mt-1 flex items-start gap-2"> */}
+        {/* <Lock className="mt-[0.1rem] h-3 w-3 text-gray-500" /> */}
+        {/* <p className="text-xs text-gray-500">Private</p> */}
+        {/* </div> */}
+        {/* </div> */}
+        {/* </div>  */}
         {/* NAVBAR LINKS */}
         <nav className="z-10 w-full ">
           <SidebarLink href="/dashboard" icon={Home} label="Dashboard" />

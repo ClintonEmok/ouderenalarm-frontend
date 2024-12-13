@@ -1,12 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import {
   APIProvider,
   Map,
   AdvancedMarker,
   Pin,
-  InfoWindow,
 } from "@vis.gl/react-google-maps";
 
 export default function DeviceMap() {
@@ -16,7 +14,7 @@ export default function DeviceMap() {
     <APIProvider apiKey={""}>
       <div style={{ height: "50vh", width: "100%" }}>
         <Map zoom={9} center={position} mapId={process.env.NEXT_PUBLIC_MAP_ID}>
-          <AdvancedMarker position={position} onClick={() => setOpen(true)}>
+          <AdvancedMarker position={position}>
             <Pin
               background={"grey"}
               borderColor={"green"}

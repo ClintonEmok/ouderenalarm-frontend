@@ -22,7 +22,7 @@ interface DeviceTableProps {
 }
 
 const DeviceTable = ({ data }: DeviceTableProps) => {
-  const router = useRouter();
+  // const router = useRouter();
 
   const columnHeadersArray: Array<keyof Device> = [
     "DeviceID",

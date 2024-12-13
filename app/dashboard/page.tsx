@@ -72,13 +72,13 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-gray-100 p-4">
       {/* Header */}
-      <header className="bg-gradient-to-r from-purple-600 to-red-500 text-white p-4 rounded-lg mb-6 flex flex-col md:flex-row items-start md:items-center justify-between">
+      <header className="bg-gradient-to-r from-[#43A3FA] to-[#286094] text-white p-4 rounded-lg mb-6 flex flex-col md:flex-row items-start md:items-center justify-between">
         <h1 className="text-lg font-semibold mb-2 md:mb-0">
-          Hello [User]! Welcome to MyGuardian
+          Hallo Koen! Welkom bij MyOuderenAlarm
         </h1>
-        <button className="bg-white text-purple-600 font-semibold px-4 py-2 rounded shadow hover:bg-gray-100">
+        {/* <button className="bg-white text-primary-500 font-semibold px-4 py-2 rounded shadow hover:bg-gray-100">
           Update System Information
-        </button>
+        </button> */}
       </header>
 
       {/* Main content grid */}
