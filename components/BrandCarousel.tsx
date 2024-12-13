@@ -38,12 +38,12 @@ export function CarouselPlugin() {
       >
         <CarouselContent>
           {carouselContent.map((item, index) => (
-            <CarouselItem key={index} className="md:basis-1/e lg:basis-1/3 ">
-              <div className="p-4 w-full flex justify-center">
+            <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/3 ">
+              <div className="p-4 w-full flex justify-center items-center h-[150px]">
                 {/* Card Structure */}
-                <div className="bg-white shadow-md rounded-md overflow-hidden w-full max-w-lg">
+                <div className="bg-white shadow-md rounded-md flex justify-center overflow-hidden w-full max-w-lg h-full">
                   {item.type === "text" ? (
-                    <div className="p-6 flex justify-center items-center text-center">
+                    <div className="p-7 flex justify-center items-center text-center">
                       <span className="text-xl font-semibold">
                         {item.content}
                       </span>
@@ -53,7 +53,7 @@ export function CarouselPlugin() {
                       <img
                         src={item.content}
                         alt={`Carousel item ${index + 1}`}
-                        className="max-w-[300px] h-auto max-h-20 object-fit"
+                        className="max-w-[280px] h-auto max-h-20 object-fit"
                       />
                     </div>
                   )}
