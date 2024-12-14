@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from "@/app/redux";
 import { setIsSidebarCollapsed } from "@/state";
-import { Menu, Search, Settings } from "lucide-react";
+import { Menu, Settings } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 

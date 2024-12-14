@@ -1,24 +1,13 @@
 "use client";
 import { useAppDispatch, useAppSelector } from "@/app/redux";
 import { setIsSidebarCollapsed } from "@/state";
-import {
-  Cog,
-  Home,
-  Icon,
-  Lock,
-  LucideIcon,
-  MonitorCheck,
-  Settings,
-  X,
-} from "lucide-react";
-import Image from "next/image";
+import { Home, LucideIcon, Settings, X } from "lucide-react";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useState } from "react";
-import { string } from "zod";
+import React from "react";
 
 const DashboardSidebar = () => {
-  const [showDevices, setShowDevices] = useState(false);
   const dispatch = useAppDispatch();
   const isSidebarCollapsed = useAppSelector(
     (state) => state.global.isSidebarCollapsed
