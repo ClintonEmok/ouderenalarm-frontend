@@ -3,13 +3,11 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import CustomFormField from "../CustomFormField";
 import SubmitButton from "../SubmitButton";
 import { useState } from "react";
 import { UserRegistrationSchema } from "@/lib/validation";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useAuth } from "@/hooks/auth";
 
@@ -236,7 +234,7 @@ const RegisterForm = () => {
         <div className="text-center mt-4">
           <p className="text-dark-700">
             Already have an account?{" "}
-            <Link href="/sign-in" className="text-primary-500 hover:underline">
+            <Link href="/login" className="text-primary-500 hover:underline">
               Sign In
             </Link>
           </p>

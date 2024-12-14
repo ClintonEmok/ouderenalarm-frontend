@@ -8,7 +8,8 @@ import CustomFormField from "../CustomFormField";
 import SubmitButton from "../SubmitButton";
 import { useState } from "react";
 import { useAuth } from "@/hooks/auth";
-import { UserLoginSchema } from "@/lib/validation";
+import { ForgotPasswordSchema } from "@/lib/validation";
+import AuthSessionStatus from "../AuthSessionStatus";
 
 export enum FormFieldType {
   INPUT = "input",
@@ -21,68 +22,51 @@ export enum FormFieldType {
 }
 
 // TODO: Rename
-const LoginForm = () => {
-  const { login } = useAuth({
+const ForgotPasswordForm = () => {
+  const [status, setStatus] = useState<string>("");
+  const { forgotPassword } = useAuth({
     middleware: "guest",
     redirectIfAuthenticated: "/dashboard",
   });
   const [isLoading, setIsLoading] = useState(false);
 
-  const form = useForm<z.infer<typeof UserLoginSchema>>({
-    resolver: zodResolver(UserLoginSchema),
+  const form = useForm<z.infer<typeof ForgotPasswordSchema>>({
+    resolver: zodResolver(ForgotPasswordSchema),
     defaultValues: {
       email: "",
-      password: "",
     },
   });
 
   // 2. Define a submit handler.
-  async function onSubmit({
-    email,
-    password,
-  }: z.infer<typeof UserLoginSchema>) {
+  async function onSubmit({ email }: z.infer<typeof ForgotPasswordSchema>) {
     setIsLoading(true);
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
 
     try {
-      const userData = {
+      const formData = {
         email,
-        password,
       };
-
-      // Call an API
-
-      await login(userData);
+      const response = await forgotPassword(formData);
+      setStatus(response.data.status);
     } catch (e) {
+      setStatus("");
+      setIsLoading(false);
       console.error(e);
     }
   }
   return (
     <Form {...form}>
+      <AuthSessionStatus className="mb-4" status={status} />
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 flex-1">
-        <section className="mb-12 space-y-4">
-          <h1 className="header">Welkom terug 👋</h1>
-          <p className="text-dark-700">
-            Log in om verder te gaan waar je gebleven was
-          </p>
-        </section>
-
         <CustomFormField
           control={form.control}
           fieldType={FormFieldType.INPUT}
           name="email"
           label="Email"
           placeholder="johndoe@gmail.com"
-          iconSrc="assets/icons/email.svg"
-          iconAlt="email"
         />
-        <CustomFormField
-          control={form.control}
-          fieldType={FormFieldType.INPUT}
-          name="password"
-          label="Password"
-        />
+
         <div className="flex items-center w-full justify-center">
           <SubmitButton
             isLoading={isLoading}
@@ -90,7 +74,7 @@ const LoginForm = () => {
               "bg-primary-500 text-white font-bold text-md w-full max-w-xs"
             }
           >
-            Login
+            Email Password Reset Link
           </SubmitButton>
         </div>
       </form>
@@ -98,4 +82,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default ForgotPasswordForm;

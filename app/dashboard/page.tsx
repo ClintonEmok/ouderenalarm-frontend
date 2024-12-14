@@ -1,9 +1,12 @@
+"use client";
 import DeviceTable from "@/components/devices/DeviceTable";
 import DeviceMap from "@/components/Map";
+import { useAuth } from "@/hooks/auth";
 import Image from "next/image";
 import React, { useMemo } from "react";
 
 const Dashboard = () => {
+  const { user } = useAuth({});
   const data = useMemo(
     () => [
       {
@@ -74,7 +77,7 @@ const Dashboard = () => {
       {/* Header */}
       <header className="bg-gradient-to-r from-[#43A3FA] to-[#286094] text-white p-4 rounded-lg mb-6 flex flex-col md:flex-row items-start md:items-center justify-between">
         <h1 className="text-lg font-semibold mb-2 md:mb-0">
-          Hallo Koen! Welkom bij MyOuderenAlarm
+          Hallo {user?.name}! Welkom bij MyOuderenAlarm
         </h1>
         {/* <button className="bg-white text-primary-500 font-semibold px-4 py-2 rounded shadow hover:bg-gray-100">
           Systeeminformatie bijwerken

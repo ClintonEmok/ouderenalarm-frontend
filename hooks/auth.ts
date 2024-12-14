@@ -46,8 +46,10 @@ export const useAuth = ({
   const login = async (data: { email: string; password: string }) => {
     try {
       await csrf();
-      await axios.post("/login", data);
-      mutate();
+      return await axios
+        .post("/login", data)
+        .then(() => mutate())
+        .catch((error) => console.error(error));
     } catch (error) {
       throw error;
     }
@@ -72,12 +74,14 @@ export const useAuth = ({
     try {
       await csrf();
 
-      const response = await axios.post("/reset-password", {
-        ...data,
-        token: params.token,
-      });
-
-      router.push("/login?reset=" + btoa(response.data.status));
+      return await axios
+        .post("/reset-password", {
+          ...data,
+          token: params.token,
+        })
+        .then((response) =>
+          router.push("/login?reset=" + btoa(response.data.status))
+        );
     } catch (error) {
       throw error;
     }
