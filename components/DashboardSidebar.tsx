@@ -58,11 +58,11 @@ const DashboardSidebar = () => {
         {/* NAVBAR LINKS */}
         <nav className="z-10 w-full ">
           <SidebarLink href="/dashboard" icon={Home} label="Dashboard" />
-          <SidebarLink
+          {/* <SidebarLink
             href="/devices"
             icon={MonitorCheck}
             label="Managed Care"
-          />
+          /> */}
           <SidebarLink href="/settings" icon={Settings} label="Settings" />
         </nav>
       </div>
