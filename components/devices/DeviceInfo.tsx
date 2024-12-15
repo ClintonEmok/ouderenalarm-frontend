@@ -30,7 +30,7 @@ const DeviceInfo = () => {
   if (isLoading) {
     return (
       <div className="flex justify-center items-center h-40">
-        <p className="text-gray-700">Loading devices...</p>
+        <p className="text-gray-700">Laden van apparaten...</p>
       </div>
     );
   }
@@ -40,7 +40,7 @@ const DeviceInfo = () => {
     return (
       <div className="flex justify-center items-center h-40">
         <p className="text-red-600">
-          Failed to load devices. Please try again.
+          Fout bij het laden van apparaten. Probeer het opnieuw.
         </p>
       </div>
     );
@@ -50,7 +50,7 @@ const DeviceInfo = () => {
   if (!selectedDevice) {
     return (
       <div className="flex justify-center items-center h-40">
-        <p className="text-gray-700">No devices available</p>
+        <p className="text-gray-700">Geen apparaten beschikbaar</p>
       </div>
     );
   }

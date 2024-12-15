@@ -27,6 +27,7 @@ import {
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Device } from "@/lib/interface"; // Import the Device interface
+import { MRT_Localization_NL } from "material-react-table/locales/nl";
 
 const MaterialDeviceTable = () => {
   const [validationErrors, setValidationErrors] = useState<
@@ -37,7 +38,7 @@ const MaterialDeviceTable = () => {
     () => [
       {
         accessorKey: "phone_number",
-        header: "Phone Number",
+        header: "Telefoonnummer",
         muiEditTextFieldProps: {
           required: true,
           error: !!validationErrors?.phone_number,
@@ -62,7 +63,7 @@ const MaterialDeviceTable = () => {
       },
       {
         accessorKey: "battery_percentage",
-        header: "Battery %",
+        header: "Batterijpercentage",
         muiEditTextFieldProps: {
           required: true,
           type: "number",
@@ -126,6 +127,7 @@ const MaterialDeviceTable = () => {
 
   const table = useMaterialReactTable({
     columns,
+    localization: MRT_Localization_NL,
     data: devices,
     createDisplayMode: "modal",
     editDisplayMode: "modal",
@@ -149,7 +151,7 @@ const MaterialDeviceTable = () => {
     ),
     renderTopToolbarCustomActions: ({ table }) => (
       <Button variant="contained" onClick={() => table.setCreatingRow(true)}>
-        Create New Device
+        Voeg apparaat toe
       </Button>
     ),
     state: {
