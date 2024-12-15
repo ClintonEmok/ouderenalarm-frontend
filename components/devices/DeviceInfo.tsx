@@ -113,9 +113,7 @@ const DeviceInfo = () => {
         {/* Connection Status */}
         <div className="bg-gray-100 p-4 rounded-lg shadow w-full text-center">
           <h3 className="text-md font-semibold mb-2">Verbindingsstatus</h3>
-          <p className="text-gray-600 font-bold text-lg">
-            {selectedDevice.connection_status ?? "Onbekend"}
-          </p>
+          <p className="text-gray-600 font-bold text-lg">{"Onbekend"}</p>
         </div>
       </div>
     </div>
