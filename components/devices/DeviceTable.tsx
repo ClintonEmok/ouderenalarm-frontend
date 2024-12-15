@@ -1,7 +1,8 @@
 "use client";
-import { Device } from "@/lib/interface";
-import { useRouter } from "next/navigation";
+
 import React from "react";
+
+import { Device } from "@/lib/interface";
 import {
   createColumnHelper,
   flexRender,
@@ -16,37 +17,68 @@ import {
   TableHeader,
   TableRow,
 } from "../ui/table";
+import { useGetDevicesQuery } from "@/state/api";
 
-interface DeviceTableProps {
-  data: Device[];
-}
+const DeviceTable = () => {
+  const { data: devices = [], isLoading, isError } = useGetDevicesQuery();
+  console.log(devices);
 
-const DeviceTable = ({ data }: DeviceTableProps) => {
-  // const router = useRouter();
-
+  // Columns to be displayed, mapped to the updated snake_case Device interface
   const columnHeadersArray: Array<keyof Device> = [
-    "DeviceID",
-    "AlarmCode",
-    "latitude",
-    "longitude",
-    "mapslink",
-    "TelefoonnummerDevice",
-    "Batterijpercentage",
+    "id",
+    "user_id",
+    "alarm_code",
+    "maps_link",
+    "phone_number",
+    "battery_percentage",
   ];
 
   const columnHelper = createColumnHelper<Device>();
+
   const columns = columnHeadersArray.map((columnName) => {
     return columnHelper.accessor(columnName, {
       id: columnName,
-      header: columnName[0].toUpperCase() + columnName.slice(1),
+      header: formatHeader(columnName),
+      cell: (info) => {
+        // Handle nested properties like 'location.latitude' & 'location.longitude'
+        if (columnName === "location" && info.getValue()) {
+          const location = info.getValue() as Device["location"];
+          return `Lat: ${location.latitude}, Long: ${location.longitude}`;
+        }
+        if (
+          typeof info.getValue() === "string" ||
+          typeof info.getValue() === "number"
+        ) {
+          return info.getValue();
+        }
+        return info.getValue() ?? "-";
+      },
     });
   });
 
   const table = useReactTable({
-    data,
+    data: devices,
     columns,
     getCoreRowModel: getCoreRowModel(),
   });
+
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center py-10">
+        <p className="text-gray-700">Loading devices...</p>
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className="flex items-center justify-center py-10">
+        <p className="text-red-600">
+          Failed to load devices. Please try again.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="mt-6 rounded-lg overflow-hidden border border-gray-200 shadow-sm">
@@ -78,7 +110,7 @@ const DeviceTable = ({ data }: DeviceTableProps) => {
           ))}
         </TableHeader>
         <TableBody>
-          {table.getRowModel().rows.map((row, rowIndex) => (
+          {table.getRowModel().rows.map((row) => (
             <TableRow
               key={row.id}
               className={`cursor-pointer bg-white hover:bg-gray-100 transition-colors duration-150`}
@@ -100,3 +132,14 @@ const DeviceTable = ({ data }: DeviceTableProps) => {
 };
 
 export default DeviceTable;
+
+/**
+ * Format the column header to be user-friendly.
+ * Converts 'user_id' to 'User Id', 'battery_percentage' to 'Battery Percentage'
+ */
+const formatHeader = (key: string) => {
+  return key
+    .replace(/_/g, " ") // Replace underscores with spaces
+    .replace(/([a-z])([A-Z])/g, "$1 $2") // Add space before capital letters
+    .replace(/^[a-z]/, (match) => match.toUpperCase()); // Capitalize first letter
+};

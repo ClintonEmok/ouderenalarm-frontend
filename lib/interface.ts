@@ -119,12 +119,12 @@ export interface Device {
   /**
    * The ID of the user who owns the device.
    */
-  userId: string;
+  user_id: string;
 
   /**
    * The alarm code for the device.
    */
-  alarmCode: string | null;
+  alarm_code: string | null;
 
   /**
    * The location of the device, including latitude and longitude.
@@ -137,30 +137,30 @@ export interface Device {
   /**
    * The Google Maps link for the device's location.
    */
-  mapsLink: string | null;
+  maps_link: string | null;
 
   /**
    * The phone number associated with the device.
    */
-  phoneNumber: string;
+  phone_number: string;
 
   /**
    * The battery percentage of the device.
    */
-  batteryPercentage: number;
+  battery_percentage: number;
 
   /**
    * The timestamp when the device record was created.
    */
-  createdAt: string;
+  created_at: string;
 
   /**
    * The timestamp when the device record was last updated.
    */
-  updatedAt: string;
+  updated_at: string;
 
   /**
    * The associated user for the device (if loaded).
    */
-  user?: User; // This is optional since "whenLoaded" will only load it when necessary
+  user?: User; // Optional because whenLoaded('user') means it may not always be loaded
 }
