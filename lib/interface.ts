@@ -29,22 +29,6 @@ export interface UserRegistrationRequest {
   type?: "billing" | "shipping";
 }
 
-export interface Address {
-  id: number;
-  street: string;
-  postal_code: string;
-  city: string;
-  country: string;
-  type: "billing" | "shipping";
-}
-
-export interface User {
-  id: number;
-  name: string;
-  email: string;
-  addresses: Address[];
-}
-
 export interface UserRegistrationResponse {
   success: boolean;
   message: string;
@@ -52,54 +36,131 @@ export interface UserRegistrationResponse {
   access_token: string;
 }
 
+export interface User {
+  /**
+   * The unique identifier for the user.
+   */
+  id: string;
+
+  /**
+   * The first name of the user.
+   */
+  name: string;
+
+  /**
+   * The last name of the user.
+   */
+  lastName: string;
+
+  /**
+   * The email address of the user.
+   */
+  email: string;
+
+  /**
+   * The phone number associated with the user.
+   */
+  phoneNumber: string;
+
+  /**
+   * The addresses linked to the user.
+   */
+  addresses: Address[];
+
+  /**
+   * The timestamp when the user was created.
+   */
+  createdAt: string;
+
+  /**
+   * The timestamp when the user was last updated.
+   */
+  updatedAt: string;
+}
+
+export interface Address {
+  /**
+   * The unique identifier for the address.
+   */
+  id: string;
+
+  /**
+   * The street of the address.
+   */
+  street: string;
+
+  /**
+   * The city of the address.
+   */
+  city: string;
+
+  /**
+   * The postal code of the address.
+   */
+  postalCode: string;
+
+  /**
+   * The country of the address.
+   */
+  country: string;
+
+  /**
+   * The type of the address (billing, shipping, etc.).
+   */
+  type: "billing" | "shipping";
+}
+
 export interface Device {
   /**
    * The unique identifier for the device.
    */
-  DeviceID: string;
+  id: string;
 
   /**
-   * The user ID (GebruikerID) associated with the device.
+   * The ID of the user who owns the device.
    */
-  GebruikerID: string;
+  userId: string;
 
   /**
    * The alarm code for the device.
    */
-  AlarmCode: string;
+  alarmCode: string | null;
 
   /**
-   * The longitude of the device's location.
+   * The location of the device, including latitude and longitude.
    */
-  longitude: string;
-
-  /**
-   * The latitude of the device's location.
-   */
-  latitude: string;
+  location: {
+    longitude: number | null;
+    latitude: number | null;
+  };
 
   /**
    * The Google Maps link for the device's location.
    */
-  mapslink: string;
+  mapsLink: string | null;
 
   /**
    * The phone number associated with the device.
    */
-  TelefoonnummerDevice: string;
+  phoneNumber: string;
 
   /**
    * The battery percentage of the device.
    */
-  Batterijpercentage: string;
+  batteryPercentage: number;
 
   /**
    * The timestamp when the device record was created.
    */
-  created_at: string;
+  createdAt: string;
 
   /**
    * The timestamp when the device record was last updated.
    */
-  updated_at: string;
+  updatedAt: string;
+
+  /**
+   * The associated user for the device (if loaded).
+   */
+  user?: User; // This is optional since "whenLoaded" will only load it when necessary
 }
