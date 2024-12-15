@@ -1,5 +1,4 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
-// Import custom base query
 import { Device } from "@/lib/interface";
 import axiosBaseQuery from "@/lib/axiosBaseQuery";
 
@@ -11,7 +10,13 @@ export const api = createApi({
     // 🔥 Get all devices
     getDevices: builder.query<Device[], void>({
       query: () => ({ url: "api/devices", method: "GET" }),
-      providesTags: ["Devices"],
+      providesTags: (result) =>
+        result
+          ? [
+              ...result.map(({ id }) => ({ type: "Device", id }) as const),
+              "Devices",
+            ]
+          : ["Devices"],
     }),
 
     // 🔥 Get a single device
@@ -46,7 +51,7 @@ export const api = createApi({
         url: `api/devices/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: (result, error, id) => ["Devices"],
+      invalidatesTags: (result, error, id) => [{ type: "Device", id }],
     }),
   }),
 });

@@ -41,13 +41,13 @@ const DashboardNavbar = () => {
       <div className="flex items-center  ">
         <Link
           href="/settings"
-          className="h-min w-mi rounded p-2 hover:bg-gray-100"
+          className="h-min w-min rounded p-2 hover:bg-gray-100"
         >
           <Settings className="h-6 w-6 cursor-pointer" />
         </Link>
         <Button
           onClick={logout}
-          className="h-min w-mi rounded p-2 hover:bg-gray-100"
+          className="h-min w-min rounded p-2 hover:bg-gray-100 shadow-none"
         >
           <LogOut className="h-6 w-6 cursor-pointer" />
         </Button>
