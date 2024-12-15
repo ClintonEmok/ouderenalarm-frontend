@@ -97,12 +97,6 @@ const ElderlyAlarmJourney = () => {
         >
           Ik wil het 14 dagen gratis testen!
         </a>
-
-        {/* Subtitle */}
-        <p className="text-gray-600 text-sm mt-4 font-semibold">
-          Plan een gesprek met ons. Ontdek hoe u uw veiligheidssituatie kunt
-          verbeteren en met een gerust hart kunt leven.
-        </p>
       </div>
     </section>
   );

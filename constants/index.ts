@@ -105,7 +105,6 @@ export const GUIDE_SECTIONS = [
 
 export const LOGOS = [
   { src: "/assets/logos/AD.svg", alt: "AD" },
-
   { src: "/assets/logos/NOS.svg", alt: "NOS" },
   { src: "/assets/logos/Telegraaf.svg", alt: "Telegraaf" },
 ];
@@ -113,16 +112,8 @@ export const LOGOS = [
 // FOOTER SECTION
 export const FOOTER_LINKS = [
   {
-    title: "Learn More",
-    links: [
-      "About OuderenAlarm",
-      // "Press Releases",
-      // "Environment",
-      // "Jobs",
-      // "Blog",
-      // "Privacy Policy",
-      // "Contact Us",
-    ],
+    title: "Leer Meer",
+    links: ["Over OuderenAlarm"],
   },
   // {
   //   title: "Our Community",
@@ -134,7 +125,7 @@ export const FOOTER_CONTACT_INFO = {
   title: "Contact Us",
   links: [
     { label: "Telephone", value: "123-456-7890" },
-    { label: "Email", value: "lorem@ouderenalarm.nl" },
+    { label: "Email", value: "info@ouderenalarm.nl" },
   ],
 };
 
