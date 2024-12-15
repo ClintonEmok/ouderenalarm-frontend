@@ -46,7 +46,7 @@ export const api = createApi({
         url: `api/devices/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: (result, error, id) => [{ type: "Device", id }],
+      invalidatesTags: (result, error, id) => ["Devices"],
     }),
   }),
 });
