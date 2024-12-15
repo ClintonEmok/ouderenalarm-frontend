@@ -52,7 +52,11 @@ const DashboardSidebar = () => {
             icon={MonitorCheck}
             label="Managed Care"
           /> */}
-          <SidebarLink href="/settings" icon={Settings} label="Settings" />
+          <SidebarLink
+            href="/dashboard/settings"
+            icon={Settings}
+            label="Settings"
+          />
         </nav>
       </div>
     </div>

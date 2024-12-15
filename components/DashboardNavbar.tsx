@@ -29,7 +29,7 @@ const DashboardNavbar = () => {
       {/* Icons */}
       <div className="flex items-center  ">
         <Link
-          href="/settings"
+          href="/dashboard/settings"
           className="h-min w-min rounded p-2 hover:bg-gray-100"
         >
           <Settings className="h-6 w-6 cursor-pointer" />
