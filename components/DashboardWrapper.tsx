@@ -15,12 +15,19 @@ export default function DashboardLayout({
 
   return (
     <div className="flex min-h-screen w-full bg-gray-50 text-gray-900">
+      {/* Sidebar Section */}
       <DashboardSidebar />
+
       <div
-        className={`flex flex-col w-full ${isSidebarCollapsed ? "" : "pl-64"}`}
+        className={`flex flex-col w-full transition-all duration-300 ease-in-out ${
+          isSidebarCollapsed ? "pl-0" : "md:pl-64"
+        }`}
       >
+        {/* Top Navbar */}
         <DashboardNavbar />
-        <main className="relative overflow-hidden min-h-screen">
+
+        {/* Main Content */}
+        <main className="relative flex-1 overflow-hidden min-h-screen">
           {children}
         </main>
       </div>

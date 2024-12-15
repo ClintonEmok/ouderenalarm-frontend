@@ -25,17 +25,6 @@ const DashboardNavbar = () => {
             <Menu className="h-8 w-8 cursor-pointer" />
           </button>
         )}
-        {/* <div className="relative flex h-min w-[200px]">
-          <Search
-            size={24}
-            className="absolute left-[4px] top-1/2 mr-2 h-5 w-5 -translate-y-1/2 transform cursor-pointer  "
-          />
-          <input
-            className="w-full rounded border-none bg-gray-100 p-2 pl-8 placeholder-gray-500 focus:outline-none focus:border-transparent"
-            type="search"
-            placeholder="Search..."
-          />
-        </div> */}
       </div>
       {/* Icons */}
       <div className="flex items-center  ">
