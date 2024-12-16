@@ -9,21 +9,14 @@ import SubmitButton from "@/components/SubmitButton";
 import { useState } from "react";
 import { useAuth } from "@/hooks/auth";
 import { FormFieldType } from "./LoginForm";
-
-export const PasswordSchema = z.object({
-  current_password: z.string().min(8, "Current password is required"),
-  new_password: z.string().min(8, "New password must be at least 8 characters"),
-  new_password_confirmation: z
-    .string()
-    .min(8, "Please confirm your new password"),
-});
+import { UpdatePasswordSchema } from "@/lib/validation";
 
 const UpdatePasswordForm = () => {
   const { changePassword } = useAuth({ middleware: "auth" });
   const [isLoading, setIsLoading] = useState(false);
 
-  const form = useForm<z.infer<typeof PasswordSchema>>({
-    resolver: zodResolver(PasswordSchema),
+  const form = useForm<z.infer<typeof UpdatePasswordSchema>>({
+    resolver: zodResolver(UpdatePasswordSchema),
     defaultValues: {
       current_password: "",
       new_password: "",
@@ -31,7 +24,7 @@ const UpdatePasswordForm = () => {
     },
   });
 
-  const onSubmit = async (data: z.infer<typeof PasswordSchema>) => {
+  const onSubmit = async (data: z.infer<typeof UpdatePasswordSchema>) => {
     setIsLoading(true);
     try {
       await changePassword(data);
@@ -49,19 +42,19 @@ const UpdatePasswordForm = () => {
           control={form.control}
           name="current_password"
           label="Current Password"
-          fieldType={FormFieldType.INPUT}
+          fieldType={FormFieldType.PASSWORD}
         />
         <CustomFormField
           control={form.control}
           name="new_password"
           label="New Password"
-          fieldType={FormFieldType.INPUT}
+          fieldType={FormFieldType.PASSWORD}
         />
         <CustomFormField
           control={form.control}
-          name="confirm_password"
+          name="new_password_confirmation"
           label="Confirm Password"
-          fieldType={FormFieldType.INPUT}
+          fieldType={FormFieldType.PASSWORD}
         />
         <SubmitButton
           isLoading={isLoading}

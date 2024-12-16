@@ -62,7 +62,7 @@ const PasswordResetForm = () => {
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 flex-1">
         <CustomFormField
           control={form.control}
-          fieldType={FormFieldType.INPUT}
+          fieldType={FormFieldType.PASSWORD}
           name="email"
           label="Email"
           placeholder="johndoe@gmail.com"
@@ -70,14 +70,14 @@ const PasswordResetForm = () => {
 
         <CustomFormField
           control={form.control}
-          fieldType={FormFieldType.INPUT}
+          fieldType={FormFieldType.PASSWORD}
           name="password"
           label="Password"
           placeholder=""
         />
         <CustomFormField
           control={form.control}
-          fieldType={FormFieldType.INPUT}
+          fieldType={FormFieldType.PASSWORD}
           name="password_confirmation"
           label="Confirm Password"
           placeholder=""

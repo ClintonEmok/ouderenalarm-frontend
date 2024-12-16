@@ -38,7 +38,7 @@ export const useAuth = ({
   }) => {
     try {
       await csrf();
-      const response = await axios.put("/user", data);
+      const response = await axios.put("api/user", data);
       mutate();
       return response;
     } catch (error) {
@@ -63,7 +63,11 @@ export const useAuth = ({
       return await axios
         .post("/login", data)
         .then(() => mutate())
-        .catch((error) => console.error(error));
+        .catch((error) => {
+          if (error.response.status !== 422) {
+            throw error;
+          }
+        });
     } catch (error) {
       throw error;
     }
@@ -116,7 +120,7 @@ export const useAuth = ({
   }) => {
     try {
       await csrf();
-      const response = await axios.put("/user/password", data);
+      const response = await axios.put("api/user/password", data);
       return response.data;
     } catch (error) {
       console.error("Failed to change password", error);

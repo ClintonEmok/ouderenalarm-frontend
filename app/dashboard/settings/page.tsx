@@ -4,7 +4,7 @@ import React from "react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import UpdatePasswordForm from "@/components/forms/UpdatePasswordForm";
 import AccountForm from "@/components/forms/AccountForm";
-import AddressForm from "@/components/forms/AddressForm";
+// import AddressForm from "@/components/forms/AddressForm";
 
 const Settings = () => {
   return (
@@ -19,9 +19,9 @@ const Settings = () => {
           <TabsTrigger value="password" className="px-4 py-2">
             Password
           </TabsTrigger>
-          <TabsTrigger value="address" className="px-4 py-2">
+          {/* <TabsTrigger value="address" className="px-4 py-2">
             Address
-          </TabsTrigger>
+          </TabsTrigger> */}
         </TabsList>
 
         <TabsContent value="account">
@@ -32,9 +32,9 @@ const Settings = () => {
           <UpdatePasswordForm />
         </TabsContent>
 
-        <TabsContent value="address">
+        {/* <TabsContent value="address">
           <AddressForm />
-        </TabsContent>
+        </TabsContent> */}
       </Tabs>
     </div>
   );

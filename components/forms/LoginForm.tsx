@@ -9,9 +9,12 @@ import SubmitButton from "../SubmitButton";
 import { useState } from "react";
 import { useAuth } from "@/hooks/auth";
 import { UserLoginSchema } from "@/lib/validation";
+import AuthSessionStatus from "../AuthSessionStatus";
+import { AxiosError } from "axios";
 
 export enum FormFieldType {
   INPUT = "input",
+  PASSWORD = "password",
   TEXTAREA = "textarea",
   PHONE_INPUT = "phoneInput",
   CHECKBOX = "checkbox",
@@ -27,6 +30,7 @@ const LoginForm = () => {
     redirectIfAuthenticated: "/dashboard",
   });
   const [isLoading, setIsLoading] = useState(false);
+  const [status, setStatus] = useState<string>("");
 
   const form = useForm<z.infer<typeof UserLoginSchema>>({
     resolver: zodResolver(UserLoginSchema),
@@ -55,7 +59,9 @@ const LoginForm = () => {
 
       await login(userData);
     } catch (e) {
-      console.error(e);
+      console.error(e.response.data);
+      setIsLoading(false);
+      setStatus("Authentication failed. Please check your credentials.");
     }
   }
   return (
@@ -66,6 +72,7 @@ const LoginForm = () => {
           <p className="text-dark-700">
             Log in om verder te gaan waar je gebleven was
           </p>
+          <AuthSessionStatus status={status} className="text-red-800" />
         </section>
 
         <CustomFormField
@@ -79,7 +86,7 @@ const LoginForm = () => {
         />
         <CustomFormField
           control={form.control}
-          fieldType={FormFieldType.INPUT}
+          fieldType={FormFieldType.PASSWORD}
           name="password"
           label="Password"
         />

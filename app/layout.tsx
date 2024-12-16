@@ -5,6 +5,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Metadata } from "next";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const fontSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -42,7 +43,9 @@ const Layout = ({ children }: LayoutProps) => {
           fontSans.variable
         )}
       >
-        <main>{children}</main>
+        <ThemeProvider attribute="class" defaultTheme="light">
+          <main>{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   );

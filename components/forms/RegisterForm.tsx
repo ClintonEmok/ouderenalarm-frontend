@@ -84,6 +84,7 @@ const RegisterForm = () => {
       // if(user) router.push(/users/${user.id}/register);
     } catch (e) {
       console.error(e);
+      setIsLoading(false);
     }
   }
 
