@@ -10,16 +10,7 @@ import { useState } from "react";
 import { UserRegistrationSchema } from "@/lib/validation";
 import Link from "next/link";
 import { useAuth } from "@/hooks/auth";
-
-export enum FormFieldType {
-  INPUT = "input",
-  TEXTAREA = "textarea",
-  PHONE_INPUT = "phoneInput",
-  CHECKBOX = "checkbox",
-  DATE_PICKER = "datePicker",
-  SELECT = "select",
-  SKELETON = "skeleton",
-}
+import { FormFieldType } from "./LoginForm";
 
 // TODO: Rename
 const RegisterForm = () => {

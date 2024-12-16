@@ -10,16 +10,7 @@ import { useState } from "react";
 import { useAuth } from "@/hooks/auth";
 import { ForgotPasswordSchema } from "@/lib/validation";
 import AuthSessionStatus from "../AuthSessionStatus";
-
-export enum FormFieldType {
-  INPUT = "input",
-  TEXTAREA = "textarea",
-  PHONE_INPUT = "phoneInput",
-  CHECKBOX = "checkbox",
-  DATE_PICKER = "datePicker",
-  SELECT = "select",
-  SKELETON = "skeleton",
-}
+import { FormFieldType } from "./LoginForm";
 
 // TODO: Rename
 const ForgotPasswordForm = () => {

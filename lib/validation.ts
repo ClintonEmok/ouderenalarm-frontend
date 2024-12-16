@@ -74,3 +74,9 @@ export const PasswordResetSchema = z
     message: "Passwords do not match",
     path: ["password_confirmation"],
   });
+
+export const AccountSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Invalid email address"),
+  phone_number: z.string().optional(),
+});

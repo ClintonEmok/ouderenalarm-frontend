@@ -11,16 +11,7 @@ import { useAuth } from "@/hooks/auth";
 import { PasswordResetSchema } from "@/lib/validation";
 import AuthSessionStatus from "../AuthSessionStatus";
 import { useSearchParams } from "next/navigation";
-
-export enum FormFieldType {
-  INPUT = "input",
-  TEXTAREA = "textarea",
-  PHONE_INPUT = "phoneInput",
-  CHECKBOX = "checkbox",
-  DATE_PICKER = "datePicker",
-  SELECT = "select",
-  SKELETON = "skeleton",
-}
+import { FormFieldType } from "./LoginForm";
 
 // TODO: Rename
 const PasswordResetForm = () => {

@@ -31,6 +31,20 @@ export const useAuth = ({
   );
 
   const csrf = () => axios.get("/sanctum/csrf-cookie");
+  const updateAccount = async (data: {
+    name: string;
+    email: string;
+    phone_number?: string;
+  }) => {
+    try {
+      await csrf();
+      const response = await axios.put("/user", data);
+      mutate();
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  };
 
   const register = async (data: UserRegistrationRequest) => {
     try {
@@ -95,6 +109,21 @@ export const useAuth = ({
     }
   };
 
+  const changePassword = async (data: {
+    current_password: string;
+    new_password: string;
+    new_password_confirmation: string;
+  }) => {
+    try {
+      await csrf();
+      const response = await axios.put("/user/password", data);
+      return response.data;
+    } catch (error) {
+      console.error("Failed to change password", error);
+      throw error;
+    }
+  };
+
   const logout = async () => {
     if (!error) {
       await axios.post("/logout").then(() => mutate());
@@ -122,9 +151,11 @@ export const useAuth = ({
     user,
     register,
     login,
+    changePassword,
     forgotPassword,
     resetPassword,
     resendEmailVerification,
+    updateAccount,
     logout,
   };
 };
