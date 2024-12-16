@@ -59,7 +59,7 @@ const LoginForm = () => {
 
       await login(userData);
     } catch (e) {
-      console.error(e.response.data);
+      // console.error(e.response.data);
       setIsLoading(false);
       setStatus("Authentication failed. Please check your credentials.");
     }
