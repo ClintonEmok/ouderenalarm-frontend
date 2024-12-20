@@ -18,6 +18,7 @@ async function getPost(slug: string) {
   const query = `*[_type == "post" && slug.current == "${slug}"][0] {
         title,
         slug,
+        featuredImage,
         publishedAt,
         excerpt,
         body,
@@ -65,9 +66,23 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const slug = (await params).slug;
   const post: Post = await getPost(slug);
+  if (!post) return {};
   return {
     title: post?.title,
     description: post?.excerpt,
+    openGraph: {
+      title: post?.title,
+      description: post?.excerpt,
+      type: "article",
+      locale: "nl_NL",
+      url: `https://ouderen-alarmering.nl/blog/${post?.slug.current}`,
+      siteName: "OuderenAlarmering ",
+      images: {
+        url: urlFor(post?.featuredImage).width(800).height(600).url(),
+        width: 800,
+        height: 600,
+      },
+    },
   };
 }
 

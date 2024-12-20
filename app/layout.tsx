@@ -25,6 +25,8 @@ export const metadata: Metadata = {
       "Verbeter de veiligheid en het welzijn van ouderen met de innovatieve alarmsystemen en zorgoplossingen van OuderenAlarm.",
     url: process.env.NEXT_PUBLIC_BASE_URL,
     type: "website",
+    locale: "nl_NL",
+    siteName: "OuderenAlarm",
   },
 
   robots: "index, follow",

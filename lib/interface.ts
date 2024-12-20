@@ -1,6 +1,13 @@
 export interface Post {
   title: string;
   slug: { current: string };
+  featuredImage: {
+    _type: "image";
+    asset: {
+      _type: "reference";
+      _ref: string;
+    };
+  };
   publishedAt: string;
   excerpt: string;
   body: any;

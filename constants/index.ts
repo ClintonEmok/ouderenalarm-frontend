@@ -125,7 +125,7 @@ export const FOOTER_CONTACT_INFO = {
   title: "Contact Us",
   links: [
     { label: "Telephone", value: "123-456-7890" },
-    { label: "Email", value: "info@ouderenalarm.nl" },
+    { label: "Email", value: "info@ouderen-alarmering.nl" },
   ],
 };
 

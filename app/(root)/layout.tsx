@@ -9,13 +9,14 @@ export const metadata: Metadata = {
     default: "OuderenAlarm - Veiligheid en Zorg voor Ouderen",
     template: "%s | OuderenAlarm",
   },
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL ?? ""),
   description:
     "OuderenAlarm biedt een compleet platform dat de veiligheid en het welzijn van ouderen verbetert met moderne alarmsystemen en zorgoplossingen.",
   openGraph: {
     title: "OuderenAlarm - Veiligheid en Zorg voor Ouderen",
     description:
       "Verbeter de veiligheid en het welzijn van ouderen met de innovatieve alarmsystemen en zorgoplossingen van OuderenAlarm.",
-    url: process.env.NEXT_PUBLIC_BASE_URL, // Vervang met jouw website-URL
+    url: process.env.NEXT_PUBLIC_BASE_URL,
     type: "website",
   },
 

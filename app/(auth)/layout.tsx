@@ -13,7 +13,7 @@ const fontSans = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: {
     default: "OuderenAlarm - Veiligheid en Zorg voor Ouderen",
-    template: "%s | OuderenAlarm",
+    template: "%s | OuderenAlarme",
   },
   description:
     "OuderenAlarm biedt een compleet platform dat de veiligheid en het welzijn van ouderen verbetert met moderne alarmsystemen en zorgoplossingen.",
