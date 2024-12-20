@@ -1,7 +1,7 @@
 export interface Post {
   title: string;
   slug: { current: string };
-  featuredImage: {
+  featuredImage?: {
     _type: "image";
     asset: {
       _type: "reference";

@@ -78,7 +78,9 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       url: `https://ouderen-alarmering.nl/blog/${post?.slug.current}`,
       siteName: "OuderenAlarmering ",
       images: {
-        url: urlFor(post?.featuredImage).width(800).height(600).url(),
+        url: post?.featuredImage
+          ? urlFor(post.featuredImage).width(800).height(600).url()
+          : `${process.env.NEXT_PUBLIC_BASE_URL}/logos/ouderalarm.png`,
         width: 800,
         height: 600,
       },
