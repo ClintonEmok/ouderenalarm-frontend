@@ -21,12 +21,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     return posts;
   }
   const posts: Post[] = await getPosts();
-  const postEntries: MetadataRoute.Sitemap = posts.map(({ slug }) => ({
-    url: `${process.env.NEXT_PUBLIC_BASE_URL}/blog/posts/${slug.current}`,
-    // lastModified (new Date()),
-    // changeFrequency: "daily",
-    // priority: 0.7,
-  }));
+  const postEntries: MetadataRoute.Sitemap = posts.map(
+    ({ slug, publishedAt }) => ({
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/blog/posts/${slug.current}`,
+      lastModified: new Date(publishedAt),
+      // lastModified (new Date()),
+      // changeFrequency: "daily",
+      // priority: 0.7,
+    })
+  );
   return [
     {
       url: `${process.env.NEXT_PUBLIC_BASE_URL}/`,
