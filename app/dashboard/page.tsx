@@ -7,7 +7,7 @@ import { useAuth } from "@/hooks/auth";
 import React from "react";
 
 const Dashboard = () => {
-  const { user } = useAuth({});
+  const { user } = useAuth({ middleware: "auth" });
   return (
     <div className="min-h-screen bg-gray-100 p-4">
       {/* Header */}
