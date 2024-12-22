@@ -5,6 +5,7 @@ import SurveyFormStep1 from "./surveyform/SurveyFormStep1";
 import { Progress } from "../ui/progress";
 import SurveyFormStep2 from "./surveyform/SurveyFormStep2";
 import SurveyFormStep3 from "./surveyform/SurveyFormStep3";
+import SurveyFormStep4 from "./surveyform/SurveyFormStep4";
 
 const SurveyForm = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
@@ -56,6 +57,7 @@ const SurveyForm = () => {
         {currentStep === 1 && <SurveyFormStep1 onNext={handleNextStep} />}
         {currentStep === 2 && <SurveyFormStep2 onNext={handleNextStep} />}
         {currentStep === 3 && <SurveyFormStep3 onNext={handleNextStep} />}
+        {currentStep === 4 && <SurveyFormStep4 onNext={handleNextStep} />}
         {/* {currentStep === 2 && (
           <SurveyFormStep2
             formData={formData}
