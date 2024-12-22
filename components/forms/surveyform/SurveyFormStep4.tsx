@@ -9,19 +9,33 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { medicalConditionOptions } from "@/constants";
 import { Label } from "@/components/ui/label";
 
-type SurveyFormStep3Props = {
-  onNext: (data: z.infer<typeof thirdStepSchema>) => void;
+type SurveyFormStep4Props = {
+  onNext: (data: z.infer<typeof fourthStepSchema>) => void;
 };
 
-export const thirdStepSchema = z.object({
-  medicalCondition: z.enum(["ja", "nee"]),
+export const fourthStepSchema = z.object({
+  name: z
+    .string()
+    .min(1, "Naam is verplicht.")
+    .max(100, "Naam mag maximaal 100 tekens bevatten."),
+  email: z
+    .string()
+    .email("Voer een geldig e-mailadres in.")
+    .min(1, "E-mail is verplicht."),
+  phone: z
+    .string()
+    .regex(
+      /^(\+)?(\d{1,3})?[-.\s]?\(?\d{1,4}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/,
+      "Voer een geldig telefoonnummer in."
+    )
+    .min(1, "Telefoonnummer is verplicht."),
 });
-const SurveyFormStep3 = ({ onNext }: SurveyFormStep3Props) => {
-  const form = useForm<z.infer<typeof thirdStepSchema>>({
-    resolver: zodResolver(thirdStepSchema),
+const SurveyFormStep4 = ({ onNext }: SurveyFormStep4Props) => {
+  const form = useForm<z.infer<typeof fourthStepSchema>>({
+    resolver: zodResolver(fourthStepSchema),
   });
 
-  const onSubmit = (data: z.infer<typeof thirdStepSchema>) => {
+  const onSubmit = (data: z.infer<typeof fourthStepSchema>) => {
     onNext(data);
   };
   return (
@@ -68,4 +82,4 @@ const SurveyFormStep3 = ({ onNext }: SurveyFormStep3Props) => {
   );
 };
 
-export default SurveyFormStep3;
+export default SurveyFormStep4;

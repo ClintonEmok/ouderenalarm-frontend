@@ -10,22 +10,23 @@ import { livingSituationOptions } from "@/constants";
 import { Label } from "@/components/ui/label";
 
 type SurveyFormStep2Props = {
-  onNext: (data: z.infer<typeof firstStepSchema>) => void;
+  onNext: (data: z.infer<typeof secondStepSchema>) => void;
 };
 
-export const firstStepSchema = z.object({
-  forWhom: z
-    .enum(["voor mij", "voor een naaste", "unknown"]) // Valid options including "unknown"
-    .refine((val) => val !== "unknown", {
-      message: "Geef aan of het voor u of een naaste is.",
-    }),
+export const secondStepSchema = z.object({
+  livingSituation: z.enum([
+    "alleen",
+    "met partner",
+    "met kinderen",
+    "met ouders",
+  ]),
 });
 const SurveyFormStep2 = ({ onNext }: SurveyFormStep2Props) => {
-  const form = useForm<z.infer<typeof firstStepSchema>>({
-    resolver: zodResolver(firstStepSchema),
+  const form = useForm<z.infer<typeof secondStepSchema>>({
+    resolver: zodResolver(secondStepSchema),
   });
 
-  const onSubmit = (data: z.infer<typeof firstStepSchema>) => {
+  const onSubmit = (data: z.infer<typeof secondStepSchema>) => {
     onNext(data);
   };
   return (
