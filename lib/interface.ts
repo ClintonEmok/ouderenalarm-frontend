@@ -9,7 +9,7 @@ export interface Post {
     };
   };
   publishedAt: string;
-  excerpt: string;
+  excerpt?: string;
   body: any;
   topics: Array<Topic>;
   _id: string;
