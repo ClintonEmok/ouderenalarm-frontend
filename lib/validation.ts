@@ -88,3 +88,29 @@ export const UpdatePasswordSchema = z.object({
     .string()
     .min(8, "Please confirm your new password"),
 });
+
+export const SurveyFormSchema = z.object({
+  forWhom: z.enum(["voor mij", "voor een naaste"]), // Valid options including "unknown",
+  livingSituation: z.enum([
+    "alleen",
+    "met partner",
+    "met kinderen",
+    "met ouders",
+  ]),
+  medicalCondition: z.enum(["ja", "nee"]),
+  name: z
+    .string()
+    .min(1, "Naam is verplicht.")
+    .max(100, "Naam mag maximaal 100 tekens bevatten."),
+  email: z
+    .string()
+    .email("Voer een geldig e-mailadres in.")
+    .min(1, "E-mail is verplicht."),
+  phone: z
+    .string()
+    .regex(
+      /^(\+)?(\d{1,3})?[-.\s]?\(?\d{1,4}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/,
+      "Voer een geldig telefoonnummer in."
+    )
+    .min(1, "Telefoonnummer is verplicht."),
+});

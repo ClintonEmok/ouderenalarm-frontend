@@ -10,7 +10,6 @@ import { useState } from "react";
 import { useAuth } from "@/hooks/auth";
 import { UserLoginSchema } from "@/lib/validation";
 import AuthSessionStatus from "../AuthSessionStatus";
-import { AxiosError } from "axios";
 
 export enum FormFieldType {
   INPUT = "input",

@@ -139,3 +139,12 @@ export const SOCIALS = {
     "/assets/landing/wordpress.svg",
   ],
 };
+
+export const forWhomOptions = ["Voor mij", "Voor een naaste"];
+export const livingSituationOptions = [
+  "Alleen",
+  "Met partner",
+  "Met kinderen",
+  "Met ouders",
+];
+export const medicalConditionOptions = ["Ja", "Nee"];

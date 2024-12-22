@@ -15,6 +15,15 @@ export interface Post {
   _id: string;
 }
 
+declare type forWhom = "voor mij" | "voor een naaste";
+declare type livingSituation =
+  | "alleen"
+  | "met partner"
+  | "met kinderen"
+  | "met ouders"
+  | "met huisdieren";
+declare type medicalCondition = "ja" | "nee";
+
 export interface Topic {
   name: string;
   slug: { current: string };
