@@ -33,13 +33,13 @@ const SurveyForm = () => {
   const stepText = () => {
     switch (currentStep) {
       case 1:
-        return "Step 1 of 4";
+        return "Vraag 1/4";
       case 2:
-        return "Step 2 of 4";
+        return "Vraag 2/4";
       case 3:
-        return "Step 3 of 4";
+        return "Vraag 3/4";
       case 4:
-        return "Step 4 of 4";
+        return "Vraag 4/4";
       default:
         return "";
     }

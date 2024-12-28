@@ -30,10 +30,8 @@ const SurveyFormStep1 = ({ onNext }: SurveyFormStep1Props) => {
   };
   return (
     <div>
-      <h3 className="text-3xl from-bold">Register for an account</h3>
-      <p className="text-gray-500 text-sm mt-3">
-        Lets start with a little bit of information
-      </p>
+      <h3 className="text-3xl from-bold">Is het voor u of een naasten</h3>
+      <p className="text-gray-500 text-sm mt-3"></p>
       <div className="mt-10">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
