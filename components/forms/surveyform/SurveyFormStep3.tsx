@@ -65,7 +65,7 @@ const SurveyFormStep3 = ({ onNext, onBack }: SurveyFormStep3Props) => {
                 )}
               />
             </div>
-            <div className="flex justify-between gap-51">
+            <div className="flex justify-between gap-5">
               <Button type="submit" className="mt-5 w-full">
                 Volgende
               </Button>

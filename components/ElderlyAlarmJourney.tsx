@@ -1,6 +1,8 @@
 import { Check } from "lucide-react";
 import Image from "next/image";
 import React from "react";
+import SurveyDialog from "./dialogs/SurveyDialog";
+import { Button } from "./ui/button";
 
 const ElderlyAlarmJourney = () => {
   const steps = [
@@ -91,12 +93,14 @@ const ElderlyAlarmJourney = () => {
         </div>
 
         {/* Call-to-Action */}
-        <a
-          href="#"
-          className="bg-primary-500 text-white py-3  px-8 font-bold rounded-lg shadow-md hover:bg-green-600 transition"
-        >
-          Ik wil het 14 dagen gratis testen!
-        </a>
+
+        <SurveyDialog
+          button={
+            <Button className="bg-primary-500 text-white p-6 mb-3 text-lg font-bold rounded-lg shadow-md hover:bg-green-600 transition">
+              Ik wil het 14 dagen gratis testen!
+            </Button>
+          }
+        />
       </div>
     </section>
   );

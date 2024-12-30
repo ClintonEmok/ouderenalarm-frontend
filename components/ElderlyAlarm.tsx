@@ -1,5 +1,7 @@
 import { MoveDown, SendHorizontal } from "lucide-react";
 import Image from "next/image";
+import { Button } from "./ui/button";
+import SurveyDialog from "./dialogs/SurveyDialog";
 
 export default function ElderlyAlarm() {
   return (
@@ -96,13 +98,15 @@ export default function ElderlyAlarm() {
         </div>
       </div>{" "}
       {/* Call-to-Action */}
-      <a
-        href="#"
-        className="bg-primary-500 flex gap-1 mt-4 items-center justify-center text-white py-3 max-w-2xl md:w-2/5 px-8 font-bold rounded-lg shadow-md hover:bg-green-600 transition"
-      >
-        Ik wil het gratis testen!
-        <SendHorizontal />
-      </a>
+      <SurveyDialog
+        triggerClassName="w-full flex justify-center"
+        button={
+          <Button className="bg-primary-500 flex gap-1 mt-4 text-lg items-center justify-center text-white py-6 max-w-2xl md:w-2/5 px-8 font-bold rounded-lg shadow-md hover:bg-green-600 transition">
+            Ik wil het gratis testen!
+            <SendHorizontal />
+          </Button>
+        }
+      />
     </section>
   );
 }
