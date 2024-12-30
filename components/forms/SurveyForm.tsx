@@ -7,6 +7,7 @@ import SurveyFormStep2 from "./surveyform/SurveyFormStep2";
 import SurveyFormStep3 from "./surveyform/SurveyFormStep3";
 import SurveyFormStep4 from "./surveyform/SurveyFormStep4";
 import { SurveyFormSchema } from "@/lib/validation";
+import { z } from "zod";
 
 const SurveyForm = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
@@ -48,6 +49,7 @@ const SurveyForm = () => {
 
   const finalSubmit = (values: z.infer<typeof SurveyFormSchema>) => {
     console.log(values);
+    // TODO: Submit form to endpoint
   };
 
   return (
