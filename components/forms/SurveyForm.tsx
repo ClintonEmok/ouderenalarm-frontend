@@ -6,6 +6,7 @@ import { Progress } from "../ui/progress";
 import SurveyFormStep2 from "./surveyform/SurveyFormStep2";
 import SurveyFormStep3 from "./surveyform/SurveyFormStep3";
 import SurveyFormStep4 from "./surveyform/SurveyFormStep4";
+import { SurveyFormSchema } from "@/lib/validation";
 
 const SurveyForm = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
@@ -39,10 +40,14 @@ const SurveyForm = () => {
       case 3:
         return "Vraag 3/4";
       case 4:
-        return "Vraag 4/4";
+        return "Claim je gratis test";
       default:
         return "";
     }
+  };
+
+  const finalSubmit = (values: z.infer<typeof SurveyFormSchema>) => {
+    console.log(values);
   };
 
   return (
@@ -55,30 +60,25 @@ const SurveyForm = () => {
 
       <div className="flex-grow flex flex-col justify-center max-w-xl mx-auto w-full">
         {currentStep === 1 && <SurveyFormStep1 onNext={handleNextStep} />}
-        {currentStep === 2 && <SurveyFormStep2 onNext={handleNextStep} />}
-        {currentStep === 3 && <SurveyFormStep3 onNext={handleNextStep} />}
-        {currentStep === 4 && <SurveyFormStep4 onNext={handleNextStep} />}
-        {/* {currentStep === 2 && (
+        {currentStep === 2 && (
           <SurveyFormStep2
-            formData={formData}
-            handleNextStep={handleNextStep}
-            handlePreviousStep={handlePreviousStep}
+            onNext={handleNextStep}
+            onBack={handlePreviousStep}
           />
         )}
         {currentStep === 3 && (
           <SurveyFormStep3
-            formData={formData}
-            handleNextStep={handleNextStep}
-            handlePreviousStep={handlePreviousStep}
+            onNext={handleNextStep}
+            onBack={handlePreviousStep}
           />
         )}
         {currentStep === 4 && (
           <SurveyFormStep4
             formData={formData}
-            handleNextStep={handleNextStep}
-            handlePreviousStep={handlePreviousStep}
+            handleSubmit={finalSubmit}
+            onBack={handlePreviousStep}
           />
-        )} */}
+        )}
       </div>
     </div>
   );

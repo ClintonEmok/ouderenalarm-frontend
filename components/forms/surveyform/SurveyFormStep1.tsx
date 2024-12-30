@@ -8,6 +8,7 @@ import { FormFieldType } from "../LoginForm";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { forWhomOptions } from "@/constants";
 import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
 
 type SurveyFormStep1Props = {
   onNext: (data: z.infer<typeof firstStepSchema>) => void;
@@ -49,7 +50,10 @@ const SurveyFormStep1 = ({ onNext }: SurveyFormStep1Props) => {
                     >
                       {forWhomOptions.map((option) => (
                         <div key={option} className="radio-group">
-                          <RadioGroupItem value={option} id={option} />
+                          <RadioGroupItem
+                            value={option.toLowerCase()}
+                            id={option}
+                          />
                           <Label
                             htmlFor={option}
                             className="cursor-pointer text-white"
@@ -63,6 +67,9 @@ const SurveyFormStep1 = ({ onNext }: SurveyFormStep1Props) => {
                 )}
               />
             </div>
+            <Button type="submit" className="mt-5 w-full">
+              Volgende
+            </Button>
           </form>
         </Form>
       </div>

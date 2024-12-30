@@ -1,16 +1,18 @@
 "use client";
 import CustomFormField from "@/components/CustomFormField";
-import { Form, FormControl } from "@/components/ui/form";
+import { Form } from "@/components/ui/form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { FormFieldType } from "../LoginForm";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { medicalConditionOptions } from "@/constants";
-import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
+import { SurveyFormSchema } from "@/lib/validation";
 
+// TODO: ADD animation
 type SurveyFormStep4Props = {
-  onNext: (data: z.infer<typeof fourthStepSchema>) => void;
+  handleSubmit: (data: z.infer<typeof SurveyFormSchema>) => void;
+  onBack: () => void;
+  formData: any;
 };
 
 export const fourthStepSchema = z.object({
@@ -30,50 +32,61 @@ export const fourthStepSchema = z.object({
     )
     .min(1, "Telefoonnummer is verplicht."),
 });
-const SurveyFormStep4 = ({ onNext }: SurveyFormStep4Props) => {
-  const form = useForm<z.infer<typeof fourthStepSchema>>({
-    resolver: zodResolver(fourthStepSchema),
+const SurveyFormStep4 = ({
+  handleSubmit,
+  onBack,
+  formData,
+}: SurveyFormStep4Props) => {
+  const form = useForm<z.infer<typeof SurveyFormSchema>>({
+    resolver: zodResolver(SurveyFormSchema),
+    defaultValues: formData,
   });
 
-  const onSubmit = (data: z.infer<typeof fourthStepSchema>) => {
-    onNext(data);
+  const onSubmit = (data: z.infer<typeof SurveyFormSchema>) => {
+    handleSubmit(data);
   };
   return (
     <div>
-      <h3 className="text-3xl from-bold">Register for an account</h3>
-      <p className="text-gray-500 text-sm mt-3">
-        Lets start with a little bit of information
+      <h3 className="text-3xl from-bold">
+        Gefeliciteerd u komt in aanmerking voor de gratis test
+      </h3>
+      <p className="text-gray-500 text-md mt-3">
+        Vul uw contactgegevens in en claim je plaats.
       </p>
       <div className="mt-10">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <div className="gap-10 mb-5">
               <CustomFormField
-                fieldType={FormFieldType.SKELETON}
+                fieldType={FormFieldType.INPUT}
                 control={form.control}
-                name="livingSituation"
-                renderSkeleton={(field) => (
-                  <FormControl>
-                    <RadioGroup
-                      className="flex h-11 gap-6 xl:justify-between"
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                    >
-                      {medicalConditionOptions.map((option) => (
-                        <div key={option} className="radio-group">
-                          <RadioGroupItem value={option} id={option} />
-                          <Label
-                            htmlFor={option}
-                            className="cursor-pointer text-white"
-                          >
-                            {option}
-                          </Label>
-                        </div>
-                      ))}
-                    </RadioGroup>
-                  </FormControl>
-                )}
+                name="name"
+                label="Naam"
               />
+              <CustomFormField
+                fieldType={FormFieldType.INPUT}
+                control={form.control}
+                name="email"
+                label="Email"
+              />
+              <CustomFormField
+                fieldType={FormFieldType.PHONE_INPUT}
+                control={form.control}
+                name="phone"
+                label="Telefoonnummer"
+              />
+            </div>
+            <div className="flex justify-between gap-5">
+              <Button
+                type="submit"
+                className="mt-5 w-full"
+                disabled={form.formState.isSubmitting}
+              >
+                Verstuur
+              </Button>
+              <Button className="mt-5 w-full" onClick={onBack}>
+                Terug
+              </Button>
             </div>
           </form>
         </Form>

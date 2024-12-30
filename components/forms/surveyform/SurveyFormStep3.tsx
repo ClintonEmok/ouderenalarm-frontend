@@ -8,20 +8,23 @@ import { FormFieldType } from "../LoginForm";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { medicalConditionOptions } from "@/constants";
 import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
 
 type SurveyFormStep3Props = {
   onNext: (data: z.infer<typeof thirdStepSchema>) => void;
+  onBack: () => void;
 };
 
 export const thirdStepSchema = z.object({
   medicalCondition: z.enum(["ja", "nee"]),
 });
-const SurveyFormStep3 = ({ onNext }: SurveyFormStep3Props) => {
+const SurveyFormStep3 = ({ onNext, onBack }: SurveyFormStep3Props) => {
   const form = useForm<z.infer<typeof thirdStepSchema>>({
     resolver: zodResolver(thirdStepSchema),
   });
 
   const onSubmit = (data: z.infer<typeof thirdStepSchema>) => {
+    console.log(data);
     onNext(data);
   };
   return (
@@ -35,7 +38,7 @@ const SurveyFormStep3 = ({ onNext }: SurveyFormStep3Props) => {
               <CustomFormField
                 fieldType={FormFieldType.SKELETON}
                 control={form.control}
-                name="livingSituation"
+                name="medicalCondition"
                 renderSkeleton={(field) => (
                   <FormControl>
                     <RadioGroup
@@ -45,7 +48,10 @@ const SurveyFormStep3 = ({ onNext }: SurveyFormStep3Props) => {
                     >
                       {medicalConditionOptions.map((option) => (
                         <div key={option} className="radio-group">
-                          <RadioGroupItem value={option} id={option} />
+                          <RadioGroupItem
+                            value={option.toLowerCase()}
+                            id={option}
+                          />
                           <Label
                             htmlFor={option}
                             className="cursor-pointer text-white"
@@ -58,6 +64,14 @@ const SurveyFormStep3 = ({ onNext }: SurveyFormStep3Props) => {
                   </FormControl>
                 )}
               />
+            </div>
+            <div className="flex justify-between gap-51">
+              <Button type="submit" className="mt-5 w-full">
+                Volgende
+              </Button>
+              <Button className="mt-5 w-full" onClick={onBack}>
+                Terug
+              </Button>
             </div>
           </form>
         </Form>
