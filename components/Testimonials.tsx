@@ -11,7 +11,7 @@ export default function Testimonials() {
         </h1>
       </div>
 
-      <div className="max-w-7xl mx-auto flex flex-col gap-12 px-6">
+      <div className="max-w-5xl mx-auto flex flex-col gap-12 px-6">
         {/* Pair 1 */}
         <div className="flex flex-col md:flex-row items-center md:items-start ">
           <div className="flex flex-col gap-6 w-full">

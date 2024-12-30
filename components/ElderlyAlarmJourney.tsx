@@ -31,12 +31,12 @@ const ElderlyAlarmJourney = () => {
 
   return (
     <section className="py-12" id="ElderlyAlarmJourney">
-      <div className="container mx-auto px-4 text-center flex flex-col items-center">
+      <div className="container mx-auto px-4 text-center flex flex-col items-center  ">
         {/* Header Section */}
-        <h2 className="bold-32 lg:bold-40 mb-4 text-green-600">
+        <h2 className="bold-32 lg:bold-40 mb-4 text-black">
           Jouw ouderen alarm avontuur start hier:
         </h2>
-        <p className="text-gray-700 text-lg mb-12 bold-24 lg:bold-32 max-w-4xl">
+        <p className="text-black text-lg mb-12 bold-24 lg:bold-32 max-w-4xl">
           Wilt u 1 van de 27 ouderen zijn die dit betrouwbare ouderen alarm 100%
           GRATIS mag testen?
         </p>
@@ -51,22 +51,22 @@ const ElderlyAlarmJourney = () => {
             />
           </div>
           {/* Description */}
-          <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-4 text-left font-bold">
+          <p className="text-black text-sm md:text-base leading-relaxed mb-4 text-left font-bold">
             Ons exclusieve senioren alarm verandert zoveel levens. Elke dag weer
             vertrouwen 30 nieuwe senioren op onze betrouwbare service, en
             inmiddels helpen we al meer dan 25.000 tevreden ouderen.
           </p>
-          <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-4 text-left font-bold">
+          <p className="text-black text-sm md:text-base leading-relaxed mb-4 text-left font-bold">
             De waarheid is dat medische experts ons apparaat het meest
             betrouwbare senioren alarm vinden van Nederland,
           </p>
-          <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-4 text-left font-bold">
+          <p className="text-black text-sm md:text-base leading-relaxed mb-4 text-left font-bold">
             En daarom bieden we{" "}
             <span className="font-bold">VOOR HET EERST</span> 250 senioren de
             mogelijkheid om ons exclusieve senioren alarm 14 dagen GRATIS te
             testen.
           </p>
-          <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-4 text-left font-bold">
+          <p className="text-black text-sm md:text-base leading-relaxed mb-4 text-left font-bold">
             Ja dat klopt, je kunt met 0 euro testen of dit senioren alarm
             voldoet aan uw verwachtingen!
           </p>
