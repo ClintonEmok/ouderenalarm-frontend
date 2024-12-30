@@ -122,9 +122,9 @@ export const FOOTER_LINKS = [
 ];
 
 export const FOOTER_CONTACT_INFO = {
-  title: "Contact Us",
+  title: "Neem contact op",
   links: [
-    { label: "Telephone", value: "123-456-7890" },
+    { label: "Telephone", value: "+31 858883295" },
     { label: "Email", value: "info@ouderen-alarmering.nl" },
   ],
 };
