@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Button } from "./ui/button";
-import { CirclePlay } from "lucide-react";
-import Link from "next/link";
+import SurveyDialog from "./dialogs/SurveyDialog";
 
 const Hero = () => {
   return (
@@ -13,8 +12,9 @@ const Hero = () => {
       <div className="relative z-20 flex flex-1 flex-col xl:w-1/2">
         {/* TODO: Change later */}
         <h1 className="bold-40 lg:bold-64">
-          Binnen 30 seconde hulp, Verminder overlijdensrisico, Blijf veilig
-          thuiswonen.
+          Binnen 30 seconden hulp, <br />
+          Verminder overlijdensrisico, <br />
+          Blijf veilig thuiswonen.
         </h1>
         <p className="regular-24 mt-6 text-gray-30 xl:max-w-[800px]">
           Doe de GRATIS test hieronder en ontdek in 30 seconden of ons
@@ -42,15 +42,13 @@ const Hero = () => {
         </div>
         {/* Buttons */}
         <div className="flex flex-col w-full gap-3 sm:flex-row text-white">
-          <Button className=" text-white bg-primary-500 p-7 text-18-bold">
-            Doe de GRATIS veiligheidstest
-          </Button>
-          <Button className="p-7 text-lg text-black" asChild>
-            <Link href="#Working">
-              <CirclePlay color="#1d4ed8" />
-              Hoe werkt het?
-            </Link>
-          </Button>
+          <SurveyDialog
+            button={
+              <Button className=" text-white bg-primary-500 p-7 text-18-bold">
+                Doe de GRATIS veiligheidstest
+              </Button>
+            }
+          />
         </div>
       </div>
     </section>

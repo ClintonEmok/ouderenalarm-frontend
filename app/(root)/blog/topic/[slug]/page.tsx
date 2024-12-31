@@ -9,6 +9,7 @@ async function getPostsByTag(topic: string) {
   *[_type == "post" && references(*[_type == "topic" && slug.current == "${topic}"]._id)]{
     title,
     slug,
+    featuredImage,
     publishedAt,
     excerpt,
     topic[]-> {
@@ -29,21 +30,21 @@ interface Params {
   params: Promise<{ slug: string }>;
 }
 
-// TODO: Implement metadata
-// export async function generateMetadata({ params }: Params) {
-//   return {
-//     title: `#${params.slug}`,
-//     description: `Posts with the topic ${params.slug}`,
-//     openGraph: {
-//       title: `#${params.slug}`,
-//       description: `Posts with the topic ${params.slug}`,
-//       type: "website",
-//       locale: "en_US",
-//       url: `https://next-cms-blog-ce.vercel.app/${params.slug}`,
-//       siteName: "DevBlook",
-//     },
-//   };
-// }
+export async function generateMetadata({ params }: Params) {
+  const slug = (await params).slug;
+  return {
+    title: `#${slug}`,
+    description: `Blogposts met onderwerp ${slug}`,
+    openGraph: {
+      title: `#${slug}`,
+      description: `Blogposts met onderwerp ${slug}`,
+      type: "website",
+      locale: "nl_NL",
+      url: `https://ouderen-alarmering.nl/blog/topic/${slug}`,
+      siteName: "OuderenAlarmering ",
+    },
+  };
+}
 
 const page = async ({ params }: Params) => {
   const slug = (await params).slug;

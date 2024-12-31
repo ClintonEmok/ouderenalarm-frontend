@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 const PortalShowcase = () => {
@@ -15,8 +16,8 @@ const PortalShowcase = () => {
         <div className="w-full h-[20vh] bg-gradient-to-r from-[#43A3FA] to-[#286094] absolute"></div>
 
         {/* Black-Bordered Div */}
-        <div className="w-[90%] md:w-[70%] h-[40vh] max-w-[700px] bg-white border-4 border-black rounded-lg relative z-10 flex items-center justify-center">
-          <p className="text-lg font-semibold">Plaatjes van de portal</p>
+        <div className="w-[90%] md:w-[70%] h-[65vw] md:h-[40vh] max-w-[700px] bg-white border-4 border-black rounded-lg relative z-10 flex items-center justify-center">
+          <Image src={"/assets/product/portal.png"} fill alt="portaal" />
         </div>
       </div>
     </div>

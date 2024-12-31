@@ -1,12 +1,12 @@
 /* eslint-disable react/jsx-key */
-import { FOOTER_CONTACT_INFO, FOOTER_LINKS, SOCIALS } from "@/constants";
+import { FOOTER_CONTACT_INFO, FOOTER_LINKS } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="flexCenter mb-24">
+    <footer className="flexCenter my-14 ">
       <div className="padding-container max-container flex w-full flex-col gap-14">
         <div className="flex flex-col items-start justify-center gap-[10%] md:flex-row">
           <Link href="/" className="mb-10">
@@ -49,7 +49,7 @@ const Footer = () => {
               </FooterColumn>
             </div>
 
-            <div className="flex flex-col gap-5">
+            {/* <div className="flex flex-col gap-5">
               <FooterColumn title={SOCIALS.title}>
                 <ul className="regular-14 flex gap-4 text-gray-30">
                   {SOCIALS.links.map((link) => (
@@ -59,7 +59,7 @@ const Footer = () => {
                   ))}
                 </ul>
               </FooterColumn>
-            </div>
+            </div> */}
           </div>
         </div>
 

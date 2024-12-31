@@ -18,6 +18,7 @@ async function getPost(slug: string) {
   const query = `*[_type == "post" && slug.current == "${slug}"][0] {
         title,
         slug,
+        featuredImage,
         publishedAt,
         excerpt,
         body,
@@ -65,9 +66,25 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const slug = (await params).slug;
   const post: Post = await getPost(slug);
+  if (!post) return {};
   return {
     title: post?.title,
     description: post?.excerpt,
+    openGraph: {
+      title: post?.title,
+      description: post?.excerpt,
+      type: "article",
+      locale: "nl_NL",
+      url: `https://ouderen-alarmering.nl/blog/${post?.slug.current}`,
+      siteName: "OuderenAlarmering ",
+      images: {
+        url: post?.featuredImage
+          ? urlFor(post.featuredImage).width(800).height(600).url()
+          : `${process.env.NEXT_PUBLIC_BASE_URL}/logos/ouderalarm.png`,
+        width: 800,
+        height: 600,
+      },
+    },
   };
 }
 
@@ -80,7 +97,7 @@ const SingleBlogPost = async ({ params }: Params) => {
       <Header title={post?.title} />
       <div className="text-center ">
         <span className={`${dateFont.className} font-medium`}>
-          {new Date(post?.publishedAt).toDateString()}
+          {new Date(post?.publishedAt).toLocaleDateString("nl-NL")}
         </span>
         <div className="mr-2 mt-1 p-1 rounded-sm text-sm lowercase">
           {post?.topics?.map((topic) => (
@@ -112,4 +129,4 @@ const myPortableTextComponents = {
   },
 };
 
-const richTextStyles = `text-justify max-w-3xl m-auto prose-headings:my-5 prose-headings:text-2xl prose-p:mb-5 prose-p:leading-7 prose-li:list-disc prose-li:leading-7 prose-li:ml-4`;
+const richTextStyles = `text-left max-w-3xl m-auto prose-headings:my-5 prose-headings:text-2xl prose-p:mb-5 prose-p:leading-7 prose-li:list-disc prose-li:leading-7 prose-li:ml-4`;

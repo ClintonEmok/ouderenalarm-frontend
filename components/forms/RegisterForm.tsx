@@ -3,102 +3,214 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import CustomFormField from "../CustomFormField";
 import SubmitButton from "../SubmitButton";
 import { useState } from "react";
 import { UserRegistrationSchema } from "@/lib/validation";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
-
-export enum FormFieldType {
-  INPUT = "input",
-  TEXTAREA = "textarea",
-  PHONE_INPUT = "phoneInput",
-  CHECKBOX = "checkbox",
-  DATE_PICKER = "datePicker",
-  SELECT = "select",
-  SKELETON = "skeleton",
-}
+import { useAuth } from "@/hooks/auth";
+import { FormFieldType } from "./LoginForm";
 
 // TODO: Rename
 const RegisterForm = () => {
-  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-
+  const { register } = useAuth({
+    middleware: "guest",
+    redirectIfAuthenticated: "/dashboard",
+  });
   const form = useForm<z.infer<typeof UserRegistrationSchema>>({
     resolver: zodResolver(UserRegistrationSchema),
     defaultValues: {
       name: "",
+      last_name: "",
       email: "",
       password: "",
-      confirmPassword: "",
+      password_confirmation: "",
+      street: "",
+      house_number: "",
+      phone_number: "",
+      postal_code: "",
+      city: "",
+      country: "",
     },
   });
 
   // 2. Define a submit handler.
   async function onSubmit({
     name,
+    last_name,
     email,
     password,
-    confirmPassword,
+    password_confirmation,
+    street,
+    house_number,
+    phone_number,
+    postal_code,
+    city,
+    country,
   }: z.infer<typeof UserRegistrationSchema>) {
     setIsLoading(true);
-    console.log(name, email, password, confirmPassword);
+    console.log(
+      name,
+      last_name,
+      email,
+      password,
+      password_confirmation,
+      street,
+      house_number,
+      phone_number,
+      postal_code,
+      city,
+      country
+    );
 
     try {
-      const userData = {
+      const registerData = {
         name,
+        last_name,
         email,
         password,
-        confirmPassword,
+        password_confirmation,
+        street,
+        house_number,
+        phone_number,
+        postal_code,
+        city,
+        country,
       };
       // Call an API
-      // const user = await createUser(userData);
+      await register(registerData);
       // if(user) router.push(/users/${user.id}/register);
     } catch (e) {
       console.error(e);
+      setIsLoading(false);
     }
   }
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 flex-1">
-        <section className="mb-12 space-y-4">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="space-y-12 flex-1"
+      >
+        <section className="space-y-4">
           <h1 className="header">Sluit je vandaag aan 🎉</h1>
           <p className="text-dark-700">Maak een account aan en begin direct</p>
         </section>
+        <section className="space-y-6">
+          <div className="mb-9 space-y-1">
+            <h2 className="sub-header">Personal Information</h2>
+          </div>
+        </section>
+
+        <div className="flex flex-col gap-6 xl:flex-row">
+          <CustomFormField
+            control={form.control}
+            fieldType={FormFieldType.INPUT}
+            name="name"
+            label="First Name"
+            placeholder="John"
+            iconSrc="assets/icons/user.svg"
+            iconAlt="user"
+          />
+
+          <CustomFormField
+            control={form.control}
+            fieldType={FormFieldType.INPUT}
+            name="last_name"
+            label="Last Name"
+            placeholder="Doe"
+            iconSrc="assets/icons/user.svg"
+            iconAlt="user"
+          />
+        </div>
+
+        <div className="flex flex-col gap-6 xl:flex-row">
+          <CustomFormField
+            control={form.control}
+            fieldType={FormFieldType.INPUT}
+            name="email"
+            label="Email"
+            placeholder="johndoe@gmail.com"
+            iconSrc="assets/icons/email.svg"
+            iconAlt="email"
+          />
+
+          <CustomFormField
+            control={form.control}
+            fieldType={FormFieldType.PHONE_INPUT}
+            name="phone_number"
+            label="Phone Number"
+            placeholder="06 12345678"
+          />
+        </div>
+
+        <div className="flex flex-col gap-6 xl:flex-row">
+          <CustomFormField
+            control={form.control}
+            fieldType={FormFieldType.INPUT}
+            name="password"
+            label="Password"
+          />
+
+          <CustomFormField
+            control={form.control}
+            fieldType={FormFieldType.INPUT}
+            name="password_confirmation"
+            label="Confirm Password"
+          />
+        </div>
+
+        <section className="space-y-6">
+          <div className="mb-9 space-y-1">
+            <h2 className="sub-header">Address Information</h2>
+          </div>
+        </section>
+
+        <div className="flex flex-col gap-6 xl:flex-row">
+          <CustomFormField
+            control={form.control}
+            fieldType={FormFieldType.INPUT}
+            name="street"
+            label="Straat"
+            placeholder=""
+          />
+
+          <CustomFormField
+            control={form.control}
+            fieldType={FormFieldType.INPUT}
+            name="house_number"
+            label="Huisnummer"
+            placeholder="3"
+          />
+        </div>
+
+        <div className="flex flex-col gap-6 xl:flex-row">
+          <CustomFormField
+            control={form.control}
+            fieldType={FormFieldType.INPUT}
+            name="city"
+            label="Stad"
+            placeholder=""
+          />
+
+          <CustomFormField
+            control={form.control}
+            fieldType={FormFieldType.INPUT}
+            name="postal_code"
+            label="Postcode"
+            placeholder="4563 AB"
+          />
+        </div>
         <CustomFormField
           control={form.control}
           fieldType={FormFieldType.INPUT}
-          name="name"
-          label="Full Name"
-          placeholder="John Doe"
-          iconSrc="assets/icons/user.svg"
-          iconAlt="user"
+          name="country"
+          label="Land"
+          placeholder="Nederland"
         />
-        <CustomFormField
-          control={form.control}
-          fieldType={FormFieldType.INPUT}
-          name="email"
-          label="Email"
-          placeholder="johndoe@gmail.com"
-          iconSrc="assets/icons/email.svg"
-          iconAlt="email"
-        />
-        <CustomFormField
-          control={form.control}
-          fieldType={FormFieldType.INPUT}
-          name="password"
-          label="Password"
-        />
-        <CustomFormField
-          control={form.control}
-          fieldType={FormFieldType.INPUT}
-          name="confirmPassword"
-          label="Confirm Password"
-        />
+
         <div className="flex items-center w-full justify-center">
           <SubmitButton
             isLoading={isLoading}
@@ -114,7 +226,7 @@ const RegisterForm = () => {
         <div className="text-center mt-4">
           <p className="text-dark-700">
             Already have an account?{" "}
-            <Link href="/sign-in" className="text-primary-500 hover:underline">
+            <Link href="/login" className="text-primary-500 hover:underline">
               Sign In
             </Link>
           </p>

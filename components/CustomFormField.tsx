@@ -9,11 +9,13 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Control } from "react-hook-form";
-import { FormFieldType } from "./forms/RegisterForm";
+import { FormFieldType } from "./forms/LoginForm";
 import Image from "next/image";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import { E164Number } from "libphonenumber-js/core";
+import { useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
 
 interface CustomProps {
   control: Control<any>;
@@ -32,6 +34,7 @@ interface CustomProps {
 
 const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
   const { fieldType, iconSrc, iconAlt, placeholder } = props;
+  const [showPassword, setShowPassword] = useState(false); // For toggling password visibility
   switch (fieldType) {
     case FormFieldType.INPUT:
       return (
@@ -67,6 +70,32 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
           />
         </FormControl>
       );
+    case FormFieldType.PASSWORD:
+      return (
+        <div className="flex rounded-md border border-dark-500 hover:border-primary-500 bg-dark-400">
+          <FormControl>
+            <Input
+              type={showPassword ? "text" : "password"}
+              placeholder={placeholder || "Enter password"}
+              {...field}
+              className="shad-input border-0 text-white"
+            />
+          </FormControl>
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+            className=" text-white hover:text-primary-500 mr-2"
+          >
+            {showPassword ? (
+              <EyeOff className="h-6 w-6" />
+            ) : (
+              <Eye className="h-6 w-6" />
+            )}
+          </button>
+        </div>
+      );
+    case FormFieldType.SKELETON:
+      return props.renderSkeleton ? props.renderSkeleton(field) : null;
     default:
       break;
   }

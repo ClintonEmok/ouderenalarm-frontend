@@ -3,16 +3,17 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import CustomFormField from "../CustomFormField";
 import SubmitButton from "../SubmitButton";
 import { useState } from "react";
-import { UserRegistrationSchema as UserLoginSchema } from "@/lib/validation";
-import { useRouter } from "next/navigation";
+import { useAuth } from "@/hooks/auth";
+import { UserLoginSchema } from "@/lib/validation";
+import AuthSessionStatus from "../AuthSessionStatus";
 
 export enum FormFieldType {
   INPUT = "input",
+  PASSWORD = "password",
   TEXTAREA = "textarea",
   PHONE_INPUT = "phoneInput",
   CHECKBOX = "checkbox",
@@ -23,33 +24,43 @@ export enum FormFieldType {
 
 // TODO: Rename
 const LoginForm = () => {
-  const router = useRouter();
+  const { login } = useAuth({
+    middleware: "guest",
+    redirectIfAuthenticated: "/dashboard",
+  });
   const [isLoading, setIsLoading] = useState(false);
+  const [status, setStatus] = useState<string>("");
 
   const form = useForm<z.infer<typeof UserLoginSchema>>({
     resolver: zodResolver(UserLoginSchema),
     defaultValues: {
-      name: "",
       email: "",
+      password: "",
     },
   });
 
   // 2. Define a submit handler.
-  async function onSubmit({ name, email }: z.infer<typeof UserLoginSchema>) {
+  async function onSubmit({
+    email,
+    password,
+  }: z.infer<typeof UserLoginSchema>) {
     setIsLoading(true);
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
 
     try {
       const userData = {
-        name,
         email,
+        password,
       };
+
       // Call an API
-      // const user = await createUser(userData);
-      // if(user) router.push(/users/${user.id}/register);
+
+      await login(userData);
     } catch (e) {
-      console.error(e);
+      // console.error(e.response.data);
+      setIsLoading(false);
+      setStatus("Authentication failed. Please check your credentials.");
     }
   }
   return (
@@ -60,6 +71,7 @@ const LoginForm = () => {
           <p className="text-dark-700">
             Log in om verder te gaan waar je gebleven was
           </p>
+          <AuthSessionStatus status={status} className="text-red-800" />
         </section>
 
         <CustomFormField
@@ -73,7 +85,7 @@ const LoginForm = () => {
         />
         <CustomFormField
           control={form.control}
-          fieldType={FormFieldType.INPUT}
+          fieldType={FormFieldType.PASSWORD}
           name="password"
           label="Password"
         />
@@ -84,7 +96,7 @@ const LoginForm = () => {
               "bg-primary-500 text-white font-bold text-md w-full max-w-xs"
             }
           >
-            Get Started
+            Login
           </SubmitButton>
         </div>
       </form>

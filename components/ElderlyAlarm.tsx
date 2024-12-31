@@ -1,10 +1,12 @@
 import { MoveDown, SendHorizontal } from "lucide-react";
 import Image from "next/image";
+import { Button } from "./ui/button";
+import SurveyDialog from "./dialogs/SurveyDialog";
 
 export default function ElderlyAlarm() {
   return (
     <section
-      className="bg-white py-10 flex flex-col items-center gap-6"
+      className="bg-white py-10 px-6 flex flex-col items-center gap-6"
       id="Working"
     >
       <div className="max-w-5xl mx-auto">
@@ -34,7 +36,8 @@ export default function ElderlyAlarm() {
             <Image
               width={256}
               height={256}
-              src="/assets/landing/journey-1.jpg" // Replace with the appropriate path
+              unoptimized
+              src="/assets/landing/step-2.jpeg" // Replace with the appropriate path
               alt="Person using alarm"
               className="w-full rounded-lg shadow p-1"
             />
@@ -46,7 +49,8 @@ export default function ElderlyAlarm() {
             <Image
               width={256}
               height={256}
-              src="/assets/landing/journey-2.jpeg" // Replace with the appropriate path
+              unoptimized
+              src="/assets/landing/step-1.jpeg" // Replace with the appropriate path
               alt="Security experts"
               className="w-full rounded-lg shadow p-1"
             />
@@ -84,7 +88,8 @@ export default function ElderlyAlarm() {
             <Image
               width={256}
               height={256}
-              src="/assets/landing/journey-2.jpeg" // Replace with the appropriate path
+              unoptimized
+              src="/assets/landing/step-3.jpeg" // Replace with the appropriate path
               alt="Family"
               className="w-full rounded-lg shadow p-1"
             />
@@ -93,13 +98,15 @@ export default function ElderlyAlarm() {
         </div>
       </div>{" "}
       {/* Call-to-Action */}
-      <a
-        href="#"
-        className="bg-primary-500 flex gap-1 mt-4 items-center justify-center text-white py-3 max-w-2xl md:w-2/5 px-8 font-bold rounded-lg shadow-md hover:bg-green-600 transition"
-      >
-        Ik wil het gratis testen!
-        <SendHorizontal />
-      </a>
+      <SurveyDialog
+        triggerClassName="w-full flex justify-center"
+        button={
+          <Button className="bg-primary-500 flex gap-1 mt-4 text-lg items-center justify-center text-white py-6 max-w-2xl md:w-2/5 px-8 font-bold rounded-lg shadow-md hover:bg-green-600 transition">
+            Ik wil het gratis testen!
+            <SendHorizontal />
+          </Button>
+        }
+      />
     </section>
   );
 }

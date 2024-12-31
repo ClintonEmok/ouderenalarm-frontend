@@ -1,9 +1,11 @@
-import { Plus_Jakarta_Sans } from "next/font/google";
 import "../globals.css";
-import { cn } from "@/lib/utils";
+
 import { ThemeProvider } from "@/components/theme-provider";
 
 import { DashboardWrapper } from "@/components/DashboardWrapper";
+import { Plus_Jakarta_Sans } from "next/font/google";
+
+import { cn } from "@/lib/utils";
 
 const fontSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -19,7 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "min-h-screen font-sans antialiased flex",
+          "min-h-screen font-sans antialiased w-full",
           fontSans.variable
         )}
       >

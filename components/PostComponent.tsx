@@ -28,7 +28,7 @@ const PostComponent = ({ post }: PostComponentProps) => {
 
         {/* Excerpt */}
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-2">
-          {post?.excerpt.slice(0, 100) || "No excerpt available."}
+          {post?.excerpt?.slice(0, 100) || ""}
         </p>
 
         {/* Topics */}

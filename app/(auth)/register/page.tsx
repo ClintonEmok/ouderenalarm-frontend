@@ -11,8 +11,8 @@ export default function Register() {
   return (
     <div className="flex h-screen max-h-screen">
       {/* {TODO: OTP Verification | Passkey Modal} */}
-      <section className="remove-scrollbar container my-auto">
-        <div className="sub-container max-w-[496px]">
+      <section className=" remove-scrollbar container">
+        <div className="sub-container max-w-[860px]">
           <Image
             src="/assets/logos/ouderalarm.png"
             height={1000}
@@ -30,11 +30,11 @@ export default function Register() {
         </div>
       </section>
       <Image
-        src="/assets/images/onboarding-img.png"
+        src="/assets/images/register-img.png"
         height={1000}
         width={1000}
         alt="patient"
-        className="side-img max-w-[50%]"
+        className="side-img max-w-[390px]"
       />
     </div>
   );
