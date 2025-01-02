@@ -23,7 +23,6 @@ export enum FormFieldType {
   SKELETON = "skeleton",
 }
 
-// TODO: Rename
 const LoginForm = () => {
   const { login } = useAuth({
     middleware: "guest",

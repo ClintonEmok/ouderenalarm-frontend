@@ -11,14 +11,15 @@ import { useAcceptCaregiverInvitationMutation } from "@/state/api";
 import { FormFieldType } from "./LoginForm";
 import { CaregiverInvitationSchema } from "@/lib/validation";
 import { useSearchParams } from "next/navigation";
+import axios, { AxiosError } from "axios";
+import AuthSessionStatus from "../AuthSessionStatus";
 
 const AcceptInvitationForm = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [status, setStatus] = useState<string>("");
   const searchParams = useSearchParams();
   const token = searchParams.get("token") || ""; // Get the token from the URL query string
   const emailFromParams = searchParams.get("email") || ""; // Optionally prefill the email from the query
-
-  const [acceptCaregiverInvitation] = useAcceptCaregiverInvitationMutation();
 
   const form = useForm<z.infer<typeof CaregiverInvitationSchema>>({
     resolver: zodResolver(CaregiverInvitationSchema),
@@ -45,11 +46,18 @@ const AcceptInvitationForm = () => {
         token,
       };
 
+      console.log(searchParams);
       // Call API to accept the invitation
-      await acceptCaregiverInvitation(invitationData).unwrap();
+      // Make the API call using axios
+      await axios.post("/api/caregivers/accept", invitationData);
+
       // Optionally redirect after successful submission
-    } catch (e) {
-      console.error(e);
+    } catch (e: AxiosError | any) {
+      if (axios.isAxiosError(e)) {
+        setStatus(e.response?.data?.error);
+      }
+
+      setIsLoading(false);
     } finally {
       setIsLoading(false);
     }
@@ -66,6 +74,7 @@ const AcceptInvitationForm = () => {
           <p className="text-dark-700">
             Complete the form below to accept the caregiver invitation.
           </p>
+          <AuthSessionStatus status={status} className="text-red-800" />
         </section>
 
         <CustomFormField
@@ -74,8 +83,8 @@ const AcceptInvitationForm = () => {
           name="email"
           label="Email"
           placeholder="johndoe@gmail.com"
-          iconSrc="assets/icons/email.svg"
-          iconAlt="email"
+          // iconSrc="assets/icons/email.svg"
+          // iconAlt="email"
         />
 
         <div className="flex flex-col gap-6 xl:flex-row">
