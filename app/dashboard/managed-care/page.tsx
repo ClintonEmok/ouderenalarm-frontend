@@ -24,7 +24,7 @@ const CaregiverManagementPage = () => {
       </div>
 
       {/* Additional Actions */}
-      <div className="mt-6">
+      {/* <div className="mt-6">
         <Button
           variant="outlined"
           color="primary"
@@ -32,7 +32,7 @@ const CaregiverManagementPage = () => {
         >
           View Caregiver Analytics
         </Button>
-      </div>
+      </div> */}
     </div>
   );
 };
