@@ -11,10 +11,13 @@ import { UserRegistrationSchema } from "@/lib/validation";
 import Link from "next/link";
 import { useAuth } from "@/hooks/auth";
 import { FormFieldType } from "./LoginForm";
+import axios, { AxiosError, isAxiosError } from "axios";
+import AuthSessionStatus from "../AuthSessionStatus";
 
 // TODO: Rename
 const RegisterForm = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [status, setStatus] = useState<string>("");
   const { register } = useAuth({
     middleware: "guest",
     redirectIfAuthenticated: "/dashboard",
@@ -82,8 +85,11 @@ const RegisterForm = () => {
       // Call an API
       await register(registerData);
       // if(user) router.push(/users/${user.id}/register);
-    } catch (e) {
-      console.error(e);
+    } catch (e: AxiosError | any) {
+      if (axios.isAxiosError(e)) {
+        setStatus(e.response?.data?.error);
+      }
+
       setIsLoading(false);
     }
   }
@@ -97,6 +103,7 @@ const RegisterForm = () => {
         <section className="space-y-4">
           <h1 className="header">Sluit je vandaag aan 🎉</h1>
           <p className="text-dark-700">Maak een account aan en begin direct</p>
+          <AuthSessionStatus status={status} className="text-red-800" />
         </section>
         <section className="space-y-6">
           <div className="mb-9 space-y-1">

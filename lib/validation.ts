@@ -114,3 +114,11 @@ export const SurveyFormSchema = z.object({
     )
     .min(1, "Telefoonnummer is verplicht."),
 });
+
+export const CaregiverInvitationSchema = z.object({
+  email: z.string().email("Invalid email address"),
+  password: z.string().min(8, "Password must be at least 8 characters"),
+  password_confirmation: z
+    .string()
+    .min(8, "Password confirmation must be at least 8 characters"),
+});
