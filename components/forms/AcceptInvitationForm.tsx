@@ -7,12 +7,12 @@ import { Form } from "@/components/ui/form";
 import CustomFormField from "../CustomFormField";
 import SubmitButton from "../SubmitButton";
 import { useState } from "react";
-import { useAcceptCaregiverInvitationMutation } from "@/state/api";
 import { FormFieldType } from "./LoginForm";
 import { CaregiverInvitationSchema } from "@/lib/validation";
 import { useSearchParams } from "next/navigation";
-import axios, { AxiosError } from "axios";
+import { Axios as AxiosBase, AxiosError } from "axios";
 import AuthSessionStatus from "../AuthSessionStatus";
+import axios from "@/lib/axios";
 
 const AcceptInvitationForm = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -25,6 +25,7 @@ const AcceptInvitationForm = () => {
     resolver: zodResolver(CaregiverInvitationSchema),
     defaultValues: {
       email: emailFromParams,
+      name: "",
       password: "",
       password_confirmation: "",
     },
@@ -34,6 +35,7 @@ const AcceptInvitationForm = () => {
   async function onSubmit({
     email,
     password,
+    name,
     password_confirmation,
   }: z.infer<typeof CaregiverInvitationSchema>) {
     setIsLoading(true);
@@ -42,6 +44,7 @@ const AcceptInvitationForm = () => {
       const invitationData = {
         email,
         password,
+        name,
         password_confirmation,
         token,
       };
@@ -52,14 +55,16 @@ const AcceptInvitationForm = () => {
       await axios.post("/api/caregivers/accept", invitationData);
 
       // Optionally redirect after successful submission
-    } catch (e: AxiosError | any) {
-      if (axios.isAxiosError(e)) {
-        setStatus(e.response?.data?.error);
-      }
+    } catch (e: any) {
+      setStatus(e.response?.data?.error);
 
       setIsLoading(false);
+      // show error message (toast)
+
+      // Redirect to the login page
     } finally {
       setIsLoading(false);
+      // Redirect to the login page
     }
   }
 
@@ -86,11 +91,19 @@ const AcceptInvitationForm = () => {
           // iconSrc="assets/icons/email.svg"
           // iconAlt="email"
         />
+        <CustomFormField
+          control={form.control}
+          fieldType={FormFieldType.INPUT}
+          name="name"
+          label="Naam"
+          // iconSrc="assets/icons/email.svg"
+          // iconAlt="email"
+        />
 
         <div className="flex flex-col gap-6 xl:flex-row">
           <CustomFormField
             control={form.control}
-            fieldType={FormFieldType.INPUT}
+            fieldType={FormFieldType.PASSWORD}
             name="password"
             label="Password"
             placeholder="Create a new password"
@@ -98,7 +111,7 @@ const AcceptInvitationForm = () => {
 
           <CustomFormField
             control={form.control}
-            fieldType={FormFieldType.INPUT}
+            fieldType={FormFieldType.PASSWORD}
             name="password_confirmation"
             label="Confirm Password"
             placeholder="Confirm your new password"
