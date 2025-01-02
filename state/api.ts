@@ -5,7 +5,7 @@ import { Caregiver, CaregiverInvitation, Device, User } from "@/lib/interface";
 export const api = createApi({
   baseQuery: axiosBaseQuery(),
   reducerPath: "api",
-  tagTypes: ["Devices", "Caregivers", "User"],
+  tagTypes: ["Devices", "Caregivers", "User", "PatientDevices"],
   endpoints: (builder) => ({
     // 🔥 Get all devices
     getDevices: builder.query<Device[], void>({
@@ -92,6 +92,11 @@ export const api = createApi({
         { type: "Caregivers", id: caregiverId },
         "Caregivers",
       ],
+    }),
+
+    getPatientDevices: builder.query<Device[], void>({
+      query: () => ({ url: "api/caregivers/patient-devices", method: "GET" }),
+      providesTags: ["PatientDevices"],
     }),
 
     // 🔥 Get authenticated user profile
