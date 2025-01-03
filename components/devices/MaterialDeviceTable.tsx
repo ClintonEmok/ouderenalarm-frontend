@@ -19,7 +19,8 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Device } from "@/lib/interface"; // Import the Device interface
 import { MRT_Localization_NL } from "material-react-table/locales/nl";
-
+import { toast } from "react-toastify";
+// TODO: update modal for creating and editing devices
 const MaterialDeviceTable = () => {
   const [validationErrors, setValidationErrors] = useState<
     Record<string, string | undefined>
@@ -89,7 +90,7 @@ const MaterialDeviceTable = () => {
         setValidationErrors(newValidationErrors);
         return;
       }
-      await createDevice(values);
+      await createDevice(values).then(() => toast.success("Device created!"));
       setValidationErrors({});
       table.setCreatingRow(null);
     };
@@ -101,7 +102,7 @@ const MaterialDeviceTable = () => {
         setValidationErrors(newValidationErrors);
         return;
       }
-      await updateDevice(values);
+      await updateDevice(values).then(() => toast.success("Device updated!"));
       setValidationErrors({});
       table.setEditingRow(null);
     };
@@ -112,7 +113,9 @@ const MaterialDeviceTable = () => {
         `Are you sure you want to delete device with ID: ${row.original.id}?`
       )
     ) {
-      deleteDevice(row.original.id);
+      deleteDevice(row.original.id).then(() =>
+        toast.success("Device deleted!")
+      );
     }
   };
 

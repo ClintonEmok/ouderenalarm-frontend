@@ -30,12 +30,7 @@ const RegisterForm = () => {
       email: "",
       password: "",
       password_confirmation: "",
-      street: "",
-      house_number: "",
       phone_number: "",
-      postal_code: "",
-      city: "",
-      country: "",
     },
   });
 
@@ -46,27 +41,9 @@ const RegisterForm = () => {
     email,
     password,
     password_confirmation,
-    street,
-    house_number,
     phone_number,
-    postal_code,
-    city,
-    country,
   }: z.infer<typeof UserRegistrationSchema>) {
     setIsLoading(true);
-    console.log(
-      name,
-      last_name,
-      email,
-      password,
-      password_confirmation,
-      street,
-      house_number,
-      phone_number,
-      postal_code,
-      city,
-      country
-    );
 
     try {
       const registerData = {
@@ -75,21 +52,15 @@ const RegisterForm = () => {
         email,
         password,
         password_confirmation,
-        street,
-        house_number,
         phone_number,
-        postal_code,
-        city,
-        country,
       };
       // Call an API
       await register(registerData);
-      // if(user) router.push(/users/${user.id}/register);
     } catch (e: AxiosError | any) {
       if (axios.isAxiosError(e)) {
         setStatus(e.response?.data?.error);
       }
-
+    } finally {
       setIsLoading(false);
     }
   }
@@ -168,55 +139,6 @@ const RegisterForm = () => {
             label="Confirm Password"
           />
         </div>
-
-        <section className="space-y-6">
-          <div className="mb-9 space-y-1">
-            <h2 className="sub-header">Address Information</h2>
-          </div>
-        </section>
-
-        <div className="flex flex-col gap-6 xl:flex-row">
-          <CustomFormField
-            control={form.control}
-            fieldType={FormFieldType.INPUT}
-            name="street"
-            label="Straat"
-            placeholder=""
-          />
-
-          <CustomFormField
-            control={form.control}
-            fieldType={FormFieldType.INPUT}
-            name="house_number"
-            label="Huisnummer"
-            placeholder="3"
-          />
-        </div>
-
-        <div className="flex flex-col gap-6 xl:flex-row">
-          <CustomFormField
-            control={form.control}
-            fieldType={FormFieldType.INPUT}
-            name="city"
-            label="Stad"
-            placeholder=""
-          />
-
-          <CustomFormField
-            control={form.control}
-            fieldType={FormFieldType.INPUT}
-            name="postal_code"
-            label="Postcode"
-            placeholder="4563 AB"
-          />
-        </div>
-        <CustomFormField
-          control={form.control}
-          fieldType={FormFieldType.INPUT}
-          name="country"
-          label="Land"
-          placeholder="Nederland"
-        />
 
         <div className="flex items-center w-full justify-center">
           <SubmitButton

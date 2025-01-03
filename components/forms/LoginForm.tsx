@@ -54,8 +54,6 @@ const LoginForm = () => {
         password,
       };
 
-      // Call an API
-
       await login(userData);
     } catch (e: AxiosError | any) {
       if (axios.isAxiosError(e)) {
