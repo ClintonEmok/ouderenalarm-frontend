@@ -49,9 +49,10 @@ export const useAuth = ({
   const register = async (data: UserRegistrationRequest) => {
     try {
       await csrf();
-
-      await axios.post("/register", data);
-      mutate();
+      return await axios
+        .post("/register", data)
+        // redirect to login page after successful registration
+        .then(() => console.log("User registered successfully!"));
     } catch (error) {
       throw error;
     }
@@ -138,6 +139,7 @@ export const useAuth = ({
 
   useEffect(() => {
     if (middleware === "guest" && redirectIfAuthenticated && user) {
+      console.log(user);
       router.push(redirectIfAuthenticated);
     }
 
