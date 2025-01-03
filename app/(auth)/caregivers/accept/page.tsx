@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Registreer", // Page
 };
 
-// TODO: move to register page (route)
+// TODO: create one for a authorized users (later)
 export default function CaregiversAcceptPage() {
   return (
     <div className="flex h-screen max-h-screen">
