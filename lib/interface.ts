@@ -59,14 +59,9 @@ export interface User {
   id: string;
 
   /**
-   * The first name of the user.
+   * The name of the user.
    */
   name: string;
-
-  /**
-   * The last name of the user.
-   */
-  lastName: string;
 
   /**
    * The email address of the user.
@@ -76,7 +71,7 @@ export interface User {
   /**
    * The phone number associated with the user.
    */
-  phoneNumber: string;
+  phone_number: string;
 
   /**
    * The addresses linked to the user.
@@ -86,12 +81,12 @@ export interface User {
   /**
    * The timestamp when the user was created.
    */
-  createdAt: string;
+  created_at: string;
 
   /**
    * The timestamp when the user was last updated.
    */
-  updatedAt: string;
+  updated_at: string;
 }
 
 export interface Address {
@@ -106,6 +101,11 @@ export interface Address {
   street: string;
 
   /**
+   * The house number of the address.
+   */
+  house_number: string;
+
+  /**
    * The city of the address.
    */
   city: string;
@@ -113,7 +113,7 @@ export interface Address {
   /**
    * The postal code of the address.
    */
-  postalCode: string;
+  postal_code: string;
 
   /**
    * The country of the address.
@@ -179,4 +179,46 @@ export interface Device {
    * The associated user for the device (if loaded).
    */
   user?: User; // Optional because whenLoaded('user') means it may not always be loaded
+}
+
+/**
+ * A caregiver associated with a patient.
+ */
+export interface Caregiver {
+  /**
+   * The unique identifier for the caregiver.
+   */
+  id: string;
+
+  /**
+   * The name of the caregiver.
+   */
+  name: string;
+
+  /**
+   * The email address of the caregiver.
+   */
+  email: string;
+}
+
+export interface CaregiverInvitation {
+  /**
+   * The email of the invited caregiver.
+   */
+  email: string;
+
+  /**
+   * The token for the invitation.
+   */
+  token: string;
+
+  /**
+   * The ID of the patient associated with the caregiver.
+   */
+  patient_id: string;
+
+  /**
+   * The timestamp when the invitation was created.
+   */
+  created_at: string;
 }

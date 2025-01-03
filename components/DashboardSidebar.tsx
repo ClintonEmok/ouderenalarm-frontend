@@ -1,7 +1,7 @@
 "use client";
 import { useAppDispatch, useAppSelector } from "@/app/redux";
 import { setIsSidebarCollapsed } from "@/state";
-import { Home, LucideIcon, Settings, X } from "lucide-react";
+import { Home, LucideIcon, MonitorCheck, Settings, X } from "lucide-react";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -36,11 +36,11 @@ const DashboardSidebar = () => {
         {/* NAVBAR LINKS */}
         <nav className="z-10 w-full ">
           <SidebarLink href="/dashboard" icon={Home} label="Dashboard" />
-          {/* <SidebarLink
-            href="/devices"
+          <SidebarLink
+            href="/dashboard/managed-care"
             icon={MonitorCheck}
             label="Managed Care"
-          /> */}
+          />
           <SidebarLink
             href="/dashboard/settings"
             icon={Settings}

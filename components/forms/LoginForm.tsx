@@ -10,6 +10,7 @@ import { useState } from "react";
 import { useAuth } from "@/hooks/auth";
 import { UserLoginSchema } from "@/lib/validation";
 import AuthSessionStatus from "../AuthSessionStatus";
+import axios, { AxiosError } from "axios";
 
 export enum FormFieldType {
   INPUT = "input",
@@ -22,7 +23,6 @@ export enum FormFieldType {
   SKELETON = "skeleton",
 }
 
-// TODO: Rename
 const LoginForm = () => {
   const { login } = useAuth({
     middleware: "guest",
@@ -57,10 +57,11 @@ const LoginForm = () => {
       // Call an API
 
       await login(userData);
-    } catch (e) {
-      // console.error(e.response.data);
+    } catch (e: AxiosError | any) {
+      if (axios.isAxiosError(e)) {
+        setStatus(e.response?.data?.error);
+      }
       setIsLoading(false);
-      setStatus("Authentication failed. Please check your credentials.");
     }
   }
   return (

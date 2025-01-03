@@ -2,22 +2,13 @@
 
 import { useMemo, useState } from "react";
 import {
-  MRT_EditActionButtons,
   MaterialReactTable,
   type MRT_ColumnDef,
   type MRT_Row,
   type MRT_TableOptions,
   useMaterialReactTable,
 } from "material-react-table";
-import {
-  Box,
-  Button,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
-  IconButton,
-  Tooltip,
-} from "@mui/material";
+import { Box, Button, IconButton, Tooltip } from "@mui/material";
 import {
   useGetDevicesQuery,
   useCreateDeviceMutation,
