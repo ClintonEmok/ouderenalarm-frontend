@@ -6,6 +6,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
+import { ToastContainer } from "react-toastify";
 
 const fontSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -46,6 +47,7 @@ const Layout = ({ children }: LayoutProps) => {
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="light">
+          <ToastContainer />
           <main>{children}</main>
         </ThemeProvider>
       </body>

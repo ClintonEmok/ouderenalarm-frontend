@@ -1,9 +1,9 @@
 import useSWR from "swr";
 import axios from "@/lib/axios";
 import { useEffect } from "react";
-import { AxiosResponse } from "axios";
 import { useRouter, useParams } from "next/navigation";
 import { UserRegistrationRequest } from "@/lib/interface";
+import { toast } from "react-toastify";
 
 export const useAuth = ({
   middleware,
@@ -52,7 +52,8 @@ export const useAuth = ({
       return await axios
         .post("/register", data)
         // redirect to login page after successful registration
-        .then(() => console.log("User registered successfully!"));
+        .then(() => toast("User registered successfully!"))
+        .then(() => router.push("/login"));
     } catch (error) {
       throw error;
     }
@@ -64,6 +65,7 @@ export const useAuth = ({
       return await axios
         .post("/login", data)
         .then(() => mutate())
+        .then(() => toast("User logged in successfully!"))
         .catch((error) => {
           if (error.response.status !== 422) {
             throw error;
@@ -74,12 +76,12 @@ export const useAuth = ({
     }
   };
 
-  const forgotPassword = async (data: {
-    email: string;
-  }): Promise<AxiosResponse> => {
+  const forgotPassword = async (data: { email: string }) => {
     try {
       await csrf();
-      return await axios.post("/forgot-password", data);
+      return await axios
+        .post("/forgot-password", data)
+        .then(() => toast("Password reset link sent to your email!"));
     } catch (error) {
       throw error;
     }
@@ -100,7 +102,8 @@ export const useAuth = ({
         })
         .then((response) =>
           router.push("/login?reset=" + btoa(response.data.status))
-        );
+        )
+        .then(() => toast("Password reset successfully!"));
     } catch (error) {
       throw error;
     }
@@ -108,7 +111,9 @@ export const useAuth = ({
 
   const resendEmailVerification = async () => {
     try {
-      return await axios.post("/email/verification-notification");
+      return await axios
+        .post("/email/verification-notification")
+        .then(() => toast("Email verification link sent to your email!"));
     } catch (error) {
       throw error;
     }

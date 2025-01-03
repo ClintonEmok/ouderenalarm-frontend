@@ -6,6 +6,7 @@ import { DashboardWrapper } from "@/components/DashboardWrapper";
 import { Plus_Jakarta_Sans } from "next/font/google";
 
 import { cn } from "@/lib/utils";
+import { ToastContainer } from "react-toastify";
 
 const fontSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -26,6 +27,7 @@ export default function RootLayout({
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="light">
+          <ToastContainer />
           <DashboardWrapper>{children}</DashboardWrapper>
         </ThemeProvider>
       </body>
