@@ -47,7 +47,7 @@ const Layout = ({ children }: LayoutProps) => {
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="light">
-          <ToastContainer />
+          <ToastContainer limit={3} />
           <main>{children}</main>
         </ThemeProvider>
       </body>

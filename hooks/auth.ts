@@ -52,7 +52,7 @@ export const useAuth = ({
       return await axios
         .post("/register", data)
         // redirect to login page after successful registration
-        .then(() => toast("User registered successfully!"))
+        .then(() => toast.success("User registered successfully!"))
         .then(() => router.push("/login"));
     } catch (error) {
       throw error;
@@ -65,7 +65,7 @@ export const useAuth = ({
       return await axios
         .post("/login", data)
         .then(() => mutate())
-        .then(() => toast("User logged in successfully!"))
+        .then(() => toast.success("User logged in successfully!"))
         .catch((error) => {
           if (error.response.status !== 422) {
             throw error;
@@ -81,7 +81,7 @@ export const useAuth = ({
       await csrf();
       return await axios
         .post("/forgot-password", data)
-        .then(() => toast("Password reset link sent to your email!"));
+        .then(() => toast.success("Password reset link sent to your email!"));
     } catch (error) {
       throw error;
     }
@@ -103,7 +103,7 @@ export const useAuth = ({
         .then((response) =>
           router.push("/login?reset=" + btoa(response.data.status))
         )
-        .then(() => toast("Password reset successfully!"));
+        .then(() => toast.success("Password reset successfully!"));
     } catch (error) {
       throw error;
     }
@@ -113,7 +113,9 @@ export const useAuth = ({
     try {
       return await axios
         .post("/email/verification-notification")
-        .then(() => toast("Email verification link sent to your email!"));
+        .then(() =>
+          toast.success("Email verification link sent to your email!")
+        );
     } catch (error) {
       throw error;
     }
