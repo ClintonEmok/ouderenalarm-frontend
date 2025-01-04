@@ -1,6 +1,7 @@
 import AcceptInvitationForm from "@/components/forms/AcceptInvitationForm";
 import { Metadata } from "next";
 import Image from "next/image";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Registreer", // Page
@@ -20,7 +21,9 @@ export default function CaregiversAcceptPage() {
             alt="patient"
             className="mb-12 h-10 w-fit"
           />
-          <AcceptInvitationForm />
+          <Suspense>
+            <AcceptInvitationForm />
+          </Suspense>
 
           <div className="text-14-regular mt-20 flex justify-between">
             <p className="justify-items-end text-dark-600 xl:text-left">

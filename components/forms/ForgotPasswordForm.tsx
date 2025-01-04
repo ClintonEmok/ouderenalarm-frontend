@@ -9,12 +9,10 @@ import SubmitButton from "../SubmitButton";
 import { useState } from "react";
 import { useAuth } from "@/hooks/auth";
 import { ForgotPasswordSchema } from "@/lib/validation";
-import AuthSessionStatus from "../AuthSessionStatus";
 import { FormFieldType } from "./LoginForm";
 
 // TODO: Rename
 const ForgotPasswordForm = () => {
-  const [status, setStatus] = useState<string>("");
   const { forgotPassword } = useAuth({
     middleware: "guest",
     redirectIfAuthenticated: "/dashboard",
@@ -39,16 +37,13 @@ const ForgotPasswordForm = () => {
         email,
       };
       const response = await forgotPassword(formData);
-      setStatus(response.data.status);
     } catch (e) {
-      setStatus("");
       setIsLoading(false);
       console.error(e);
     }
   }
   return (
     <Form {...form}>
-      <AuthSessionStatus className="mb-4" status={status} />
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 flex-1">
         <CustomFormField
           control={form.control}

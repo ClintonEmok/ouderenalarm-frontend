@@ -2,21 +2,16 @@
 import Link from "next/link";
 import AuthCard from "@/components/AuthCard";
 import ApplicationLogo from "@/components/ApplicationLogo";
-import { useState } from "react";
 import { useAuth } from "@/hooks/auth";
 
 const VerifyEmailPage = () => {
-  const [status, setStatus] = useState<string>("");
-
   const { logout, resendEmailVerification } = useAuth({
     middleware: "auth",
     redirectIfAuthenticated: "/dashboard",
   });
 
   const onClickResend = () => {
-    resendEmailVerification().then((response) =>
-      setStatus(response.data.status)
-    );
+    resendEmailVerification();
   };
   return (
     <AuthCard
@@ -31,13 +26,6 @@ const VerifyEmailPage = () => {
         email address by clicking on the link we just emailed to you? If you
         didn&apos;t receive the email, we will gladly send you another.
       </div>
-
-      {status === "verification-link-sent" && (
-        <div className="mb-4 font-medium text-sm text-green-600">
-          A new verification link has been sent to the email address you
-          provided during registration.
-        </div>
-      )}
 
       <div className="mt-4 flex items-center justify-between">
         <button
