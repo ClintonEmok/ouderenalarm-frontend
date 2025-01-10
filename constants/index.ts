@@ -109,12 +109,26 @@ export const LOGOS = [
   { src: "/assets/logos/Telegraaf.svg", alt: "Telegraaf" },
 ];
 
+interface LinkType {
+  title: string;
+  links: Link[];
+}
+interface Link {
+  label: string;
+  url: string;
+}
 // FOOTER SECTION
-export const FOOTER_LINKS = [
+export const FOOTER_LINKS: LinkType[] = [
   {
     title: "Leer Meer",
-    links: ["Over OuderenAlarm"],
+    links: [
+      {
+        label: "Algemene Voorwaarden",
+        url: "assets/pdf/algemene-voorwaarden.pdf",
+      },
+    ],
   },
+
   // {
   //   title: "Our Community",
   //   links: ["Climbing xixixi", "Hiking hilink", "Hilink kinthill"],
