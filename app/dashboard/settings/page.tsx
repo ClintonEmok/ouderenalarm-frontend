@@ -17,7 +17,7 @@ const Settings = () => {
             Account
           </TabsTrigger>
           <TabsTrigger value="password" className="px-4 py-2">
-            Password
+            Wachtwoord
           </TabsTrigger>
           {/* <TabsTrigger value="address" className="px-4 py-2">
             Address

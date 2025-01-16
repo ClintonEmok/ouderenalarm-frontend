@@ -41,19 +41,19 @@ const UpdatePasswordForm = () => {
         <CustomFormField
           control={form.control}
           name="current_password"
-          label="Current Password"
+          label="Huidig Wachtwoord"
           fieldType={FormFieldType.PASSWORD}
         />
         <CustomFormField
           control={form.control}
           name="new_password"
-          label="New Password"
+          label="Nieuw Wachtwoord"
           fieldType={FormFieldType.PASSWORD}
         />
         <CustomFormField
           control={form.control}
           name="new_password_confirmation"
-          label="Confirm Password"
+          label="Bevestig Wachtwoord"
           fieldType={FormFieldType.PASSWORD}
         />
         <SubmitButton
@@ -62,7 +62,7 @@ const UpdatePasswordForm = () => {
             "bg-primary-500 text-white font-bold text-md w-full max-w-xs"
           }
         >
-          Change Password
+          Wachtwoord wijzigen
         </SubmitButton>
       </form>
     </Form>

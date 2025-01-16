@@ -10,11 +10,9 @@ const CaregiverManagementPage = () => {
     <div className="p-6">
       {/* Page Header */}
       <header className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-800">
-          Caregiver Management
-        </h1>
+        <h1 className="text-2xl font-bold text-gray-800">Zorgverlenerbeheer</h1>
         <p className="text-gray-600">
-          Manage caregivers who are associated with your account.
+          Beheer zorgverleners die aan jouw account zijn gekoppeld.
         </p>
       </header>
 

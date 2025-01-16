@@ -15,7 +15,7 @@ export default function Home() {
       <CarouselPlugin />
       <ElderlyCarousel />
       <ElderlyAlarm />
-      <PortalShowcase />
+      {/* <PortalShowcase /> */}
       <Testimonials />
       <ElderlyAlarmJourney />
     </>

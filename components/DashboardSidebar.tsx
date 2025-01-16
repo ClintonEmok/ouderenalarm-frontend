@@ -39,7 +39,7 @@ const DashboardSidebar = () => {
           <SidebarLink
             href="/dashboard/managed-care"
             icon={MonitorCheck}
-            label="Managed Care"
+            label="Beheerde zorg"
           />
           <SidebarLink
             href="/dashboard/settings"

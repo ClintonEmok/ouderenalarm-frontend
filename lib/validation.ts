@@ -4,68 +4,68 @@ export const UserRegistrationSchema = z
   .object({
     name: z
       .string()
-      .min(1, "Name is required")
-      .max(255, "Name must be less than 255 characters"),
+      .min(1, "Naam is verplicht")
+      .max(255, "Naam mag maximaal 255 tekens bevatten"),
     last_name: z
       .string()
-      .min(1, "Last name is required")
-      .max(255, "Last name must be less than 255 characters"),
+      .min(1, "Achternaam is verplicht")
+      .max(255, "Achternaam mag maximaal 255 tekens bevatten"),
 
     phone_number: z
       .string()
-      .min(1, "Phone number is required")
-      .max(255, "Phone number must be less than 255 characters"),
+      .min(1, "Telefoonnummer is verplicht")
+      .max(255, "Telefoonnummer mag maximaal 255 tekens bevatten"),
 
     email: z
       .string()
-      .email("Invalid email address")
-      .min(1, "Email is required"),
+      .email("Ongeldig e-mailadres")
+      .min(1, "E-mailadres is verplicht"),
 
-    password: z.string().min(8, "Password must be at least 8 characters"),
+    password: z.string().min(8, "Wachtwoord moet minimaal 8 tekens bevatten"),
 
     password_confirmation: z.string(),
   })
   .refine((data) => data.password === data.password_confirmation, {
-    message: "Passwords do not match",
+    message: "Wachtwoorden komen niet overeen",
     path: ["password_confirmation"],
   });
 
 export const UserLoginSchema = z.object({
-  email: z.string().email("Invalid email address"),
-  password: z.string().min(8, "Password must be at least 8 characters"),
+  email: z.string().email("Ongeldig e-mailadres"),
+  password: z.string().min(8, "Wachtwoord moet minimaal 8 tekens bevatten"),
 });
 
 export const ForgotPasswordSchema = z.object({
-  email: z.string().email("Invalid email"),
+  email: z.string().email("Ongeldig e-mailadres"),
 });
 
 export const PasswordResetSchema = z
   .object({
-    email: z.string().email("Invalid email"),
-    password: z.string().min(8, "Password must be at least 8 characters"),
+    email: z.string().email("Ongeldig e-mailadres"),
+    password: z.string().min(8, "Wachtwoord moet minimaal 8 tekens bevatten"),
     password_confirmation: z.string(),
   })
   .refine((data) => data.password === data.password_confirmation, {
-    message: "Passwords do not match",
+    message: "Wachtwoorden komen niet overeen",
     path: ["password_confirmation"],
   });
 
 export const AccountSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Invalid email address"),
+  name: z.string().min(2, "Naam moet minimaal 2 tekens bevatten"),
+  email: z.string().email("Ongeldig e-mailadres"),
   phone_number: z.string().optional(),
 });
 
 export const UpdatePasswordSchema = z.object({
-  current_password: z.string().min(8, "Current password is required"),
-  new_password: z.string().min(8, "New password must be at least 8 characters"),
-  new_password_confirmation: z
+  current_password: z.string().min(8, "Huidig wachtwoord is verplicht"),
+  new_password: z
     .string()
-    .min(8, "Please confirm your new password"),
+    .min(8, "Nieuw wachtwoord moet minimaal 8 tekens bevatten"),
+  new_password_confirmation: z.string().min(8, "Bevestig je nieuwe wachtwoord"),
 });
 
 export const SurveyFormSchema = z.object({
-  forWhom: z.enum(["voor mij", "voor een naaste"]), // Valid options including "unknown",
+  forWhom: z.enum(["voor mij", "voor een naaste"]),
   livingSituation: z.enum([
     "alleen",
     "met partner",
@@ -80,7 +80,7 @@ export const SurveyFormSchema = z.object({
   email: z
     .string()
     .email("Voer een geldig e-mailadres in.")
-    .min(1, "E-mail is verplicht."),
+    .min(1, "E-mailadres is verplicht."),
   phone: z
     .string()
     .regex(
@@ -91,10 +91,10 @@ export const SurveyFormSchema = z.object({
 });
 
 export const CaregiverInvitationSchema = z.object({
-  email: z.string().email("Invalid email address"),
-  name: z.string().min(1, "Name is required"),
-  password: z.string().min(8, "Password must be at least 8 characters"),
+  email: z.string().email("Ongeldig e-mailadres"),
+  name: z.string().min(1, "Naam is verplicht"),
+  password: z.string().min(8, "Wachtwoord moet minimaal 8 tekens bevatten"),
   password_confirmation: z
     .string()
-    .min(8, "Password confirmation must be at least 8 characters"),
+    .min(8, "Bevestiging van het wachtwoord moet minimaal 8 tekens bevatten"),
 });

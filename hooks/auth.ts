@@ -67,6 +67,8 @@ export const useAuth = ({
         .then(() => mutate())
         .then(() => toast.success("User logged in successfully!"))
         .catch((error) => {
+          if (error.response.status === 401) toast.error("Invalid credentials");
+          console.error("Failed to login", error);
           if (error.response.status !== 422) {
             throw error;
           }

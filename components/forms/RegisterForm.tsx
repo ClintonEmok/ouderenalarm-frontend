@@ -78,7 +78,7 @@ const RegisterForm = () => {
         </section>
         <section className="space-y-6">
           <div className="mb-9 space-y-1">
-            <h2 className="sub-header">Personal Information</h2>
+            <h2 className="sub-header">Persoonlijke Informatie</h2>
           </div>
         </section>
 
@@ -87,7 +87,7 @@ const RegisterForm = () => {
             control={form.control}
             fieldType={FormFieldType.INPUT}
             name="name"
-            label="First Name"
+            label="Voornaam"
             placeholder="John"
             iconSrc="assets/icons/user.svg"
             iconAlt="user"
@@ -97,7 +97,7 @@ const RegisterForm = () => {
             control={form.control}
             fieldType={FormFieldType.INPUT}
             name="last_name"
-            label="Last Name"
+            label="Achternaam"
             placeholder="Doe"
             iconSrc="assets/icons/user.svg"
             iconAlt="user"
@@ -119,7 +119,7 @@ const RegisterForm = () => {
             control={form.control}
             fieldType={FormFieldType.PHONE_INPUT}
             name="phone_number"
-            label="Phone Number"
+            label="Telefoonnummer"
             placeholder="06 12345678"
           />
         </div>
@@ -129,14 +129,14 @@ const RegisterForm = () => {
             control={form.control}
             fieldType={FormFieldType.INPUT}
             name="password"
-            label="Password"
+            label="Wachtwoord"
           />
 
           <CustomFormField
             control={form.control}
             fieldType={FormFieldType.INPUT}
             name="password_confirmation"
-            label="Confirm Password"
+            label="Bevestig Wachtwoord"
           />
         </div>
 
@@ -147,16 +147,16 @@ const RegisterForm = () => {
               "bg-primary-500 text-white font-bold text-md w-full max-w-xs"
             }
           >
-            Get Started
+            Meld je aan
           </SubmitButton>
         </div>
 
         {/* Sign Up Link */}
         <div className="text-center mt-4">
           <p className="text-dark-700">
-            Already have an account?{" "}
+            Heb je al een account?{" "}
             <Link href="/login" className="text-primary-500 hover:underline">
-              Sign In
+              Inloggen
             </Link>
           </p>
         </div>

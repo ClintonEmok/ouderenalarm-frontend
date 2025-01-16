@@ -22,9 +22,9 @@ const VerifyEmailPage = () => {
       }
     >
       <div className="mb-4 text-sm text-gray-600">
-        Thanks for signing up! Before getting started, could you verify your
-        email address by clicking on the link we just emailed to you? If you
-        didn&apos;t receive the email, we will gladly send you another.
+        Bedankt voor je aanmelding! Voordat je begint, kun je je e-mailadres
+        verifiëren door op de link te klikken die we je zojuist hebben gemaild.
+        Als je de e-mail niet hebt ontvangen, sturen we je graag een nieuwe.
       </div>
 
       <div className="mt-4 flex items-center justify-between">

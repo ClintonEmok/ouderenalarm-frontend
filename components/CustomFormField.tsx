@@ -76,7 +76,7 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
           <FormControl>
             <Input
               type={showPassword ? "text" : "password"}
-              placeholder={placeholder || "Enter password"}
+              placeholder={placeholder || "Voer wachtwoord in"}
               {...field}
               className="shad-input border-0 text-white"
             />
