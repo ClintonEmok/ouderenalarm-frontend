@@ -139,11 +139,11 @@ export default CaregiverTable;
  */
 function validateCaregiver(caregiver: Caregiver) {
   return {
-    name: !caregiver.name ? "Name is required" : "",
+    name: !caregiver.name ? "Naam is verplicht" : "",
     email: !caregiver.email
-      ? "Email is required"
+      ? "E-mailadres is verplicht"
       : !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(caregiver.email)
-        ? "Invalid email address"
+        ? "Ongeldig e-mailadres"
         : "",
   };
 }

@@ -42,19 +42,19 @@ const AccountForm = () => {
           control={form.control}
           fieldType={FormFieldType.INPUT}
           name="name"
-          label="Name"
+          label="Naam"
         />
         <CustomFormField
           control={form.control}
           fieldType={FormFieldType.INPUT}
           name="email"
-          label="Email"
+          label="E-mailadres"
         />
         <CustomFormField
           control={form.control}
           fieldType={FormFieldType.PHONE_INPUT}
           name="phone_number"
-          label="Phone Number"
+          label="Telefoonnummer"
         />
         <SubmitButton
           isLoading={isLoading}
@@ -62,7 +62,7 @@ const AccountForm = () => {
             "bg-primary-500 text-white font-bold text-md w-full max-w-xs"
           }
         >
-          Update Account
+          Account bijwerken
         </SubmitButton>
       </form>
     </Form>

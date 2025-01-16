@@ -75,9 +75,10 @@ const AcceptInvitationForm = () => {
         className="space-y-12 flex-1"
       >
         <section className="space-y-4">
-          <h1 className="header">Accept Invitation 🎉</h1>
+          <h1 className="header">Uitnodiging accepteren 🎉</h1>
           <p className="text-dark-700">
-            Complete the form below to accept the caregiver invitation.
+            Vul het onderstaande formulier in om de uitnodiging voor
+            zorgverlener te accepteren.
           </p>
           <AuthSessionStatus status={status} className="text-red-800" />
         </section>
@@ -86,7 +87,7 @@ const AcceptInvitationForm = () => {
           control={form.control}
           fieldType={FormFieldType.INPUT}
           name="email"
-          label="Email"
+          label="E-mailadres"
           placeholder="johndoe@gmail.com"
           // iconSrc="assets/icons/email.svg"
           // iconAlt="email"
@@ -105,16 +106,16 @@ const AcceptInvitationForm = () => {
             control={form.control}
             fieldType={FormFieldType.PASSWORD}
             name="password"
-            label="Password"
-            placeholder="Create a new password"
+            label="Wachtwoord"
+            placeholder="Maak een nieuw wachtwoord aan"
           />
 
           <CustomFormField
             control={form.control}
             fieldType={FormFieldType.PASSWORD}
             name="password_confirmation"
-            label="Confirm Password"
-            placeholder="Confirm your new password"
+            label="Bevestig wachtwoord"
+            placeholder="Bevestig het wachtwoord"
           />
         </div>
 
@@ -125,7 +126,7 @@ const AcceptInvitationForm = () => {
               "bg-primary-500 text-white font-bold text-md w-full max-w-xs"
             }
           >
-            Accept Invitation
+            Uitnodiging Accepteren
           </SubmitButton>
         </div>
       </form>

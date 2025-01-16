@@ -67,7 +67,7 @@ const SurveyFormStep4 = ({
                 fieldType={FormFieldType.INPUT}
                 control={form.control}
                 name="email"
-                label="Email"
+                label="E-mailadres"
               />
               <CustomFormField
                 fieldType={FormFieldType.PHONE_INPUT}

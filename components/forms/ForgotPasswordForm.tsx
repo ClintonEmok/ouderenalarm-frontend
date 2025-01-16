@@ -60,7 +60,7 @@ const ForgotPasswordForm = () => {
               "bg-primary-500 text-white font-bold text-md w-full max-w-xs"
             }
           >
-            Email Password Reset Link
+            E-mail wachtwoord-resetlink
           </SubmitButton>
         </div>
       </form>

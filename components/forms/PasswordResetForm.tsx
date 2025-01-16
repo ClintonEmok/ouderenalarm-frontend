@@ -64,7 +64,7 @@ const PasswordResetForm = () => {
           control={form.control}
           fieldType={FormFieldType.PASSWORD}
           name="email"
-          label="Email"
+          label="E-mailadres"
           placeholder="johndoe@gmail.com"
         />
 
@@ -72,14 +72,14 @@ const PasswordResetForm = () => {
           control={form.control}
           fieldType={FormFieldType.PASSWORD}
           name="password"
-          label="Password"
+          label="Wachtwoord"
           placeholder=""
         />
         <CustomFormField
           control={form.control}
           fieldType={FormFieldType.PASSWORD}
           name="password_confirmation"
-          label="Confirm Password"
+          label="Bevestig wachtwoord"
           placeholder=""
         />
 
@@ -90,7 +90,7 @@ const PasswordResetForm = () => {
               "bg-primary-500 text-white font-bold text-md w-full max-w-xs"
             }
           >
-            Email Password Reset Link
+            E-mail wachtwoord-resetlink
           </SubmitButton>
         </div>
       </form>

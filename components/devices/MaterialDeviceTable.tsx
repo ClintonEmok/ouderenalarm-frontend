@@ -90,7 +90,9 @@ const MaterialDeviceTable = () => {
         setValidationErrors(newValidationErrors);
         return;
       }
-      await createDevice(values).then(() => toast.success("Device created!"));
+      await createDevice(values).then(() =>
+        toast.success("Apparaat aangemaakt!")
+      );
       setValidationErrors({});
       table.setCreatingRow(null);
     };
@@ -102,7 +104,9 @@ const MaterialDeviceTable = () => {
         setValidationErrors(newValidationErrors);
         return;
       }
-      await updateDevice(values).then(() => toast.success("Device updated!"));
+      await updateDevice(values).then(() =>
+        toast.success("Apparaat bijgewerkt!")
+      );
       setValidationErrors({});
       table.setEditingRow(null);
     };
@@ -110,11 +114,11 @@ const MaterialDeviceTable = () => {
   const handleDeleteDevice = (row: MRT_Row<Device>) => {
     if (
       window.confirm(
-        `Are you sure you want to delete device with ID: ${row.original.id}?`
+        `Weet je zeker dat je het apparaat met ID: ${row.original.id} wilt verwijderen?`
       )
     ) {
       deleteDevice(row.original.id).then(() =>
-        toast.success("Device deleted!")
+        toast.success("Apparaat verwijderd!")
       );
     }
   };
