@@ -45,6 +45,7 @@ const MaterialDeviceTable = () => {
       {
         accessorKey: "alarm_code",
         header: "Alarm Code",
+        enableEditing: false,
         muiEditTextFieldProps: {
           required: true,
           error: !!validationErrors?.alarm_code,
@@ -56,6 +57,7 @@ const MaterialDeviceTable = () => {
       {
         accessorKey: "battery_percentage",
         header: "Batterijpercentage",
+        enableEditing: false,
         muiEditTextFieldProps: {
           required: true,
           type: "number",
@@ -71,7 +73,7 @@ const MaterialDeviceTable = () => {
       {
         accessorKey: "maps_link",
         header: "Maps Link",
-        enableEditing: true,
+        enableEditing: false,
         size: 200,
       },
     ],
