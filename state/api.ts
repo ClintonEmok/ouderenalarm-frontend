@@ -48,7 +48,7 @@ export const api = createApi({
     // 🔥 Delete a device
     deleteDevice: builder.mutation<void, string>({
       query: (id) => ({
-        url: `/user/remove-device/${id}`,
+        url: `api/user/devices/${id}`,
         method: "DELETE",
       }),
       invalidatesTags: (result, error, id) => [{ type: "Devices", id }],
