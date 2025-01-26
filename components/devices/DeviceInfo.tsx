@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import { useGetDevicesQuery } from "@/state/api"; // Import the RTK Query hook
+import dynamic from "next/dynamic";
 
+const Map = dynamic(() => import("@/components/Map"), { ssr: false });
 const DeviceInfo = () => {
   // Call RTK Query to get device data
   const { data: devices = [], isLoading, isError } = useGetDevicesQuery();
@@ -116,6 +118,12 @@ const DeviceInfo = () => {
           <p className="text-gray-600 font-bold text-lg">{"Onbekend"}</p>
         </div>
       </div>
+      <Map
+        center={{
+          lng: selectedDevice.location.longitude ?? 0,
+          lat: selectedDevice.location.latitude ?? 0,
+        }}
+      />
     </div>
   );
 };

@@ -47,7 +47,6 @@ const MaterialDeviceTable = () => {
         header: "Alarm Code",
         enableEditing: false,
         muiEditTextFieldProps: {
-          required: true,
           error: !!validationErrors?.alarm_code,
           helperText: validationErrors?.alarm_code,
           onFocus: () =>
@@ -59,7 +58,6 @@ const MaterialDeviceTable = () => {
         header: "Batterijpercentage",
         enableEditing: false,
         muiEditTextFieldProps: {
-          required: true,
           type: "number",
           error: !!validationErrors?.battery_percentage,
           helperText: validationErrors?.battery_percentage,
@@ -170,12 +168,12 @@ export default MaterialDeviceTable;
 function validateDevice(device: Device) {
   return {
     phone_number: !device.phone_number ? "Phone number is required" : "",
-    alarm_code: !device.alarm_code ? "Alarm code is required" : "",
-    battery_percentage:
-      device.battery_percentage === undefined ||
-      device.battery_percentage < 0 ||
-      device.battery_percentage > 100
-        ? "Battery percentage must be between 0 and 100"
-        : "",
+    // alarm_code: !device.alarm_code ? "Alarm code is required" : "",
+    // battery_percentage:
+    //   device.battery_percentage === undefined ||
+    //   device.battery_percentage < 0 ||
+    //   device.battery_percentage > 100
+    //     ? "Battery percentage must be between 0 and 100"
+    //     : "",
   };
 }

@@ -9,7 +9,7 @@ export const api = createApi({
   endpoints: (builder) => ({
     // 🔥 Get all devices
     getDevices: builder.query<Device[], void>({
-      query: () => ({ url: "api/devices", method: "GET" }),
+      query: () => ({ url: "api/user/devices", method: "GET" }),
       providesTags: (result) =>
         result
           ? [
@@ -28,7 +28,7 @@ export const api = createApi({
     // 🔥 Create a new device
     createDevice: builder.mutation<Device, Partial<Device>>({
       query: (device) => ({
-        url: "api/devices",
+        url: "api/user/add-device",
         method: "POST",
         data: device,
       }),
@@ -38,7 +38,7 @@ export const api = createApi({
     // 🔥 Update an existing device
     updateDevice: builder.mutation<Device, Partial<Device>>({
       query: (device) => ({
-        url: `api/devices/${device.id}`,
+        url: `api/user/devices/${device.id}`,
         method: "PATCH",
         data: device,
       }),
@@ -48,7 +48,7 @@ export const api = createApi({
     // 🔥 Delete a device
     deleteDevice: builder.mutation<void, string>({
       query: (id) => ({
-        url: `api/devices/${id}`,
+        url: `/user/remove-device/${id}`,
         method: "DELETE",
       }),
       invalidatesTags: (result, error, id) => [{ type: "Devices", id }],
