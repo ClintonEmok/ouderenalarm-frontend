@@ -5,7 +5,14 @@ import { Caregiver, CaregiverInvitation, Device, User } from "@/lib/interface";
 export const api = createApi({
   baseQuery: axiosBaseQuery(),
   reducerPath: "api",
-  tagTypes: ["Devices", "Caregivers", "User", "PatientDevices"],
+  tagTypes: [
+    "Devices",
+    "Caregivers",
+    "User",
+    "PatientDevices",
+    "CaregiverEmergency",
+    "Emergency",
+  ],
   endpoints: (builder) => ({
     // 🔥 Get all devices
     getDevices: builder.query<Device[], void>({
@@ -69,7 +76,11 @@ export const api = createApi({
       }),
       invalidatesTags: ["Caregivers"],
     }),
-
+    // 🔥 Get an emergency by its unique URL
+    getEmergency: builder.query<any, string>({
+      query: (link) => ({ url: `api/emergency/${link}`, method: "GET" }),
+      providesTags: (result, error, link) => [{ type: "Emergency", id: link }],
+    }),
     // 🔥 Accept an invitation as a caregiver
     acceptCaregiverInvitation: builder.mutation<
       void,
@@ -114,6 +125,36 @@ export const api = createApi({
       }),
       invalidatesTags: ["User"],
     }),
+
+    addCaregiverToEmergency: builder.mutation<
+      void,
+      { emergencyId: string; userId: string }
+    >({
+      query: ({ emergencyId, userId }) => ({
+        url: `api/emergency/${emergencyId}/caregiver-on-the-way`,
+        method: "POST",
+        data: { user_id: userId },
+      }),
+      invalidatesTags: (result, error, { emergencyId }) => [
+        { type: "CaregiverEmergency", id: emergencyId },
+        "CaregiverEmergency",
+      ],
+    }),
+    // 🔥 Remove a caregiver from an emergency
+    removeCaregiverFromEmergency: builder.mutation<
+      void,
+      { emergencyId: string; userId: string }
+    >({
+      query: ({ emergencyId, userId }) => ({
+        url: `api/emergency/${emergencyId}/caregiver-on-the-way`,
+        method: "DELETE",
+        data: { user_id: userId },
+      }),
+      invalidatesTags: (result, error, { emergencyId }) => [
+        { type: "CaregiverEmergency", id: emergencyId },
+        "CaregiverEmergency",
+      ],
+    }),
   }),
 });
 
@@ -130,4 +171,7 @@ export const {
   useDeleteCaregiverMutation,
   useGetProfileQuery,
   useUpdateProfileMutation,
+  useAddCaregiverToEmergencyMutation,
+  useRemoveCaregiverFromEmergencyMutation,
+  useGetEmergencyQuery,
 } = api;

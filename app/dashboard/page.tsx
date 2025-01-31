@@ -1,12 +1,10 @@
 "use client";
-import dynamic from "next/dynamic";
 
 import DeviceInfo from "@/components/devices/DeviceInfo";
 import MaterialDeviceTable from "@/components/devices/MaterialDeviceTable";
 
 import { useAuth } from "@/hooks/auth";
 import React from "react";
-const Map = dynamic(() => import("@/components/Map"), { ssr: false });
 const Dashboard = () => {
   const { user } = useAuth({ middleware: "auth" });
   return (
