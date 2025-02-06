@@ -77,10 +77,7 @@ export const api = createApi({
       invalidatesTags: ["Caregivers"],
     }),
     // 🔥 Get an emergency by its unique URL
-    getEmergency: builder.query<any, string>({
-      query: (link) => ({ url: `api/emergency/${link}`, method: "GET" }),
-      providesTags: (result, error, link) => [{ type: "Emergency", id: link }],
-    }),
+
     // 🔥 Accept an invitation as a caregiver
     acceptCaregiverInvitation: builder.mutation<
       void,
@@ -126,6 +123,13 @@ export const api = createApi({
       invalidatesTags: ["User"],
     }),
 
+    // Fetch emergency details
+    getEmergency: builder.query<any, string>({
+      query: (link) => ({ url: `api/emergency/${link}`, method: "GET" }),
+      providesTags: (result, error, link) => [{ type: "Emergency", id: link }],
+    }),
+
+    // Add caregiver to emergency and invalidate `Emergency` tag
     addCaregiverToEmergency: builder.mutation<
       void,
       { emergencyId: string; userId: string }
@@ -136,11 +140,12 @@ export const api = createApi({
         data: { user_id: userId },
       }),
       invalidatesTags: (result, error, { emergencyId }) => [
+        { type: "Emergency", id: emergencyId }, // ✅ Invalidate `getEmergency`
         { type: "CaregiverEmergency", id: emergencyId },
-        "CaregiverEmergency",
       ],
     }),
-    // 🔥 Remove a caregiver from an emergency
+
+    // Remove caregiver from emergency and invalidate `Emergency` tag
     removeCaregiverFromEmergency: builder.mutation<
       void,
       { emergencyId: string; userId: string }
@@ -151,8 +156,8 @@ export const api = createApi({
         data: { user_id: userId },
       }),
       invalidatesTags: (result, error, { emergencyId }) => [
+        { type: "Emergency", id: emergencyId }, // ✅ Invalidate `getEmergency`
         { type: "CaregiverEmergency", id: emergencyId },
-        "CaregiverEmergency",
       ],
     }),
   }),
