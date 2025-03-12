@@ -44,9 +44,9 @@ const Hero = () => {
         <div className="flex flex-col w-full gap-3 sm:flex-row text-white">
           <SurveyDialog
             button={
-              <Button className=" text-white bg-primary-500 p-7 text-18-bold">
+              <div className=" text-white bg-primary-500 p-7 text-18-bold">
                 Doe de GRATIS veiligheidstest
-              </Button>
+              </div>
             }
           />
         </div>

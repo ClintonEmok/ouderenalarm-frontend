@@ -5,7 +5,6 @@ import ElderlyAlarmJourney from "@/components/ElderlyAlarmJourney";
 import { CarouselPlugin } from "@/components/BrandCarousel";
 import Hero from "@/components/Hero";
 import Testimonials from "@/components/Testimonials";
-import PortalShowcase from "@/components/PortalShowcase";
 
 // TODO: move to register page (route)
 export default function Home() {

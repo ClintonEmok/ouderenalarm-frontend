@@ -3,7 +3,7 @@ import { useState } from "react";
 import { NAV_LINKS } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { LogIn, LogInIcon, Menu, X } from "lucide-react";
 
 const NavBar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -31,12 +31,15 @@ const NavBar = () => {
             </Link>
           ))}
         </ul>
-        <div className="lg:flexCenter hidden gap-3">
-          {/* Add buttons or additional items if needed */}
-        </div>
+
+        <Link href="/login" className="hidden lg:flex pr-3">
+          <LogInIcon size={40} color="#fff" />
+        </Link>
+
+        {/* Show menu button only on small screens */}
         <button
           onClick={() => setIsDrawerOpen(true)}
-          className="inline-block lg:hidden"
+          className="flex lg:hidden"
         >
           <Menu size={40} color="#fff" />
         </button>

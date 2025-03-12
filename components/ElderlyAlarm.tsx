@@ -101,10 +101,10 @@ export default function ElderlyAlarm() {
       <SurveyDialog
         triggerClassName="w-full flex justify-center"
         button={
-          <Button className="bg-primary-500 flex gap-1 mt-4 text-lg items-center justify-center text-white py-6 max-w-2xl md:w-2/5 px-8 font-bold rounded-lg shadow-md hover:bg-green-600 transition">
+          <div className="bg-primary-500 flex gap-1 mt-4 text-lg items-center justify-center text-white py-6 max-w-2xl md:w-2/5 px-8 font-bold rounded-lg shadow-md hover:bg-green-600 transition">
             Ik wil het gratis testen!
             <SendHorizontal />
-          </Button>
+          </div>
         }
       />
     </section>

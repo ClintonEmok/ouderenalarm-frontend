@@ -96,9 +96,9 @@ const ElderlyAlarmJourney = () => {
 
         <SurveyDialog
           button={
-            <Button className="bg-primary-500 text-white p-6 mb-3 text-lg font-bold rounded-lg shadow-md hover:bg-green-600 transition">
+            <div className="bg-primary-500 text-white p-6 mb-3 text-lg font-bold rounded-lg shadow-md hover:bg-green-600 transition">
               Ik wil het 14 dagen gratis testen!
-            </Button>
+            </div>
           }
         />
       </div>
