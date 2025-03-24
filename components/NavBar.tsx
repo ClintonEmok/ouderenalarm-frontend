@@ -32,8 +32,9 @@ const NavBar = () => {
           ))}
         </ul>
 
-        <Link href="/login" className="hidden lg:flex pr-3">
-          <LogInIcon size={40} color="#fff" />
+        <Link href="/login" className="hidden lg:flex pr-3 text-white gap-2">
+          <LogInIcon size={28} color="#fff" />
+          Inloggen
         </Link>
 
         {/* Show menu button only on small screens */}
