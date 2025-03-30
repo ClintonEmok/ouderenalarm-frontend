@@ -101,13 +101,17 @@ const DeviceInfo = () => {
           <p className="text-gray-600 text-sm text-center">
             Laatste update:{" "}
             {selectedDevice.updated_at
-              ? new Date(selectedDevice.updated_at).toLocaleString()
+              ? new Date(selectedDevice.updated_at).toLocaleString("nl-NL")
               : "Onbekend"}
           </p>
           <p className="text-gray-600 font-bold text-xl mt-2 text-center">
-            {selectedDevice.battery_percentage ?? 1}%{" "}
+            {selectedDevice.status_details.battery_level ?? 1}%{" "}
             <span className="text-gray-500">
-              ({selectedDevice.battery_percentage > 20 ? "Goed" : "Laad op"})
+              (
+              {(selectedDevice.status_details.battery_level ?? 0 > 20)
+                ? "Goed"
+                : "Laad op"}
+              )
             </span>
           </p>
         </div>
@@ -115,15 +119,19 @@ const DeviceInfo = () => {
         {/* Connection Status */}
         <div className="bg-gray-100 p-4 rounded-lg shadow w-full text-center">
           <h3 className="text-md font-semibold mb-2">Verbindingsstatus</h3>
-          <p className="text-gray-600 font-bold text-lg">{"Onbekend"}</p>
+          <p className="text-gray-600 font-bold text-lg">
+            {selectedDevice.status === "active" ? "Actief" : "Niet actief"}
+          </p>
         </div>
       </div>
-      <Map
-        center={{
-          lng: selectedDevice.location.longitude ?? 0,
-          lat: selectedDevice.location.latitude ?? 0,
-        }}
-      />
+      {selectedDevice.location.latitude && (
+        <Map
+          center={{
+            lng: selectedDevice.location.longitude ?? 0,
+            lat: selectedDevice.location.latitude ?? 0,
+          }}
+        />
+      )}
     </div>
   );
 };

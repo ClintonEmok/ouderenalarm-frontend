@@ -155,9 +155,16 @@ export interface Device {
   phone_number: string;
 
   /**
-   * The battery percentage of the device.
+   * The status of the device (e.g., online, offline).
    */
-  battery_percentage: number;
+
+  status: string;
+  /**
+   * Status details such as battery level.
+   */
+  status_details: {
+    battery_level: number | null;
+  };
 
   /**
    * The timestamp when the device record was created.
@@ -172,7 +179,7 @@ export interface Device {
   /**
    * The associated user for the device (if loaded).
    */
-  user?: User; // Optional because whenLoaded('user') means it may not always be loaded
+  user?: User;
 }
 
 /**
