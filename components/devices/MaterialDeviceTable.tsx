@@ -42,38 +42,6 @@ const MaterialDeviceTable = () => {
             }),
         },
       },
-      {
-        accessorKey: "alarm_code",
-        header: "Alarm Code",
-        enableEditing: false,
-        muiEditTextFieldProps: {
-          error: !!validationErrors?.alarm_code,
-          helperText: validationErrors?.alarm_code,
-          onFocus: () =>
-            setValidationErrors({ ...validationErrors, alarm_code: undefined }),
-        },
-      },
-      {
-        accessorKey: "battery_percentage",
-        header: "Batterijpercentage",
-        enableEditing: false,
-        muiEditTextFieldProps: {
-          type: "number",
-          error: !!validationErrors?.battery_percentage,
-          helperText: validationErrors?.battery_percentage,
-          onFocus: () =>
-            setValidationErrors({
-              ...validationErrors,
-              battery_percentage: undefined,
-            }),
-        },
-      },
-      {
-        accessorKey: "maps_link",
-        header: "Maps Link",
-        enableEditing: false,
-        size: 200,
-      },
     ],
     [validationErrors]
   );
