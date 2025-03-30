@@ -30,7 +30,7 @@ const ElderlyAlarmJourney = () => {
   ];
 
   return (
-    <section className="py-12 bg-gray-200" id="ElderlyAlarmJourney">
+    <section className="py-12 bg-[#F8F8F8]" id="ElderlyAlarmJourney">
       <div className="container mx-auto px-4 text-center flex flex-col items-center  ">
         {/* Header Section */}
         <h2 className="bold-32 lg:bold-40 mb-4 text-black">

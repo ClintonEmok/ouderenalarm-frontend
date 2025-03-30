@@ -6,7 +6,7 @@ import SurveyDialog from "./dialogs/SurveyDialog";
 export default function ElderlyAlarm() {
   return (
     <section
-      className="bg-gray-200 py-10 px-6 flex flex-col items-center gap-6"
+      className="bg-[#F8F8F8] py-10 px-6 flex flex-col items-center gap-6"
       id="Working"
     >
       <div className="max-w-5xl mx-auto">
