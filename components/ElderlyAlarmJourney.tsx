@@ -30,7 +30,7 @@ const ElderlyAlarmJourney = () => {
   ];
 
   return (
-    <section className="py-12" id="ElderlyAlarmJourney">
+    <section className="py-12 bg-gray-200" id="ElderlyAlarmJourney">
       <div className="container mx-auto px-4 text-center flex flex-col items-center  ">
         {/* Header Section */}
         <h2 className="bold-32 lg:bold-40 mb-4 text-black">
@@ -52,23 +52,23 @@ const ElderlyAlarmJourney = () => {
           </div>
           {/* Description */}
           <p className="text-black text-sm md:text-base leading-relaxed mb-4 text-left font-bold">
-            Ons exclusieve senioren alarm verandert zoveel levens. Elke dag weer
+            Ons exclusieve ouderen alarm verandert zoveel levens. Elke dag weer
             vertrouwen 30 nieuwe senioren op onze betrouwbare service, en
             inmiddels helpen we al meer dan 25.000 tevreden ouderen.
           </p>
           <p className="text-black text-sm md:text-base leading-relaxed mb-4 text-left font-bold">
-            De waarheid is dat medische experts ons apparaat het meest
-            betrouwbare senioren alarm vinden van Nederland,
+            De waarheid is dat medische experts ons ouderen alarm het meest
+            betrouwbare ouderen alarm vinden van Nederland,
           </p>
           <p className="text-black text-sm md:text-base leading-relaxed mb-4 text-left font-bold">
             En daarom bieden we{" "}
             <span className="font-bold">VOOR HET EERST</span> 250 senioren de
-            mogelijkheid om ons exclusieve senioren alarm 14 dagen GRATIS te
+            mogelijkheid om ons exclusieve ouderen alarm 14 dagen GRATIS te
             testen.
           </p>
           <p className="text-black text-sm md:text-base leading-relaxed mb-4 text-left font-bold">
-            Ja dat klopt, je kunt met 0 euro testen of dit senioren alarm
-            voldoet aan uw verwachtingen!
+            Ja dat klopt, je kunt met 0 euro testen of dit ouderen alarm voldoet
+            aan uw verwachtingen!
           </p>
         </div>
 

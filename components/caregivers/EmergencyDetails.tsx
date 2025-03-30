@@ -16,7 +16,7 @@ const EmergencyDetails: React.FC<EmergencyDetailsProps> = ({
       </h2>
       <div className="mb-6 p-4 bg-white border border-gray-200 rounded-md">
         <p className="mb-2">
-          <strong className="text-gray-700">📟 IMEI van Apparaat:</strong>{" "}
+          <strong className="text-gray-700">📟 IMEI van ouderen alarm:</strong>{" "}
           {emergencyData.device?.imei || "Onbekend"}
         </p>
         <p className="mb-2">

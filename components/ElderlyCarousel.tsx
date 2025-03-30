@@ -60,7 +60,7 @@ const ElderlyCarousel = () => {
   return (
     <section
       id="ElderlyCarousel"
-      className="2xl:max-container relative flex flex-col py-10 lg:mb-10 lg:py-20 xl:mb-20"
+      className="2xl:max-container relative flex flex-col py-10 lg:mb-10 lg:py-20 xl:mb-20 "
     >
       <div className="">
         <Carousel

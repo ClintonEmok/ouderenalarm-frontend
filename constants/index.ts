@@ -16,7 +16,7 @@ export const CAMPS = [
   {
     title: "Sla gemakkelijk alarm met 1 druk op de knop",
     subtitle: "",
-    description: `Na een harde val slaan de slimme sensors in het exclusieve apparaat zelfs  automatisch alarm!
+    description: `Na een harde val slaan de slimme sensors in het exclusieve ouderen alarm zelfs  automatisch alarm!
 Wanneer u het alarm af laat gaan zal het direct tegen u zeggen:
 “Blijf rustig u word binnen 30 seconde geholpen`,
   },

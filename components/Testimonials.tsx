@@ -61,7 +61,7 @@ export default function Testimonials() {
           <div className="flex flex-col lg:flex-row gap-6 w-full">
             <TextBlock
               title="Je geeft veel om je oudere familieleden, en maakt je zorgen om hun veiligheid..."
-              description="U weet nooit wanneer u een beroerte krijgt, en dat is vooral een probleem als u vaak alleen bent. Met een senioren alarm krijgt u binnen 30 seconden hulp wat de kans op snel herstel vergroot!"
+              description="U weet nooit wanneer u een beroerte krijgt, en dat is vooral een probleem als u vaak alleen bent. Met een ouderen alarm krijgt u binnen 30 seconden hulp wat de kans op snel herstel vergroot!"
             />
           </div>
 

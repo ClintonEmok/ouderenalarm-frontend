@@ -59,7 +59,7 @@ const MaterialDeviceTable = () => {
         return;
       }
       await createDevice(values).then(() =>
-        toast.success("Apparaat aangemaakt!")
+        toast.success("ouderen alarm aangemaakt!")
       );
       setValidationErrors({});
       table.setCreatingRow(null);
@@ -73,7 +73,7 @@ const MaterialDeviceTable = () => {
         return;
       }
       await updateDevice(values).then(() =>
-        toast.success("Apparaat bijgewerkt!")
+        toast.success("ouderen alarm bijgewerkt!")
       );
       setValidationErrors({});
       table.setEditingRow(null);
@@ -82,11 +82,11 @@ const MaterialDeviceTable = () => {
   const handleDeleteDevice = (row: MRT_Row<Device>) => {
     if (
       window.confirm(
-        `Weet je zeker dat je het apparaat met ID: ${row.original.id} wilt verwijderen?`
+        `Weet je zeker dat je het ouderen alarm met ID: ${row.original.id} wilt verwijderen?`
       )
     ) {
       deleteDevice(row.original.id).then(() =>
-        toast.success("Apparaat verwijderd!")
+        toast.success("ouderen alarm verwijderd!")
       );
     }
   };
@@ -117,7 +117,7 @@ const MaterialDeviceTable = () => {
     ),
     renderTopToolbarCustomActions: ({ table }) => (
       <Button variant="contained" onClick={() => table.setCreatingRow(true)}>
-        Voeg apparaat toe
+        Voeg ouderen alarm toe
       </Button>
     ),
     state: {

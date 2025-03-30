@@ -6,7 +6,7 @@ import SurveyDialog from "./dialogs/SurveyDialog";
 export default function ElderlyAlarm() {
   return (
     <section
-      className="bg-white py-10 px-6 flex flex-col items-center gap-6"
+      className="bg-gray-200 py-10 px-6 flex flex-col items-center gap-6"
       id="Working"
     >
       <div className="max-w-5xl mx-auto">
@@ -22,8 +22,8 @@ export default function ElderlyAlarm() {
               Sla gemakkelijk alarm met 1 druk op de knop
             </p>
             <p className="text-white">
-              Na een harde val slaan de slimme sensors in het exclusieve
-              apparaat zelfs automatisch alarm!
+              Na een harde val slaan de slimme sensors in het exclusieve ouderen
+              alarm zelfs automatisch alarm!
               <br />
               <br />
               Wanneer u het alarm af laat gaan zal het direct tegen u zeggen:
