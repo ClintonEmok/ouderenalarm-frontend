@@ -17,8 +17,8 @@ const Hero = () => {
           Blijf veilig thuiswonen.
         </h1>
         <p className="regular-24 mt-6 text-gray-30 xl:max-w-[800px]">
-          Doe de GRATIS test hieronder en ontdek in 30 seconden of ons
-          noodoproepsysteem een oplossing voor uw veiligheid is
+          Doe de GRATIS test hieronder en ontdek in 30 seconden of ons ouderen
+          alarm een oplossing voor uw veiligheid is
         </p>
         {/* Reviews */}
         <div className="my-11 flex flex-wrap gap-5">
@@ -44,7 +44,7 @@ const Hero = () => {
         <div className="flex flex-col w-full gap-3 sm:flex-row text-white">
           <SurveyDialog
             button={
-              <div className=" text-white bg-primary-500 p-7 text-18-bold">
+              <div className=" text-white bg-primary-500 p-7 text-18-bold rounded-lg">
                 Doe de GRATIS veiligheidstest
               </div>
             }
