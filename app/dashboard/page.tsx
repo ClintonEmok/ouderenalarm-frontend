@@ -24,10 +24,10 @@ const Dashboard = () => {
         {/* Mini Guardian Kaart */}
         <DeviceInfo />
 
-        <div className="bg-white rounded-lg shadow p-6 xs:col-span-1 lg:col-span-2">
+        {/* <div className="bg-white rounded-lg shadow p-6 xs:col-span-1 lg:col-span-2">
           <h2 className="text-lg font-semibold mb-4 text-center">Apparaten</h2>
           <MaterialDeviceTable />
-        </div>
+        </div> */}
       </div>
     </div>
   );

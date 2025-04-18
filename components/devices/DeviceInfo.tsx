@@ -80,7 +80,7 @@ const DeviceInfo = () => {
 
   return (
     <div className="grid gap-4 grid-cols-1 md:grid-cols-2 grid-rows-1 mb-3">
-      <div className="bg-white  flex gap-3 p-4 shadow-md rounded-lg">
+      <div className="bg-white flex flex-col sm:flex-row gap-3 p-4 shadow-md rounded-lg">
         <div className="flex-1 bg-gray-100 shadow-md rounded-lg">
           {/* Dropdown to select the device */}
           <div className="flex justify-center mb-6">
@@ -111,10 +111,6 @@ const DeviceInfo = () => {
                 className="h-48 w-48"
               />
             </div>
-
-            <span className="font-bold my-2 text-center">
-              Telefoonnummer: {selectedDevice.phone_number ?? "Onbekend"}
-            </span>
           </div>
         </div>
         <div className="flex-1 flex flex-col items-center gap-3">
@@ -140,9 +136,9 @@ const DeviceInfo = () => {
             <h3 className="text-md font-semibold mb-2">Verbindingsstatus</h3>
             <p className="text-gray-600 font-bold text-lg flex items-center justify-center gap-2">
               {selectedDevice.status === "active" ? (
-                <Wifi size={48} />
+                <Wifi size={40} />
               ) : (
-                <WifiOff size={48} />
+                <WifiOff size={40} />
               )}
             </p>
           </div>
@@ -153,13 +149,15 @@ const DeviceInfo = () => {
       <div className=" flex-1 flex flex-col gap-3 items-center p-4 bg-white shadow-md rounded-lg">
         {/* Change font */}
         <h3 className="font-bold">Locatie</h3>
-        {selectedDevice.location.latitude && (
+        {selectedDevice.location.latitude ? (
           <Map
             center={{
               lng: selectedDevice.location.longitude ?? 0,
               lat: selectedDevice.location.latitude ?? 0,
             }}
           />
+        ) : (
+          "Geen locatie beschikbaar"
         )}
       </div>
     </div>
